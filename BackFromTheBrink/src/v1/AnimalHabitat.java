@@ -55,5 +55,5 @@ public class AnimalHabitat implements Sqaure {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }
