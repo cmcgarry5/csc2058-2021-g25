@@ -1,0 +1,479 @@
+!SESSION 2020-11-24 17:12:59.527 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_271
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.oomph.setup.ui.questionnaire 4 0 2020-11-24 17:13:01.635
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.ui.questionnaire [365]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.ui; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.ui; bundle-version="1.13.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.ui [1027]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.base.edit; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.ui; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.ui; bundle-version="1.13.0.v20190526-0710"; singleton:="true"
+       org.eclipse.oomph.setup.ui [860]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2.edit; bundle-version="[1.10.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2.edit; bundle-version="1.10.0.v20180706-1242"; singleton:="true"
+              org.eclipse.oomph.setup.p2.edit [858]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2; bundle-version="1.11.0.v20190530-1228"; singleton:="true"
+                     org.eclipse.oomph.setup.p2 [857]
+                       Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+                         -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+                            org.eclipse.oomph.p2.core [1024]
+                              Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.core; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup.core; bundle-version="1.13.0.v20190531-1228"; singleton:="true"
+              org.eclipse.oomph.setup.core [854]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2; bundle-version="[1.11.0,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2; bundle-version="1.11.0.v20190530-1228"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+                     org.eclipse.oomph.setup [1025]
+                       Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.ui; bundle-version="[1.11.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.ui; bundle-version="1.13.0.v20191116-1146"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.edit; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup.edit; bundle-version="1.13.0.v20190526-0607"; singleton:="true"
+              org.eclipse.oomph.setup.edit [855]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.sync; bundle-version="[1.10.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup.sync; bundle-version="1.10.0.v20180706-1242"; singleton:="true"
+              org.eclipse.oomph.setup.sync [859]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.jreinfo.ui 4 0 2020-11-24 17:13:01.647
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.jreinfo.ui [845]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.ui; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.ui; bundle-version="1.13.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.ui [1027]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.base.edit; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.p2.core 4 0 2020-11-24 17:13:01.653
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.p2.core [848]
+  Another singleton bundle selected: osgi.identity; type="osgi.bundle"; version:Version="1.14.0.v20191119-1249"; osgi.identity="org.eclipse.oomph.p2.core"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.p2.ui 4 0 2020-11-24 17:13:01.659
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.p2.ui [849]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+       org.eclipse.oomph.p2.core [1024]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.ui; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.ui; bundle-version="1.13.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.ui [1027]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.base.edit; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup 4 0 2020-11-24 17:13:01.664
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup [853]
+  Another singleton bundle selected: osgi.identity; type="osgi.bundle"; version:Version="1.15.0.v20191116-1146"; osgi.identity="org.eclipse.oomph.setup"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.core 4 0 2020-11-24 17:13:01.669
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.core [854]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2; bundle-version="[1.11.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2; bundle-version="1.11.0.v20190530-1228"; singleton:="true"
+       org.eclipse.oomph.setup.p2 [857]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+              org.eclipse.oomph.p2.core [1024]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.setup [1025]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.edit 4 0 2020-11-24 17:13:01.674
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.edit [855]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.setup [1025]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.editor 4 0 2020-11-24 17:13:01.679
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.editor [856]
+  Another singleton bundle selected: osgi.identity; type="osgi.bundle"; version:Version="1.15.0.v20191116-1146"; osgi.identity="org.eclipse.oomph.setup.editor"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.p2 4 0 2020-11-24 17:13:01.684
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.p2 [857]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+       org.eclipse.oomph.p2.core [1024]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.setup [1025]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.p2.edit 4 0 2020-11-24 17:13:01.690
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.p2.edit [858]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2; bundle-version="1.11.0.v20190530-1228"; singleton:="true"
+       org.eclipse.oomph.setup.p2 [857]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+              org.eclipse.oomph.p2.core [1024]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+              org.eclipse.oomph.setup [1025]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.edit; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.edit; bundle-version="1.13.0.v20190526-0607"; singleton:="true"
+       org.eclipse.oomph.setup.edit [855]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.sync 4 0 2020-11-24 17:13:01.695
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.sync [859]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.core; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.core; bundle-version="1.13.0.v20190531-1228"; singleton:="true"
+       org.eclipse.oomph.setup.core [854]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+              org.eclipse.oomph.p2.core [1024]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+              org.eclipse.oomph.setup [1025]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.ui 4 0 2020-11-24 17:13:01.700
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.ui [860]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2.edit; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2.edit; bundle-version="1.10.0.v20180706-1242"; singleton:="true"
+       org.eclipse.oomph.setup.p2.edit [858]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2; bundle-version="1.11.0.v20190530-1228"; singleton:="true"
+              org.eclipse.oomph.setup.p2 [857]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+                     org.eclipse.oomph.p2.core [1024]
+                       Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.core; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.core; bundle-version="1.13.0.v20190531-1228"; singleton:="true"
+       org.eclipse.oomph.setup.core [854]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.p2; bundle-version="[1.11.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup.p2; bundle-version="1.11.0.v20190530-1228"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+              org.eclipse.oomph.setup [1025]
+                Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2.core; bundle-version="[1.12.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.p2.core; bundle-version="1.14.0.v20191119-1249"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.ui; bundle-version="[1.11.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.ui; bundle-version="1.13.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.ui [1027]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.base.edit; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.edit; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.edit; bundle-version="1.13.0.v20190526-0607"; singleton:="true"
+       org.eclipse.oomph.setup.edit [855]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.13.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup.sync; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.setup.sync; bundle-version="1.10.0.v20180706-1242"; singleton:="true"
+       org.eclipse.oomph.setup.sync [859]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.setup; bundle-version="[1.10.0,2.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.oomph.setup; bundle-version="1.15.0.v20191116-1146"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.ui 4 0 2020-11-24 17:13:01.708
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.ui [861]
+  Another singleton bundle selected: osgi.identity; type="osgi.bundle"; version:Version="1.13.0.v20191116-1146"; osgi.identity="org.eclipse.oomph.ui"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.util 4 0 2020-11-24 17:13:01.712
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.util [862]
+  Another singleton bundle selected: osgi.identity; type="osgi.bundle"; version:Version="1.13.0.v20191110-1802"; osgi.identity="org.eclipse.oomph.util"; singleton:="true"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.workingsets.editor 4 0 2020-11-24 17:13:01.717
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.workingsets.editor [863]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.ui; bundle-version="[1.10.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.oomph.ui; bundle-version="1.13.0.v20191116-1146"; singleton:="true"
+       org.eclipse.oomph.ui [1027]
+         Unresolved requirement: Require-Bundle: org.eclipse.oomph.base.edit; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.p2.core 4 0 2020-11-24 17:13:02.028
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.p2.core [1024]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.p2; bundle-version="[1.11.0,2.0.0)"; visibility:="reexport"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup 4 0 2020-11-24 17:13:02.034
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup [1025]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.setup.editor 4 0 2020-11-24 17:13:02.039
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.setup.editor [1026]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.preferences; bundle-version="[1.11.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.oomph.ui 4 0 2020-11-24 17:13:02.044
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.oomph.ui [1027]
+  Unresolved requirement: Require-Bundle: org.eclipse.oomph.base.edit; bundle-version="[1.12.0,2.0.0)"; visibility:="reexport"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.egit.core 1 0 2020-11-24 17:13:43.221
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-24 17:13:53.518
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\dungo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
