@@ -50,6 +50,24 @@ public class TestClass {
 			System.out.println("Cancelled Build Zoo");
 		}
 
+		System.out.println(testPlayer.getName());
+		for(int i =0; i < testPlayer.getBiomes().size(); i++) {
+			System.out.println();
+		}
 	}
+
+
+	public static ArrayList<Object> getProperties() {
+		//get materials
+		//get biomes
+			//get habitats for that
+				//get zoos for that habitats
+		ArrayList<Object> playerInfo = new ArrayList<>();
+		//store materials at index 0
+		playerInfo.add(testPlayer.getMaterial());
+		//store ArrayList<Biome> biomes at index 1
+		
+	}
+
 	
 }
