@@ -24,6 +24,7 @@ public class Player {
 	public Piece getPiece() {
 		return this.piece;
 	}
-	
-	
+
+
+
 }
