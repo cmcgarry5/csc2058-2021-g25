@@ -1,5 +1,5 @@
 package MoveAroundBoard;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class TestClass {
@@ -7,7 +7,7 @@ public class TestClass {
 	static Scanner input = new Scanner(System.in);
 	
 	//Creating Board
-	static ArrayList<Square> Board = new ArrayList<Square>(); 
+	static Board board = new Board();
 	
 	//Creating Squares
 	static Square square1 = new Square("Square1", 0);
@@ -28,10 +28,10 @@ public class TestClass {
 	
 	public static void main(String[] args) {
 		//Adding Squares to the board
-		Board.add(square1);
-		Board.add(square2);
-		Board.add(square3);
-		Board.add(square4);
+		board.addSquare(square1);
+		board.addSquare(square2);
+		board.addSquare(square3);
+		board.addSquare(square4);
 		
 		//Creating Player and Piece Objects
 		Piece piece = new Piece("Car", 0);
@@ -44,7 +44,7 @@ public class TestClass {
 		
 		System.out.println("--------------------------------");
 		//Displaying the current position of the Player
-		System.out.println("Starting Position of Player: " + player.getName() + "\nPosition: " + Board.get(player.getPiece().getPos()).getSquareInfo() + "\n");
+		System.out.println("Starting Position of Player: " + player.getName() + "\nPosition: "  + board.getSquare(player.getPiece().getPos()).getSquareInfo() + "\n");
 		
 		//Rolling Dice and moving to new position using roll number
 		dice.roll();
@@ -64,7 +64,7 @@ public class TestClass {
 		player.getPiece().move(boardPos);
 		
 		//Displaying the new Position of the Player
-		System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + Board.get(player.getPiece().getPos()).getSquareInfo() + "\n");
+		System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + board.getSquare(player.getPiece().getPos()).getSquareInfo() + "\n");
 		
 		//Check to see if first dice roll is the same as the second dice roll ie a double
 		if (firstRoll == secondRoll) {
@@ -94,20 +94,20 @@ public class TestClass {
 			totalRoll = 0;
 			player.getPiece().move(boardPos);
 			
-			System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + Board.get(player.getPiece().getPos()).getSquareInfo() + "\n");
+			System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + board.getSquare(player.getPiece().getPos()).getSquareInfo() + "\n");
 		}
 		
 		System.out.println("--------------------------------");
 		//Using Square Index to move Player piece instantly to that square
 		player.getPiece().move(square1);
-		System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + Board.get(player.getPiece().getPos()).getSquareInfo() + "\n");
+		System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + board.getSquare(player.getPiece().getPos()).getSquareInfo() + "\n");
 		
 		player.getPiece().move(square2);
-		System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + Board.get(player.getPiece().getPos()).getSquareInfo() + "\n");
+		System.out.println("New position of Player: " + player.getName() + "\nLanded On: " + board.getSquare(player.getPiece().getPos()).getSquareInfo() + "\n");
 	}
 	
 	public static int newBoardPos(int roll, int currentPos) {
-		int boardSize = Board.size();
+		int boardSize = board.size();
 		int iter = 0;
 		int newPos = 0;
 		

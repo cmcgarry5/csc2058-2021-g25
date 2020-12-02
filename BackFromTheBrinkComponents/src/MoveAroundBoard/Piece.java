@@ -9,15 +9,15 @@ public class Piece {
 		move(pos);
 	}
 	
-	Piece(){
-		
+	Piece(String nameSet){
+		setName(nameSet);
 	}
 	
-	void move(int pos) {
+	public void move(int pos) {
 		this.position = pos;
 	}
 	
-	void move(Square square) {
+	public void move(Square square) {
 		this.position = square.getPos();
 		System.out.println("Moving to Square: " + square.getSquareInfo() + " ...");
 	}
