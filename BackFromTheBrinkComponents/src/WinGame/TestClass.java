@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class TestClass {
 
+    // Declaring Class Variables
     static ArrayList<Square> Board = new ArrayList<>();
 
     static Square winSquare = new Square("BFTB", 0);
@@ -13,30 +14,38 @@ public class TestClass {
     static Biome biome1 = new Biome("Aquatic");
 
     public static void main(String[] args) {
+        // Adding winSquare and and 'normal' square to board instance
         Board.add(winSquare);
         Board.add(square1);
 
+        // Initialising player and piece objects
         Piece piece = new Piece("Boat", 0);
         Player player = new Player("Joe Doe");
         player.setPiece(piece);
 
+        // Add biome instance to Biomes arraylist
         Biomes.add(biome1);
         player.setBiomes(Biomes);
 
         player.setMaterial(1000);
 
+        // Print player, Biomes, materials
         System.out.println("Player: " + player.getName() + "\nAt Position: " + Board.get(player.getPiece().getPos()).getName());
-        System.out.println("Number of Biomes: " + player.getBiomes().size());
+        System.out.println("Biomes: ");
+        for (int i = 0; i < player.getBiomes().size(); i++)
+            System.out.println(i+1 + ") " + player.getBiomes().get(i).getName());
         System.out.println("Materials: " + player.getMaterial());
 
-        if (checkWin(Biomes, player.getMaterial()))
+        // Conditional for winning
+        if (checkWin(player))
             System.out.println("You win");
         else System.out.println("Insufficient resources.");
     }
 
-    public static boolean checkWin(ArrayList<Biome> biomes, int materials)
+    // Checks if player has enough biomes and materials to win
+    public static boolean checkWin(Player player)
     {
-        if (biomes.size() > 0 && materials >= 1000)
+        if (player.getBiomes().size() > 0 && player.getMaterial() >= 1000)
             return true;
         else return false;
     }
