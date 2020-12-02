@@ -18,7 +18,7 @@ public class Square {
 		this.position = pos;
 	}
 	
-	public String getName() {
+	public String getSquareInfo() {
 		return name;
 	}
 	

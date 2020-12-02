@@ -19,6 +19,7 @@ public class Piece {
 	
 	void move(Square square) {
 		this.position = square.getPos();
+		System.out.println("Moving to Square: " + square.getSquareInfo() + " ...");
 	}
 	
 	private void setName(String nameSet) {
