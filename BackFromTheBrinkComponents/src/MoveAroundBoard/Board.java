@@ -11,8 +11,8 @@ public class Board {
 		contents.add(square);
 	}
 	
-	public Square getSquare(int pos) {
-		return contents.get(pos);
+	public Square getSquare(int index) {
+		return contents.get(index);
 	}
 	
 	public int size() {
