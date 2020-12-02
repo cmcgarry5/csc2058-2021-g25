@@ -31,7 +31,7 @@ public class TestClass {
 		System.out.println("Displaying Animal Habitats and number of Zoos for " + playerBiomes.get(selectionBiome).getName() + " biome: " );
 		ArrayList<AnimalHabitat> playerHabitats = playerBiomes.get(selectionBiome).getAnimalHabitats();
 		for(int i = 0; i < playerHabitats.size(); i++)
-			System.out.println(i+1 + ": " + playerHabitats.get(i).getAnimalHabitatName() + ": " + playerHabitats.get(i).getNumberOfZoos());
+			System.out.println(i+1 + ": " + playerHabitats.get(i).getAnimalHabitatName() + ": " + playerHabitats.get(i).getNumberOfZoos() + " - Cost: " + costOfZoo);
 		System.out.println("Please select the Animal Habitat you would like to build a Zoo on: ");
 		int selectionHabitat = input.nextInt()-1;
 		input.nextLine();
@@ -49,25 +49,8 @@ public class TestClass {
 		} else {
 			System.out.println("Cancelled Build Zoo");
 		}
-
-		System.out.println(testPlayer.getName());
-		for(int i =0; i < testPlayer.getBiomes().size(); i++) {
-			System.out.println();
-		}
+		System.out.println("*** Function that displays Player Information ***");
 	}
-
-
-//	public static ArrayList<Object> getProperties() {
-//		//get materials
-//		//get biomes
-//			//get habitats for that
-//				//get zoos for that habitats
-//		ArrayList<Object> playerInfo = new ArrayList<>();
-//		//store materials at index 0
-//		playerInfo.add(testPlayer.getMaterial());
-//		//store ArrayList<Biome> biomes at index 1
-//
-//	}
 
 	
 }
