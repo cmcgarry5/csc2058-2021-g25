@@ -27,7 +27,7 @@ public class TestClass {
         Biomes.add(biome1);
         player.setBiomes(Biomes);
 
-        player.setMaterial(1000);
+        player.setMaterial(100);
 
         // Print player, Biomes, materials
         System.out.println("Player: " + player.getName() + "\nAt Position: " + Board.get(player.getPiece().getPos()).getName());
@@ -38,8 +38,8 @@ public class TestClass {
 
         // Conditional for winning
         if (checkWin(player))
-            System.out.println("You win");
-        else System.out.println("Insufficient resources.");
+            System.out.println("Congratulations! You win!!");
+        else System.out.println("Insufficient resources to win.");
     }
 
     // Checks if player has enough biomes and materials to win
