@@ -1,6 +1,5 @@
 package Trade;
 
-import BuildZoo.Biome;
 
 import java.util.ArrayList;
 
@@ -16,8 +15,8 @@ public Inventory() {
 
 }
 
-public boolean addBiome(String nameSet) {
-	biomes.add(new Biome(nameSet));
+public boolean addBiome(String nameSet, int maxNumHabitats) {
+	biomes.add(new Biome(nameSet, maxNumHabitats));
 	return true;
 }
 
@@ -47,17 +46,31 @@ protected boolean loseMaterials(int qty){
 
 
 public boolean addHabitat(AnimalHabitat aH){
+
+	String bi = aH.getBiomeOfHabitat();
+
+	for(int i = 0; i<biomes.size(); i++){
+		if (biomes.get(i).getName() != bi){
+
+		}
+	}
+
     return habitats.add(aH);
 }
 
 public boolean displayAnimalHabitats(){
 
-	if(habitats.size() == 0) return false;
+	if(habitats.size() == 0) {
+		System.out.println("Has not invested in any Habitats to save yet!\n");
+		return false;
+	}else {
 
-	for(int i = 0; i<habitats.size(); i++){
-		System.out.println(i + ". " + habitats.get(i).getAnimalHabitatName());
+		for (int i = 0; i < habitats.size(); i++) {
+			System.out.println("\t" + i + ". " + habitats.get(i).getAnimalHabitatName() + " ("+habitats.get(i).getBiomeOfHabitat()+")");
+		}
+		System.out.println(" ");
+		return true;
 	}
-	return true;
 
 }
 

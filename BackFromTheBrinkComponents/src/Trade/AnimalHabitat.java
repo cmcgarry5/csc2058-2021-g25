@@ -36,5 +36,9 @@ public class AnimalHabitat{
 		return nationalPark;
 				
 	}
+
+	public String getBiomeOfHabitat(){
+		return biome.getName();
+	}
 	
 }
