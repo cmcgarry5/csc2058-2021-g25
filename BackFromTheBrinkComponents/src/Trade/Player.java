@@ -1,6 +1,5 @@
 package Trade;
 
-import MoveAroundBoard.Piece;
 
 public class Player {
 
