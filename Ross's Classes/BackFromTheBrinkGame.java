@@ -125,7 +125,7 @@ public class BackFromTheBrinkGame {
 			for(int i=0; i<index;i++) {
 				orderOfPlay.add(listPlayers.get(i));
 			}
-			System.out.println(highestScoring.getName() + " has Scored the highest with " + highestScore);
+			System.out.println(highestScoring.getName() + " has scored the highest with " + highestScore);
 			
 			System.out.println("\nThe order of player is as followed: \n");
 			
@@ -136,11 +136,6 @@ public class BackFromTheBrinkGame {
 			listPlayers.clear();
 			listPlayers.addAll(orderOfPlay);
 		}
-		
-		//continue here
-		
-		
-		
 		
 	}
 	/**
@@ -216,7 +211,7 @@ public class BackFromTheBrinkGame {
 				
 				// check to make sure name if not already chosen
 				if(isNotNameTaken(listPlayers, name)) {
-					 player = new Player(name);
+					player = new Player(name);
 					
 					validName = true;
 					
