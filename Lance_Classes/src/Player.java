@@ -50,10 +50,6 @@ public class Player {
         this.inSafari = inSafari;
     }
 
-    public void trade(Player player) {
-        //
-    }
-
     public void deductMaterials(int amount) {
         this.inventory.removeMaterials(amount);
     }
