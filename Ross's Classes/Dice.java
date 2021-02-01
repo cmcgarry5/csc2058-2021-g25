@@ -8,7 +8,7 @@ public class Dice {
 	private int rollValue;
 	
 	
-	public Dice() {
+	public Dice() { // does this class need a constructor - should we do the thing we did in SDP for only allowing one instance? Singleton Pattern?
 		
 	}
 	
@@ -39,9 +39,4 @@ public class Dice {
 		return totalRoll;
 		
 	}
-	
-	
-	
-	
-
 }
