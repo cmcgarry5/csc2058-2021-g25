@@ -249,5 +249,25 @@ public class BackFromTheBrinkGame {
 		return true;
 		
 	}
+    
+    public ArrayList<Player> getPlayers(){
+		return this.listPlayers;
+	}
+	
+	public boolean checkValidNum(int num) {
+		return null;
+	}
+	
+	public boolean checkValidName(String name) {
+		return null;
+	}
+	
+	public void rankings() {
+		//implementation
+	}
+	
+	public void newBoardPos() {
+		//implementation
+	}
 
 }
