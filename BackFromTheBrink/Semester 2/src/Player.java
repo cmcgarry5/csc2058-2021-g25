@@ -12,6 +12,14 @@ public class Player {
         this.inSafari = true;
     }
 
+    public boolean isOutOfMaterials() {
+        return outOfMaterials;
+    }
+
+    public boolean isInSafari() {
+        return inSafari;
+    }
+
     public Player(Player p) {
         this.name = p.name;
         this.piece= p.piece;

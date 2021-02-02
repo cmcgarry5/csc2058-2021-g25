@@ -3,6 +3,7 @@ public class BackFromTheBrinkSquare extends Square{
 	private int requiredMaterials;
 	
 	public BackFromTheBrinkSquare(int requiredMaterials) {
+		super();
 		this.requiredMaterials = requiredMaterials;
 	}
 	
@@ -11,7 +12,8 @@ public class BackFromTheBrinkSquare extends Square{
 	}
 	
 	public void execute(Player player) {
-		/// implementation
+		/// implementation if player has enough materials and has a biome, player is prompted if they want to buy the square
+	BackFromTheBrink.setBftbWon();
 	}
 
 }
