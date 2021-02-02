@@ -2,6 +2,14 @@ import java.util.*;
 
 public class BackFromTheBrink {
 
+    public static class Biome {
+        public Biome(String name, ArrayList habitats) {
+            name = name;
+            habitats = habitats;
+        }
+    }
+
+
     public static class SpottedByPredator extends Square{
 
         public SpottedByPredator(String newName, int nextPos) {

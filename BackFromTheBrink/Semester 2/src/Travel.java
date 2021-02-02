@@ -1,8 +1,13 @@
-public class Travel {
-    private int amountGain = 200;
+public class Travel extends Square {
+    private final int AMOUNT_GAIN = 200;
+
+    public Travel(String name, int position) {
+        super(name, position);
+
+    }
 
     public void execute(Player player)
     {
-        player.increasePlayerMaterials(amountGain);
+        player.increasePlayerMaterials(AMOUNT_GAIN);
     }
 }

@@ -64,4 +64,11 @@ public class Board {
 
 	}
 
+	public ArrayList<Square> setupBoard() {
+		Square travel = new Travel("Travel Square", 0);
+		Square brownBear = new Habitat("Brown Bear Square", 1, 60, 4, 20, 60, 180, 320, 450, 50);
+		Square wildCard1 = new WildCardSquare("Wild Card 1", 2);
+		Square jaguar = new Habitat("Jaguar Square", 3, 60, 2, 10, 30, 90, 160, 250, 50);
+		Square conservationFee = new Special("Conservation Fee Square", 4);
+	}
 }

@@ -12,11 +12,10 @@ public class Habitat extends Square{
 	private int fee4Zoo;
 	private int feePark;
 	private Player ownedBy;
-	private int costZoo;
-	private int costPark;
+	private int buildCost;
 	private boolean nationalPark;
 	
-	public Habitat(String name, int pos, int cost, int fee, int fee1Zoo, int fee2Zoo, int fee3Zoo, int fee4Zoo, int feePark, int costZoo, int costPark) {
+	public Habitat(String name, int pos, int cost, int fee, int fee1Zoo, int fee2Zoo, int fee3Zoo, int fee4Zoo, int feePark, int buildCost) {
 		super(name, pos);
 		setCost(cost);
 		setFee(fee);
@@ -25,8 +24,7 @@ public class Habitat extends Square{
 		setFee3Zoo(fee3Zoo);
 		setFee4Zoo(fee4Zoo);
 		setFeePark(feePark);
-		setCostZoo(costZoo);
-		setCostPark(costPark);
+		setBuildCost(buildCost);
 		
 	}
 	
@@ -91,12 +89,8 @@ public class Habitat extends Square{
 		this.cost = qty;
 	}
 	
-	private void setCostZoo(int qty) {
-		this.costZoo = qty;
-	}
-	
-	private void setCostPark(int qty) {
-		this.costPark  = qty;
+	private void setBuildCost(int qty) {
+		this.buildCost  = qty;
 	}
 	
 	private void setNumZoos(int qty) {
@@ -167,13 +161,10 @@ public class Habitat extends Square{
 		return this.ownedBy;
 	}
 	
-	public int getCostPark() {
-		return costPark;
+	public int getBuildCost() {
+		return this.buildCost;
 	}
-	
-	public int getCostZoo() {
-		return this.costZoo;
-	}
+
 	
 	public void addZoo() {
 		setNumZoos(getNumberOfZoos()+1);

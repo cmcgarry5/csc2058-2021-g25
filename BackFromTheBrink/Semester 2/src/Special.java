@@ -1,4 +1,9 @@
-public class Special {
+public class Special extends Square {
+
+    public Special(String name, int position) {
+        super(name, position);
+    }
+
     public int getFee(int feeType) {
         switch (feeType) {
             //River 200
