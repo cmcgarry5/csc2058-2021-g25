@@ -15,6 +15,7 @@ public class Piece {
 	}
 	
 	public void move(int value) {
+
 		pos+= value;
 	}
 	
