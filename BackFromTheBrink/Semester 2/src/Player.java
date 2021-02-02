@@ -4,21 +4,18 @@ public class Player {
     private Piece piece;
     private boolean outOfMaterials;
     private boolean inSafari;
-    private int id;
-    private static int nextID = 1;
 
     public Player(String name) {
         this.name = name;
         this.inventory = new Inventory();
         this.outOfMaterials = true;
         this.inSafari = true;
-        this.id = getNextID();
     }
 
-    public static int getNextID() {
-        int id = nextID;
-        nextID++;
-        return id;
+    public Player(Player p) {
+        this.name = p.name;
+        this.piece= p.piece;
+        this.inventory = p.inventory;
     }
 
     private void checkMaterials() {
@@ -54,7 +51,7 @@ public class Player {
     }
 
     public void deductMaterials(int amount) {
-        this.inventory.removeMaterials(amount);
+        this.inventory.deductPlayerMaterials(amount);
     }
 
     public void increasePlayerMaterials(int amount) {

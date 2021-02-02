@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1e97c34-dfe9-4cc5-b6ba-f908b22ed546" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Allen_Classes/allen_classes/src/allen_classes/allen_classes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Travel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Special.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Special.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WildcardSquare.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1611858918046</updated>
       <workItem from="1611858919167" duration="6397000" />
+      <workItem from="1612287603888" duration="37000" />
+      <workItem from="1612289180975" duration="1892000" />
     </task>
     <servers />
   </component>
@@ -76,5 +73,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
