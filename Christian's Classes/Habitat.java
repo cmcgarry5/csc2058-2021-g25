@@ -36,20 +36,18 @@ public class Habitat extends Square{
 		if (ownedBy == null) {
 			System.out.println("\nDo you want to invest in this Habitat? \nCost: "+ getCost() + " y/n\n");
 			
-			/*
 			String answer = sc.nextLine();
 			
 			if (answer.equals("y")) {
-				if (player.getInventory.getMaterials() >= cost) {
-					player.getinventory.getMaterials() - cost;
+				if (player.getInventory().getMaterials() >= cost) {
+					player.getinventory().getMaterials() - cost;
 					setOwner(player);
 				}
 			}
 			else if (answer.equals("n")) {
 				//next
 			}
-			*/
-			
+					
 		}
 		else if (player != ownedBy) {
 			int feeToOwe = 0;
@@ -73,6 +71,13 @@ public class Habitat extends Square{
 			}
 			
 			System.out.println(player.getName() + " owes " + feeToOwe + " to " + getOwner().getName());
+			if (player.getInventory().getMaterials() >= feeToOwe){
+				player.getInventory().getMaterials() - feeToOwe;
+				getOwner().getInventory().getMaterials() + feeToOwe;
+			}
+			else {
+				System.out.println("Player " + player.getName() + " is bankrupt ...");
+			}
 		}
 		else {
 			//next
