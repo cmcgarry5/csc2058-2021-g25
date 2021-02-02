@@ -59,7 +59,8 @@ public class BackFromTheBrink {
         for (int i = 0; i < players.size(); i++) {
             //check if player is in jail/safari
             if(players.get(i).isInSafari()){
-                // execute in safari options
+                //print out options
+
             }
 
             di.nextPlayer(); // reset Double "memory" of dice
@@ -94,7 +95,7 @@ public class BackFromTheBrink {
         }
     }
 
-    public static void inSafariOptions() {
+    public static void inSafariOptions(int option) {
 
     }
 
