@@ -108,7 +108,9 @@ public class BackFromTheBrink {
 
     public static void turnOptions(int option) {
         switch(option) {
-            case 1: //all the methods needed
+            case 1: //end turn
+            case 1: //build zoo()
+            case 1: //trade()
         }
     }
 }
