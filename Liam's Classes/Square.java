@@ -1,5 +1,5 @@
 
-public class Square {
+public abstract class Square {
 
 	private String name; // Instance name
 	private int position; // Instance position
@@ -59,5 +59,8 @@ public class Square {
 		return nextPos;
 	}
 
-
+	public void execute(Player player) {
+		
+	}
+	
 }
