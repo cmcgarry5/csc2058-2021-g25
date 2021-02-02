@@ -1,14 +1,13 @@
-package v1;
 import java.util.Random;
 
 public class Dice {
 	
-	private final int maxValue = 6;
+	private final int MAX_VALUE = 6;
 	
 	private int rollValue;
 	
 	
-	public Dice() {
+	public Dice() { // does this class need a constructor - should we do the thing we did in SDP for only allowing one instance? Singleton Pattern?
 		
 	}
 	
@@ -16,7 +15,7 @@ public class Dice {
 		
 		Random rand = new Random();
 		
-		int value = rand.nextInt(maxValue+1);
+		int value = rand.nextInt(MAX_VALUE+1);
 		return value;
 	}
 	
@@ -39,9 +38,4 @@ public class Dice {
 		return totalRoll;
 		
 	}
-	
-	
-	
-	
-
 }
