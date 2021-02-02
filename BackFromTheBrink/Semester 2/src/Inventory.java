@@ -18,6 +18,10 @@ public class Inventory {
         return wildCards;
     }
 
+    public void addWildCard(WildCard wildCard) {
+        wildCards.add(wildCard);
+    }
+
     public ArrayList<Biome> getBiomes() {
         return biomes;
     }

@@ -33,6 +33,7 @@ public class BackFromTheBrink {
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();
         }
+        //win condition
     }
 
     public static int getPlayersInGame(ArrayList<Player> players) {
@@ -59,7 +60,6 @@ public class BackFromTheBrink {
             //check if player is in jail/safari
             if(players.get(i).isInSafari()){
                 // execute in safari options
-
             }
 
             di.nextPlayer(); // reset Double "memory" of dice
@@ -84,6 +84,7 @@ public class BackFromTheBrink {
                 players.get(i).getPiece().move(board.getSquare(30));
             }
 
+            //print out all options available
             //request input
             Scanner sc = new Scanner(System.in);
             int option = sc.nextInt();
@@ -91,6 +92,10 @@ public class BackFromTheBrink {
                 turnOptions(option);
             }
         }
+    }
+
+    public static void inSafariOptions() {
+
     }
 
     public static void turnOptions(int option) {

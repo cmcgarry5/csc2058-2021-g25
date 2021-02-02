@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Board {
 
 	ArrayList<Square> Squares = new ArrayList<Square>();
-
 	ArrayList<WildCard> wildCards = new ArrayList<WildCard>();
+
 
 	/*
 	 * Adds sqare to the arraylist
