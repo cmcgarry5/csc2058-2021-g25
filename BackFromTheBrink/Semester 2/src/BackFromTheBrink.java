@@ -57,46 +57,53 @@ public class BackFromTheBrink {
     public static void playerTurnHandler() {
         //print statements
         for (int i = 0; i < players.size(); i++) {
+            Scanner sc = new Scanner(System.in);
             //check if player is in jail/safari
             if(players.get(i).isInSafari()){
                 //print out options
-
+                int option = sc.nextInt();
+                inSafariOptions(option);
             }
+            else {
 
-            di.nextPlayer(); // reset Double "memory" of dice
-            int rollValue = di.getRollValue();
+                di.nextPlayer(); // reset Double "memory" of dice
+                int rollValue = di.getRollValue();
 
-            //move around board
-            //moveAroundBoard(rollValue);
-            players.get(i).getPiece().move(rollValue);
-
-
-            if(di.getIsDouble()){
-                int rollValue2 = di.getRollValue();
-                // move around board
+                //move around board
                 //moveAroundBoard(rollValue);
                 players.get(i).getPiece().move(rollValue);
-            }
 
-            if(di.getIsSecondDouble()){
-                // go to jail
-                players.get(i).setInSafari(true);
-                // move player to the spotted in the safari sqaure
-                players.get(i).getPiece().move(board.getSquare(30));
-            }
 
-            //print out all options available
-            //request input
-            Scanner sc = new Scanner(System.in);
-            int option = sc.nextInt();
-            while (option != 9) {
-                turnOptions(option);
+                if (di.getIsDouble()) {
+                    int rollValue2 = di.getRollValue();
+                    // move around board
+                    //moveAroundBoard(rollValue);
+                    players.get(i).getPiece().move(rollValue);
+                }
+
+                if (di.getIsSecondDouble()) {
+                    // go to jail
+                    players.get(i).setInSafari(true);
+                    // move player to the spotted in the safari sqaure
+                    players.get(i).getPiece().move(board.getSquare(30));
+                }
+
+                //print out all options available
+                //request input
+                int option = sc.nextInt();
+                while (option != 9) {
+                    turnOptions(option);
+                }
             }
         }
     }
 
     public static void inSafariOptions(int option) {
-
+        switch(option) {
+            case 1: //Roll dice and try get a double
+            case 2: //Pay fee
+            case 3: //Use wildcard
+        }
     }
 
     public static void turnOptions(int option) {
