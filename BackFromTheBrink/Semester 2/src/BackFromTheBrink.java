@@ -29,6 +29,7 @@ public class BackFromTheBrink {
 
         Square spottedInSafari = new SpottedByPredator("SpottedByPredator", 30);
         board.addSquare(spottedInSafari);
+        //board.setupBoard();
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();
