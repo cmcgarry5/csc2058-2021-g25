@@ -4,3 +4,4 @@ public class SpottedByPredator extends Square{
         super(newName, nextPos);
     }
 }
+

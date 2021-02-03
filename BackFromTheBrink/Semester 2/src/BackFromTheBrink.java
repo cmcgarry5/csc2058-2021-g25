@@ -2,13 +2,6 @@ import java.util.*;
 
 public class BackFromTheBrink {
 
-    public static class Biome {
-        public Biome(String name, ArrayList habitats) {
-            name = name;
-            habitats = habitats;
-        }
-    }
-
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
     private static boolean bftbWon = false;
@@ -20,7 +13,7 @@ public class BackFromTheBrink {
 
        board = new Board();
 
-        PlayerRegistration.BeginRegistration();
+        players = PlayerRegistration.BeginRegistration();
         board.setupBoard();
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
