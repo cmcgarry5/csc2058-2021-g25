@@ -22,7 +22,7 @@ public class receiveMatWildCard extends WildCard {
         }
         else if (getIsConservationSch()){
             int countPlayers = BackFromTheBrink.players.size();
-            setPaymentBreeding(countPlayers*50);
+            setPaymentConservation(countPlayers*50);
             player.getInventory().increasePlayerMaterials(getPaymentConservationAmount());
 
             for(int i = 0; i < countPlayers; i++){
