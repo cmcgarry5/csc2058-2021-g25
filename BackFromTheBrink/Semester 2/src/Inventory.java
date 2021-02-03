@@ -4,7 +4,6 @@ public class Inventory {
     private int materials;
     private ArrayList<Biome> biomes;
     private ArrayList<WildCard> wildCards;
-    private ArrayList<Habitat> habitats;
 
     public Inventory() {
 
@@ -59,27 +58,6 @@ public class Inventory {
         System.out.println("You now have: " + this.materials);
     }
 
-    public String displayAnimalHabitats() {
-        System.out.println("Habitats");
-        for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getName() + " ");
-        }
-
-        return null; // uncomplete
-    }
-
-    public void removeHabitat(Habitat habitat) {
-        for (int i = 0; i < habitats.size(); i++) {
-            if (habitats.get(i).getName() == habitat.getName()) {
-                habitats.remove(i);
-            }
-        }
-        System.out.println("Habitat has been successfully removed.");
-        for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getName() + " ");
-        }
-    }
-
     public boolean checkPlayerMaterials(int qty) {
         if (materials >= qty) {
             System.out.println("Sufficient materials!");
@@ -88,10 +66,6 @@ public class Inventory {
             System.out.println("Insufficient materials!");
             return false;
         }
-    }
-
-    public int getNumberHabitats() {
-        return habitats.size();
     }
 
     public void removeCard(WildCard wildcard) {
@@ -121,11 +95,6 @@ public class Inventory {
         System.out.println("WildCards" + "\n");
         for (int i = 0; i < wildCards.size(); i++) {
             System.out.println(wildCards.get(i).getName() + " ");
-        }
-
-        System.out.println("Habitats" + "\n");
-        for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getName() + " ");
         }
     }
 }

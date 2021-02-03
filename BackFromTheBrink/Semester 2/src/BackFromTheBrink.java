@@ -99,4 +99,18 @@ public class BackFromTheBrink {
             case 3: //trade()
         }
     }
+
+    public static void trade() {
+        //print or display all players
+        for(Player player: players) {
+            System.out.println(player.getInventory().getBiomesInfo());
+        }
+        //request user input to select player they want to trade with
+
+        //print selected players habitats
+        //request user input
+        //request user how much they want to pay for habitat
+        //request user2 if they want to accept
+    }
+
 }

@@ -21,6 +21,39 @@ public  class Biome {
         return false;
     }
 
+    public String displayAnimalHabitats() {
+        System.out.println("Habitats");
+        for (int i = 0; i < habitats.size(); i++) {
+            System.out.println(habitats.get(i).getName() + " ");
+        }
+
+        return null; // uncomplete
+    }
+
+    public int getNumberHabitats() {
+        return habitats.size();
+    }
+
+    public ArrayList<Habitat> getHabitats() {
+        return habitats;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void removeHabitat(Habitat habitat) {
+        for (int i = 0; i < habitats.size(); i++) {
+            if (habitats.get(i).getName() == habitat.getName()) {
+                habitats.remove(i);
+            }
+        }
+        System.out.println("Habitat has been successfully removed.");
+        for (int i = 0; i < habitats.size(); i++) {
+            System.out.println(habitats.get(i).getName() + " ");
+        }
+    }
+
     public String getBiomeName(){
         return name;
     }
