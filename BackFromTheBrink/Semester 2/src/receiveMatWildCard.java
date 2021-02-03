@@ -9,31 +9,31 @@ public class receiveMatWildCard extends WildCard {
     public receiveMatWildCard(String cardName, boolean isBr, boolean isCon, int toPay) {
         super(cardName);
         setPayment(toPay);
-        setBreedingSuccessful(isBr);
-        setConservationScheme(isCon);
+        setBreedSucc(isBr);
+        setConSch(isCon);
     }
 
     public void execute(Player player) {
-        if(getIsBreedingSucc()){
+        if(getIsBreedAmt()){
             //To be completed
             int countHabitats = 0;
-            setPaymentBreeding(countHabitats * 100);
-            player.getInventory().increasePlayerMaterials(getPaymentBreedingAmount());
+            setPayBreed(countHabitats * 100);
+            player.getInventory().increasePlayerMaterials(getPayBreedAmt());
         }
-        else if (getIsConservationSch()){
+        else if (getIsConSch()){
             int countPlayers = BackFromTheBrink.players.size();
-            setPaymentConservation(countPlayers*50);
-            player.getInventory().increasePlayerMaterials(getPaymentConservationAmount());
+            setPayCon(countPlayers*50);
+            player.getInventory().increasePlayerMaterials(getPayConAmt());
 
             for(int i = 0; i < countPlayers; i++){
                 Player currentPlayer = BackFromTheBrink.players.get(i);
                 if (currentPlayer != player){
-                    currentPlayer.getInventory().deductPlayerMaterials(getPaymentConservationAmount());
+                    currentPlayer.getInventory().deductPlayerMaterials(getPayConAmt());
                 }
             }
         }
         else {
-            player.getInventory().increasePlayerMaterials(getPaymentAmount());
+            player.getInventory().increasePlayerMaterials(getPayAmt());
         }
     }
 
@@ -41,39 +41,39 @@ public class receiveMatWildCard extends WildCard {
         this.payment = toPay;
     }
 
-    private void setPaymentBreeding(int toPay) {
+    private void setPayBreed(int toPay) {
         this.paymentBreeding = toPay;
     }
 
-    private void setPaymentConservation(int toPay) {
+    private void setPayCon(int toPay) {
         this.paymentConservation = toPay;
     }
 
-    private void setBreedingSuccessful(boolean bool) {
+    private void setBreedSucc(boolean bool) {
         this.isBreedingSuccessful = bool;
     }
 
-    private void setConservationScheme(boolean bool) {
+    private void setConSch(boolean bool) {
         this.isConservationScheme = bool;
     }
 
-    public int getPaymentAmount() {
+    public int getPayAmt() {
         return this.payment;
     }
 
-    public int getPaymentBreedingAmount() {
+    public int getPayBreedAmt() {
         return this.paymentBreeding;
     }
 
-    public int getPaymentConservationAmount() {
+    public int getPayConAmt() {
         return this.paymentConservation;
     }
 
-    public boolean getIsBreedingSucc(){
+    public boolean getIsBreedAmt(){
         return this.isBreedingSuccessful;
     }
 
-    public boolean getIsConservationSch(){
+    public boolean getIsConSch(){
         return this.isConservationScheme;
     }
 }
