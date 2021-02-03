@@ -1,4 +1,4 @@
-public class WildCard {
+public abstract class WildCard {
 	private String name;
 	
 	public WildCard(String cardName) {
@@ -17,4 +17,6 @@ public class WildCard {
 	public WildCard getCard() {
 		return this;
 	}
+
+	public abstract void execute(Player player);
 }

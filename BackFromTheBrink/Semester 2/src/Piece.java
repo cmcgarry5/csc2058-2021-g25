@@ -32,4 +32,8 @@ public class Piece {
 		return this.name;
 	}
 
+	public int getPos(){
+		return this.pos;
+	}
+
 }
