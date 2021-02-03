@@ -15,8 +15,32 @@ public class Piece {
 	}
 	
 	public void move(int value) {
+		int boardSize = BackFromTheBrink.board.size();
+		int iter = 0;
+		int newPos = 0;
 
-		pos+= value;
+		if (value > 0) {
+			for (int pos = getPos(); iter < value + 1; pos++) {
+				iter++;
+				if (pos >= boardSize) {
+					pos = 0;
+				}
+				newPos = pos;
+			}
+
+			this.pos = newPos;
+		}
+		else{
+			for (int pos = getPos(); iter < value - 1; pos--) {
+				iter--;
+				if (pos < 0) {
+					pos = 0;
+				}
+				newPos = pos;
+			}
+
+			this.pos = newPos;
+		}
 	}
 	
 	public void move(Square square) {
