@@ -9,13 +9,6 @@ public class BackFromTheBrink {
         }
     }
 
-
-    public static class SpottedByPredator extends Square{
-
-        public SpottedByPredator(String newName, int nextPos) {
-            super(newName, nextPos);
-        }
-    }
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
     private static boolean bftbWon = false;
@@ -27,11 +20,8 @@ public class BackFromTheBrink {
 
        board = new Board();
 
-        Square spottedInSafari = new SpottedByPredator("SpottedByPredator", 30);
-        board.addSquare(spottedInSafari);
-        board.setupBoard();
-
         PlayerRegistration.BeginRegistration();
+        board.setupBoard();
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();

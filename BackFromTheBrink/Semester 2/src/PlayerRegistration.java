@@ -196,10 +196,13 @@ public class PlayerRegistration {
 
             String name;
             if(sc.hasNextLine()) {
-                name = sc.nextLine();
+                name = sc.nextLine().trim();
 
+                if (name == "") {
+                    System.out.println("Nickname must not be empty!");
+                }
                 // check to make sure name if not already chosen
-                if(isNotNameTaken(listPlayers, name)) {
+                else if(isNotNameTaken(listPlayers, name)) {
                     player = new Player(name);
 
                     validName = true;
