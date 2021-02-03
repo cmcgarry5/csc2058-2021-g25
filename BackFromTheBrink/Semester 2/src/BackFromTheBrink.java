@@ -29,7 +29,9 @@ public class BackFromTheBrink {
 
         Square spottedInSafari = new SpottedByPredator("SpottedByPredator", 30);
         board.addSquare(spottedInSafari);
-        //board.setupBoard();
+        board.setupBoard();
+
+        PlayerRegistration.BeginRegistration();
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();
@@ -110,8 +112,8 @@ public class BackFromTheBrink {
     public static void turnOptions(int option) {
         switch(option) {
             case 1: //end turn
-            case 1: //build zoo()
-            case 1: //trade()
+            case 2: //build zoo()
+            case 3: //trade()
         }
     }
 }
