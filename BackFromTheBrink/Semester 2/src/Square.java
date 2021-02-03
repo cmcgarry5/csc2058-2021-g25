@@ -24,6 +24,7 @@ public class Square {
 	 * Sets the integer position of the square on the board need to add validaton to
 	 * make postitons int unique
 	 */
+
 	private void setPos(int newPos) {
 		position = newPos;
 	}

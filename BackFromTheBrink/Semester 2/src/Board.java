@@ -52,7 +52,7 @@ public class Board {
 	 * Gets card from Wildcard class then displays it to player
 	 */
 	public void draw(WildCard wildcard, Player player) {
-		String name = WildCard.getCard();
+		//String name = WildCard.getCard();
 		
 	}
 
@@ -60,7 +60,7 @@ public class Board {
 	 * Returns wildcard to wildcard deck
 	 */
 	public void returnCard(WildCard wildcard) {
-		WildCard.restoreCard(wildcard);
+		//WildCard.restoreCard(wildcard);
 
 	}
 

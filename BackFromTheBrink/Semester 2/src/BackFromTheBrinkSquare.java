@@ -1,14 +1,14 @@
 public class BackFromTheBrinkSquare extends Square{
 	
-	private int requiredMaterials;
-	
-	public BackFromTheBrinkSquare(int requiredMaterials) {
-		super();
-		this.requiredMaterials = requiredMaterials;
+	private final int REQUIRED_MATERIALS;
+
+	public BackFromTheBrinkSquare(String name, int pos, int requiredMaterials) {
+		super(name, pos);
+		this.REQUIRED_MATERIALS = requiredMaterials;
 	}
 	
 	public int getRequiredMaterials() {
-		return this.requiredMaterials;
+		return this.REQUIRED_MATERIALS;
 	}
 	
 	public void execute(Player player) {

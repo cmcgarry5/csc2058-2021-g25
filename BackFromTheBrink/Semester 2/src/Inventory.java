@@ -35,6 +35,8 @@ public class Inventory {
                 System.out.println(biomes.get(i).getAnimalHabitats().get(j) + " ");
             }
         }
+
+        return null; // uncomplete
     }
 
     public void addBiome(Biome biome) {
@@ -60,19 +62,21 @@ public class Inventory {
     public String displayAnimalHabitats() {
         System.out.println("Habitats");
         for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getHabitatName() + " ");
+            System.out.println(habitats.get(i).getName() + " ");
         }
+
+        return null; // uncomplete
     }
 
     public void removeHabitat(Habitat habitat) {
         for (int i = 0; i < habitats.size(); i++) {
-            if (habitats.get(i).getHabitatName = habitat.getHabitatName) {
+            if (habitats.get(i).getName() == habitat.getName()) {
                 habitats.remove(i);
             }
         }
         System.out.println("Habitat has been successfully removed.");
         for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getHabitatName() + " ");
+            System.out.println(habitats.get(i).getName() + " ");
         }
     }
 
@@ -121,7 +125,7 @@ public class Inventory {
 
         System.out.println("Habitats" + "\n");
         for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getHabitatName() + " ");
+            System.out.println(habitats.get(i).getName() + " ");
         }
     }
 }
