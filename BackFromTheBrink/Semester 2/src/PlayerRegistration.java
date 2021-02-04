@@ -126,10 +126,54 @@ public class PlayerRegistration {
 
             listPlayers.clear();
             listPlayers.addAll(orderOfPlay);
+
+            PlayerChoosePiece(listPlayers);
         }
 
 		return listPlayers;
     }
+
+    private static void PlayerChoosePiece(ArrayList<Player> listPlayers) {
+
+        Scanner sc =  new Scanner(System.in);
+
+        for(Player player : listPlayers){
+            do{
+                printAvailablePieces();
+
+                System.out.println("Enter the number of the piece you would like, " + player.getName() + ":");
+                int option = sc.nextInt();
+
+                if(option >0 && option <=8){
+                    if(!Board.pieces.get(option-1).getTaken()){
+                        System.out.println(Board.pieces.get(option-1).getTaken());
+                        player.setPiece(Board.pieces.get(option-1));
+                        Board.pieces.get(option-1).setTaken(true);
+                        System.out.println(Board.pieces.get(option-1).getTaken());
+                        break;
+
+                    }
+                    else{
+                        System.out.println("Piece already taken, please pick another");
+                    }
+                }
+                else{
+                    System.out.println("Invalid selection");
+                }
+            }
+            while(true);
+        }
+    }
+
+    private static void printAvailablePieces(){
+        System.out.println("\nList of Pieces to choose from: ");
+        for(Piece piece: Board.pieces){
+            if(!piece.getTaken()){
+                System.out.println(piece.getID() + ". " + piece.getName());
+            }
+        }
+    }
+
     /**
      * Method to work out which player has rolled the highest score.
      * If two or more users roll the highest score they are all added to an arraylist to roll again.

@@ -4,6 +4,8 @@ public class Board {
 
 	ArrayList<Square> Squares = new ArrayList<Square>();
 	ArrayList<WildCard> wildCards = new ArrayList<WildCard>();
+	static ArrayList<Piece> pieces = new ArrayList<Piece>();
+
 
 
 	/*
@@ -18,7 +20,7 @@ public class Board {
 	 */
 	public Square getSquare(int index) {
 
-		return getSquare(index);
+		return Squares.get(index);
 	}
 
 	/*
@@ -121,6 +123,18 @@ public class Board {
 		this.addWildCard(new payUpWildCard("Food Bills", false, 100));
 		this.addWildCard(new receiveMatWildCard("Conservation Fee Refund", false, false, 200));
 		this.addWildCard(new receiveMatWildCard("Conservation Scheme", false, true, 0));
+
+		this.pieces.add(new Piece("Sir David Attenborough",0));
+		this.pieces.add(new Piece("Steve Irwin",0));
+		this.pieces.add(new Piece("Greta Thunberg",0));
+		this.pieces.add(new Piece("Steve Backshall",0));
+		this.pieces.add(new Piece("Jane Goodall",0));
+		this.pieces.add(new Piece("John Muir",0));
+		this.pieces.add(new Piece("Theodore Roosevelt",0));
+		this.pieces.add(new Piece("Theodore Roosevelt v2",0));
+
+
+
 
 		return this;
 	}

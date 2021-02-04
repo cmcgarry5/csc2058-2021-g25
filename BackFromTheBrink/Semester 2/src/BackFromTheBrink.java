@@ -11,10 +11,11 @@ public class BackFromTheBrink {
 
     public static void main(String[] args) {
 
-       board = new Board();
+        board = new Board();
+
+        board.setupBoard();
 
         players = PlayerRegistration.BeginRegistration();
-        board.setupBoard();
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();

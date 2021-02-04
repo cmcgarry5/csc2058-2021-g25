@@ -17,7 +17,7 @@ public class Dice {
 		
 		Random rand = new Random();
 		
-		int value = rand.nextInt(MAX_VALUE+1);
+		int value = 1 + rand.nextInt(MAX_VALUE);
 		return value;
 	}
 
