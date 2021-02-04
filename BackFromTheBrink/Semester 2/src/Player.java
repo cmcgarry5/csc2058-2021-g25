@@ -88,12 +88,61 @@ public class Player {
 
             if (response.toLowerCase().equals("y")) {
                 player.getInventory().removeCard(card);
+                System.out.println("You have been saved by the safari rescue team!");
+                System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
+                String roll = sc.nextLine();
+                String reRoll = "";
+
+                while (!roll.toLowerCase().equals("r") || !reRoll.toLowerCase().equals("r")) {
+                    System.out.println("Invalid input. You must roll the dice to continue... Please press 'r' to roll.");
+                    reRoll = sc.nextLine();
+                }
+
+                if (roll.toLowerCase().equals("r") || reRoll.toLowerCase().equals("r")) {
+                    int rollValue = BackFromTheBrink.di.getRollValue();
+                    player.getPiece().move(rollValue);
+                    System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
+                    BackFromTheBrink.di.nextPlayer();
+                }
             }
             else {
                 System.out.println("operation cancelled.");
             }
         } else {
             System.out.println("You do not own the Escape Safari Wildcard...");
+        }
+    }
+
+    public void payFee(Player player, int amount) {
+        boolean eligible = player.getInventory().checkPlayerMaterials(amount);
+        if (eligible) {
+            System.out.println("You have sufficient materials! Are you sure you want to pay the fee? (y/n)");
+            Scanner sc = new Scanner(System.in);
+            String response = sc.nextLine();
+
+            if (response.toLowerCase().equals("y")) {
+                player.getInventory().deductPlayerMaterials(amount);
+                System.out.println("Successfully paid fee!");
+                System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
+                String roll = sc.nextLine();
+                String reRoll = "";
+
+                while (!roll.toLowerCase().equals("r") || !reRoll.toLowerCase().equals("r")) {
+                    System.out.println("Invalid input. You must roll the dice to continue... Please press 'r' to roll.");
+                    reRoll = sc.nextLine();
+                }
+
+                if (roll.toLowerCase().equals("r") || reRoll.toLowerCase().equals("r")) {
+                    int rollValue = BackFromTheBrink.di.getRollValue();
+                    player.getPiece().move(rollValue);
+                    System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
+                    BackFromTheBrink.di.nextPlayer();
+                }
+            } else {
+                System.out.println("operation cancelled.");
+            }
+        } else {
+            System.out.println("You do not have sufficient materials to pay the fee...");
         }
     }
 

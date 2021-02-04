@@ -68,8 +68,14 @@ public class Dice {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
 		String roll = sc.nextLine();
+		String reRoll = "";
 
-		if (roll.toLowerCase().equals("r")) {
+		while (!roll.toLowerCase().equals("r") || !reRoll.toLowerCase().equals("r")) {
+			System.out.println("Invalid input. You must roll the dice to continue... Please press 'r' to roll.");
+			reRoll = sc.nextLine();
+		}
+
+		if (roll.toLowerCase().equals("r") || reRoll.toLowerCase().equals("r")) {
 			int rollValue = this.getRollValue();
 			if (this.isDouble) {
 				System.out.println("You rolled a double! You luckily escaped from the predator and escaped!");
@@ -79,8 +85,6 @@ public class Dice {
 				System.out.println("Unlucky, the predator is still lurking nearby...");
 				nextPlayer();
 			}
-		} else {
-			System.out.println("You must roll the dice to continue... Please press 'r' to roll.");
 		}
 	}
 
