@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Player {
     private String name;
     private Inventory inventory;
@@ -64,6 +66,35 @@ public class Player {
 
     public void increasePlayerMaterials(int amount) {
         this.inventory.increasePlayerMaterials(amount);
+    }
+
+    public void useWildCard(Player player) {
+        int size = player.getInventory().getWildCard().size();
+        boolean hasCard = false;
+        WildCard card = null;
+        for (int i = 0; i < size; i++) {
+            if (player.getInventory().getWildCard().get(i).getName().equals("Escape Safari Card")) {
+                hasCard = true;
+                card = player.getInventory().getWildCard().get(i);
+            } else {
+                hasCard = false;
+            }
+        }
+
+        if (hasCard) {
+            System.out.println("Are you sure you want to use your Escape Safari Wild Card? (y/n)");
+            Scanner sc = new Scanner(System.in);
+            String response = sc.nextLine();
+
+            if (response.toLowerCase().equals("y")) {
+                player.getInventory().removeCard(card);
+            }
+            else {
+                System.out.println("operation cancelled.");
+            }
+        } else {
+            System.out.println("You do not own the Escape Safari Wildcard...");
+        }
     }
 
 }

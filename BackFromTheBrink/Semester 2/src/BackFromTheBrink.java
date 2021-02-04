@@ -49,7 +49,7 @@ public class BackFromTheBrink {
             if(players.get(i).isInSafari()){
                 //print out options
                 int option = sc.nextInt();
-                inSafariOptions(option);
+                inSafariOptions(option, players.get(i));
             }
             else {
 
@@ -85,11 +85,11 @@ public class BackFromTheBrink {
         }
     }
 
-    public static void inSafariOptions(int option) {
+    public static void inSafariOptions(int option, Player player) {
         switch(option) {
-            case 1: //Roll dice and try get a double
-            case 2: //Pay fee
-            case 3: //Use wildcard
+            case 1: di.tryDouble(player);
+            case 2: player.deductMaterials(50);
+            case 3: player.useWildCard(player);
         }
     }
 
