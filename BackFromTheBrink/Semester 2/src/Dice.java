@@ -10,9 +10,11 @@ public class Dice {
 	private boolean isSecondDouble;
 	
 	
-	/*public Dice() { // does this class need a constructor - should we do the thing we did in SDP for only allowing one instance? Singleton Pattern?
-		
-	}*/
+
+	public Dice() { // does this class need a constructor - should we do the thing we did in SDP for only allowing one instance? Singleton Pattern?
+		this.isDouble = false;
+		this.isSecondDouble = false;
+	}
 
 	private int roll() {
 
@@ -26,7 +28,6 @@ public class Dice {
 		isDouble = false;
 		isSecondDouble = false;
 	}
-
 
 	public int getRollValue() {
 
@@ -77,7 +78,7 @@ public class Dice {
 
 		if (roll.toLowerCase().equals("r") || reRoll.toLowerCase().equals("r")) {
 			int rollValue = this.getRollValue();
-			if (this.isDouble) {
+			if(this.isDouble) {
 				System.out.println("You rolled a double! You luckily escaped from the predator and escaped!");
 				player.getPiece().move(rollValue);
 				nextPlayer();

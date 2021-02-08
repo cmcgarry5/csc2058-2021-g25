@@ -10,8 +10,8 @@ public class Player {
     public Player(String name) {
         this.name = name;
         this.inventory = new Inventory();
-        this.outOfMaterials = true;
-        this.inSafari = true;
+        this.outOfMaterials = false;
+        this.inSafari = false;
     }
 
     public boolean isOutOfMaterials() {
@@ -109,7 +109,7 @@ public class Player {
                 System.out.println("operation cancelled.");
             }
         } else {
-            System.out.println("You do not own the Escape Safari Wildcard...");
+            System.out.println("You do not own an Escape Safari Wildcard...");
         }
     }
 

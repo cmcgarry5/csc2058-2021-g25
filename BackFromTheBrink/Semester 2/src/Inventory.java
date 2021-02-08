@@ -6,6 +6,9 @@ public class Inventory {
     private ArrayList<WildCard> wildCards;
 
     public Inventory() {
+        this.biomes = new ArrayList<Biome>();
+        this.wildCards = new ArrayList<WildCard>();
+        this.materials = 200;
 
     }
 

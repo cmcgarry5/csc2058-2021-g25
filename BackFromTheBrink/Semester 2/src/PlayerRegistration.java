@@ -146,10 +146,8 @@ public class PlayerRegistration {
 
                 if(option >0 && option <=8){
                     if(!Board.pieces.get(option-1).getTaken()){
-                        System.out.println(Board.pieces.get(option-1).getTaken());
                         player.setPiece(Board.pieces.get(option-1));
                         Board.pieces.get(option-1).setTaken(true);
-                        System.out.println(Board.pieces.get(option-1).getTaken());
                         break;
 
                     }

@@ -10,13 +10,22 @@ public class BackFromTheBrink {
 
     static Dice di = new Dice();
 
+    static final String inSafariOptions[] = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard."};
+    static Menu InSafariMenu = new Menu("In Safari Options:",inSafariOptions);
+
+    static final String turnOptions[] = {"End turn", "Build on square", "Initiate a trade"};
+    static Menu turnOptionsMenu = new Menu("Additional Turn Options:",turnOptions);
+
     public static void main(String[] args) {
 
         board = new Board();
+        IO = new StdIO();
 
         board.setupBoard();
 
         players = PlayerRegistration.BeginRegistration();
+
+        System.out.println("Lets Begin.....\n");
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();
@@ -47,13 +56,28 @@ public class BackFromTheBrink {
         for (int i = 0; i < players.size(); i++) {
             Player currentPlayer = players.get(i);
             //check if player is in jail/safari
+            System.out.println(currentPlayer.getName() + ", it is your turn!");
+
+            //message to let player know their state at the start of their turn.
+
             if(currentPlayer.isInSafari()){
                 //print out options
-                int option = IO.readInt();
-                inSafariOptions(option, currentPlayer);
+
+                System.out.println("You are hiding in the Safari.");
+
+                int option;
+                do{
+                    InSafariMenu.display();
+                    option = IO.readInt();
+
+                }
+                while(option <= 0 || option> InSafariMenu.getNumOptions());
+
+                ProcessInSafariOption(option, currentPlayer);
             }
             else {
 
+                //System.out.println("Roll the Dice to move around the board:");
                 di.nextPlayer(); // reset Double "memory" of dice
                 int rollValue = di.getRollValue();
 
@@ -72,34 +96,54 @@ public class BackFromTheBrink {
                 if (di.getIsSecondDouble()) {
                     // go to jail
                     currentPlayer.setInSafari(true);
-                    // move player to the spotted in the safari sqaure
+                    // move player to the spotted in the safari square
                     currentPlayer.getPiece().move(board.getSquare(30));
                 }
 
                 //print out all options available
                 //request input
-                int option = IO.readInt();
-                while (option != 9) {
-                    turnOptions(option, currentPlayer);
+                int option;
+                do{
+                    turnOptionsMenu.display();
+                    do{
+
+                        option = IO.readInt();
+
+                    }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
+
+                    ProcessTurnOption(option, currentPlayer);
+
                 }
+                while(option != 1);
+
             }
         }
     }
 
-    public static void inSafariOptions(int option, Player currentPlayer) {
+    public static void ProcessInSafariOption(int option, Player currentPlayer) {
         switch(option) {
             case 1: di.tryDouble(currentPlayer);
+            break;
             case 2: currentPlayer.deductMaterials(50);
+            break;
             case 3: currentPlayer.useWildCard(currentPlayer);
+            break;
         }
     }
 
-    public static void turnOptions(int option, Player currentPlayer) {
+    public static void ProcessTurnOption(int option, Player currentPlayer) {
         switch(option) {
-            case 1: //endTurn;
-            case 2: //buildZoo();
+            case 1: break;
+            case 2: buildOnSquare();
+            break;
             case 3: trade(currentPlayer);
+            break;
         }
+    }
+
+    private static void buildOnSquare() {
+
+        System.out.println("Building on owned square....");
     }
 
     public static void trade(Player currentPlayer) {
