@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  */
 public class Menu {
-    private String options[];	// array of strings representing user options
+    private String[] options;	// array of strings representing user options
     private String title;		// menu title
     private Scanner input;		// for KB input
 
@@ -17,7 +17,7 @@ public class Menu {
      * @param title - the menu title
      * @param options - the options for user selection
      */
-    public Menu(String title, String options[]) {
+    public Menu(String title, String[] options) {
         this.title = title;
         copyOptions(options);
         input = new Scanner(System.in);

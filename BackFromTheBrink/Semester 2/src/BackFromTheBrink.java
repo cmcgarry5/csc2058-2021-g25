@@ -10,10 +10,10 @@ public class BackFromTheBrink {
 
     static Dice di = new Dice();
 
-    static final String inSafariOptions[] = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard."};
+    static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard."};
     static Menu InSafariMenu = new Menu("In Safari Options:",inSafariOptions);
 
-    static final String turnOptions[] = {"End turn", "Build on square", "Initiate a trade"};
+    static final String[] turnOptions = {"End turn", "Build on square", "Initiate a trade"};
     static Menu turnOptionsMenu = new Menu("Additional Turn Options:",turnOptions);
 
     public static void main(String[] args) {
@@ -134,16 +134,19 @@ public class BackFromTheBrink {
     public static void ProcessTurnOption(int option, Player currentPlayer) {
         switch(option) {
             case 1: break;
-            case 2: buildOnSquare();
+            case 2: buildOnSquare(currentPlayer);
             break;
             case 3: trade(currentPlayer);
             break;
         }
     }
 
-    private static void buildOnSquare() {
+    private static void buildOnSquare(Player currentPlayer) {
 
         System.out.println("Building on owned square....");
+
+        IO.printBiomes(currentPlayer);
+
     }
 
     public static void trade(Player currentPlayer) {
