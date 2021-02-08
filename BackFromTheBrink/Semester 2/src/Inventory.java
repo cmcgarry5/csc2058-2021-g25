@@ -46,6 +46,18 @@ public class Inventory {
         }
     }
 
+    public void addHabitat(Biome biome, Habitat habitat) {
+        for(int i = 0; i < biomes.size(); i++) {
+            if (biomes.get(i) == biome) {
+                biomes.get(i).addAnimalHabitat(habitat);
+            }
+        }
+        if(!biomes.contains(biome)) {
+            biome.addAnimalHabitat(habitat);
+            biomes.add(biome);
+        }
+    }
+
     public void increasePlayerMaterials(int qty) {
         this.materials = this.materials + qty;
         System.out.println("Materials successfully added!");
