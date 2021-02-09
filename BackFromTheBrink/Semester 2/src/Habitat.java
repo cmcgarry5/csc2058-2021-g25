@@ -43,6 +43,13 @@ public class Habitat extends Square{
 				if (player.getInventory().checkPlayerMaterials(cost)) {
 					player.getInventory().deductPlayerMaterials(cost);
 					setOwner(player);
+					player.getInventory().addBiome(getBiome());
+					for(int i = 0; i < player.getInventory().getBiomes().size(); i++){
+						if(player.getInventory().getBiomes().get(i) == biome){
+							player.getInventory().getBiomes().get(i).addAnimalHabitat(this);
+						}
+					}
+
 				}
 			}
 			else if (answer.equals("n")) {
