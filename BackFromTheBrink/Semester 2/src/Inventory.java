@@ -82,10 +82,10 @@ public class Inventory {
 
     public boolean checkPlayerMaterials(int qty) {
         if (materials >= qty) {
-            System.out.println("Sufficient materials!");
+            //System.out.println("Sufficient materials!");
             return true;
         } else {
-            System.out.println("Insufficient materials!");
+            //System.out.println("Insufficient materials!");
             return false;
         }
     }

@@ -78,6 +78,7 @@ public class StdIO {
         return biomes;
     }
 
+    //Take string input from player
     public String read() {
         System.out.println("\nPlayer Input:");
         System.out.println(">");
@@ -90,6 +91,7 @@ public class StdIO {
         return value;
     }
 
+    //read int from player
     public int readInt() {
         System.out.println("\nPlayer Input:");
         System.out.println(">");
