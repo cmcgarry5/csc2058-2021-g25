@@ -198,7 +198,12 @@ public class Habitat extends Square{
 
 	
 	public void addZoo() {
-		setNumZoos(getNumberOfZoos()+1);
+		if(biome.getNumberOfHabitats() == biome.getNumberOwnedHabitats()){
+			setNumZoos(getNumberOfZoos()+1);
+		}
+		else{
+			System.out.println("Player doesn't own all habitats in " + biome.getName());
+		}
 	}
 	
 	public void removeZoo() {
@@ -210,10 +215,16 @@ public class Habitat extends Square{
 	}
 	
 	public void addNationalPark() {
-		setPark(true);
-		for (int i = 0; i < 4 ; i++) {
-			removeZoo();
+		if (getNumberOfZoos() < 4){
+			System.out.println("Num Zoos less than 4");
 		}
+		else{
+			setPark(true);
+			for (int i = 0; i < 4 ; i++) {
+				removeZoo();
+			}
+		}
+
 	}
 	
 	public boolean hasNationalPark() {
