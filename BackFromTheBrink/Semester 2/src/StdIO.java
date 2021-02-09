@@ -30,7 +30,7 @@ public class StdIO {
              wildcards += "\n";
             wildcards += wildCard.getName();
          }
-         String piece = "Piece: " + "\n" + player.getPiece().getName() + "\n" + "Position" +player.getPiece().getPos();
+         String piece = "Piece: " + "\n" + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName();
          String status = "In Safari: " + "\n";
          if (player.isInSafari()){
              status += "Yes";
@@ -42,7 +42,7 @@ public class StdIO {
      }
 
     public String printInventory(Player player) {
-         String name = "Player: " + player.getName();
+        String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
             biomes +=  player.getInventory().getBiomes().get(i).getBiomeName();

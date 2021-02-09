@@ -100,6 +100,9 @@ public class BackFromTheBrink {
                     currentPlayer.getPiece().move(board.getSquare(30));
                 }
 
+                //Display current player info
+                IO.printPlayer(currentPlayer);
+
                 //print out all options available
                 //request input
                 int option;
@@ -142,11 +145,8 @@ public class BackFromTheBrink {
     }
 
     private static void buildOnSquare(Player currentPlayer) {
-
-        System.out.println("Building on owned square....");
-
-        IO.printBiomes(currentPlayer);
-
+        //display all biomes and
+        //
     }
 
     public static void trade(Player currentPlayer) {
