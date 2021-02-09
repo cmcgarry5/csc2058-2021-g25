@@ -1,8 +1,6 @@
-import java.util.Scanner;
 
 public class Habitat extends Square{
-	
-	Scanner sc = new Scanner(System.in);
+	private StdIO IO;
 	private int cost;
 	private int fee;
 	private int numZoos;
@@ -39,52 +37,71 @@ public class Habitat extends Square{
 		if (ownedBy == null) {
 			System.out.println("\nDo you want to invest in this Habitat? \nCost: "+ getCost() + " y/n\n");
 			
-			String answer = sc.nextLine();
+			String answer = IO.read();
 
 			if (answer.equals("y")) {
-				if (player.getInventory().getMaterials() >= cost) {
+				if (player.getInventory().checkPlayerMaterials(cost)) {
 					player.getInventory().deductPlayerMaterials(cost);
 					setOwner(player);
 				}
 			}
 			else if (answer.equals("n")) {
-				//next
+				return;
 			}
 
 		}
-		else if (player != ownedBy) {
-			int feeToOwe = 0;
-			if (getNumberOfZoos() == 0 && hasNationalPark() == false) {
-				feeToOwe = getFee();
+		else if(player != ownedBy) {
+			if(hasNationalPark()) {
+				if(player.getInventory().checkPlayerMaterials(feePark)) {
+					player.deductMaterials(feePark);
+				} else {
+					player.setOutOfMaterials(true);
+					return;
+				}
+			} else  {
+				switch(getNumberOfZoos()) {
+					case 0:
+						if(player.getInventory().checkPlayerMaterials(getFee())) {
+							player.deductMaterials(getFee());
+						} else {
+							player.setOutOfMaterials(true);
+							return;
+						}
+						break;
+					case 1:
+						if(player.getInventory().checkPlayerMaterials(getFee1Zoo())) {
+							player.deductMaterials(getFee1Zoo());
+						} else {
+							player.setOutOfMaterials(true);
+							return;
+						}
+						break;
+					case 2:
+						if(player.getInventory().checkPlayerMaterials(getFee2Zoo())) {
+							player.deductMaterials(getFee2Zoo());
+						} else {
+							player.setOutOfMaterials(true);
+							return;
+						}
+						break;
+					case 3:
+						if(player.getInventory().checkPlayerMaterials(getFee3Zoo())) {
+							player.deductMaterials(getFee3Zoo());
+						} else {
+							player.setOutOfMaterials(true);
+							return;
+						}
+						break;
+					case 4:
+						if(player.getInventory().checkPlayerMaterials(getFee4Zoo())) {
+							player.deductMaterials(getFee4Zoo());
+						} else {
+							player.setOutOfMaterials(true);
+							return;
+						}
+						break;
+				}
 			}
-			else if(getNumberOfZoos() == 1) {
-				feeToOwe = getFee1Zoo();
-			}
-			else if(getNumberOfZoos() == 2) {
-				feeToOwe = getFee2Zoo();
-			}
-			else if(getNumberOfZoos() == 3) {
-				feeToOwe = getFee3Zoo();
-			}
-			else if(getNumberOfZoos() == 4) {
-				feeToOwe = getFee4Zoo();
-			}
-			else if(hasNationalPark() == true) {
-				feeToOwe = getFeePark();
-			}
-			
-			System.out.println(player.getName() + " owes " + feeToOwe + " to " + getOwner().getName());
-			if (player.getInventory().getMaterials() >= feeToOwe){
-				player.deductMaterials(feeToOwe);
-				getOwner().getInventory().increasePlayerMaterials(feeToOwe);
-			}
-
-			else {
-				System.out.println("Player " + player.getName() + " is bankrupt ...");
-			}
-		}
-		else {
-			//next
 		}
 	}
 	
