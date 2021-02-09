@@ -75,14 +75,14 @@ public class Board {
 
 	public Board setupBoard() {
 
-		Biome cave = new Biome("Cave Biome", 3, null);
-		Biome wetlands = new Biome("Wetlands Biome", 3, null);
-		Biome sky = new Biome("Sky Biome", 3, null);
-		Biome forest = new Biome("Forest Biome", 2, null);
-		Biome marine = new Biome("Marine Biome", 2, null);
-		Biome jungle = new Biome("Jungle Biome", 3, null);
-		Biome snow = new Biome("Snow Biome", 3, null);
-		Biome exotic = new Biome("Exotic Biome", 3, null);
+		Biome cave = new Biome("Cave Biome", 3);
+		Biome wetlands = new Biome("Wetlands Biome", 3);
+		Biome sky = new Biome("Sky Biome", 3);
+		Biome forest = new Biome("Forest Biome", 2);
+		Biome marine = new Biome("Marine Biome", 2);
+		Biome jungle = new Biome("Jungle Biome", 3);
+		Biome snow = new Biome("Snow Biome", 3);
+		Biome exotic = new Biome("Exotic Biome", 3);
 
 		this.addSquare(new Travel("Travel Square", 0));
 

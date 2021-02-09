@@ -8,7 +8,7 @@ public  class Biome {
     //private Player ownedBy = player1; dont think we need this as this is held in a persons inventtory
 
 
-    public Biome(String biomeName, int numberOfHabitats, ArrayList<Habitat> habitats) {
+    public Biome(String biomeName, int numberOfHabitats) {
         setBiomeName(biomeName);
         setNumberOfHabitats(numberOfHabitats);
         setHabitats(habitats);
