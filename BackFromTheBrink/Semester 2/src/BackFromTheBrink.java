@@ -151,7 +151,7 @@ public class BackFromTheBrink {
 
     public static void trade(Player currentPlayer) {
         //print or display all players
-        IO.printAllPlayers(players);
+        System.out.println(IO.printAllPlayers(players));
         //request user input to select player they want to trade with
         int input = IO.readInt()-1;
         //print selected players habitats
@@ -160,7 +160,7 @@ public class BackFromTheBrink {
             return;
         }
         Player selectedPlayer = players.get(input);
-        IO.printPlayer(selectedPlayer);
+        System.out.println(IO.printPlayer(selectedPlayer));
         //trade verification
         System.out.println("Are you sure you want to trade with this player? Type y for yes, n for no");
         //request user input
@@ -169,7 +169,7 @@ public class BackFromTheBrink {
             //ask user which biome they want to buy from
             System.out.println("Select the biome you would like to buy from");
             for(int i = 0; i < selectedPlayer.getInventory().getBiomes().size(); i++) {
-                IO.printBiomes(selectedPlayer);
+                System.out.println(IO.printBiomes(selectedPlayer));
             }
             //request user input
             input = IO.readInt()-1;
