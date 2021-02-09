@@ -31,7 +31,13 @@ public class StdIO {
             wildcards += wildCard.getName();
          }
          String piece = "Piece: " + "\n" + player.getPiece().getName() + "\n" + "Position" +player.getPiece().getPos();
-         String status = "Status: " + "\n" + player.isInSafari();
+         String status = "In Safari: " + "\n";
+         if (player.isInSafari()){
+             status += "Yes";
+         }
+         else{
+             status += "No";
+         }
          return name + "\n" + inventory + "\n" + materials + "\n" + biomes + "\n" + wildcards + "\n" + piece + "\n" + status;
      }
 
