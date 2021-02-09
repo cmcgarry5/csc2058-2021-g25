@@ -18,6 +18,7 @@ public class PlayerRegistration {
             this.highestScore = highestScore;
         }
     }
+
     public static ArrayList<Player> BeginRegistration() {
 
         Scanner sc =  new Scanner(System.in);

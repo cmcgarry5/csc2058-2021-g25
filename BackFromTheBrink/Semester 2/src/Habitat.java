@@ -17,7 +17,7 @@ public class Habitat extends Square{
 
 	private Biome biome;
 	
-	public Habitat(String name, int pos, int cost, int fee, int fee1Zoo, int fee2Zoo, int fee3Zoo, int fee4Zoo, int feePark, int buildCost) {
+	public Habitat(String name, int pos, int cost, int fee, int fee1Zoo, int fee2Zoo, int fee3Zoo, int fee4Zoo, int feePark, int buildCost, Biome Biome) {
 		super(name, pos);
 		setCost(cost);
 		setFee(fee);
@@ -27,9 +27,14 @@ public class Habitat extends Square{
 		setFee4Zoo(fee4Zoo);
 		setFeePark(feePark);
 		setBuildCost(buildCost);
+		setBiome(biome);
 		
 	}
-	
+
+	private void setBiome(Biome biome) {
+		this.biome = biome;
+	}
+
 	public void execute(Player player) {
 		if (ownedBy == null) {
 			System.out.println("\nDo you want to invest in this Habitat? \nCost: "+ getCost() + " y/n\n");
