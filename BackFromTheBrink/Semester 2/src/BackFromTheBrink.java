@@ -160,6 +160,10 @@ public class BackFromTheBrink {
             return;
         }
         Player selectedPlayer = players.get(input);
+        //ensure player is selecting a player other than themselves
+        if(selectedPlayer.getName() == currentPlayer.getName()) {
+        	System.out.println("You cannot trade with yourself!");
+        	return;
         System.out.println(IO.printPlayer(selectedPlayer));
         //trade verification
         System.out.println("Are you sure you want to trade with this player? Type y for yes, n for no");
