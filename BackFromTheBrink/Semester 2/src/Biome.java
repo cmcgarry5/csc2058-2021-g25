@@ -2,12 +2,39 @@ import java.util.ArrayList;
 
 public  class Biome {
 
-    ArrayList<Habitat> habitats = new ArrayList<Habitat>();
+    private ArrayList<Habitat> habitats = new ArrayList<Habitat>();
     private String name;
+    private int numberOfHabitats;
+    //private Player ownedBy = player1; dont think we need this as this is held in a persons inventtory
 
-    public Biome(String name, ArrayList habitats) {
-        name = name;
-        habitats = habitats;
+
+    public Biome(String biomeName, int numberOfHabitats, ArrayList<Habitat> habitats) {
+        setBiomeName(biomeName);
+        setNumberOfHabitats(numberOfHabitats);
+        setHabitats(habitats);
+    }
+// broken
+//    public boolean isOwned() {
+//        boolean isOwned = false;
+//
+//        if (Inventory.getHabitats().contains(Biome.habitats)) {
+//            isOwned = true;
+//        }
+//        return isOwned;
+//
+//
+//    }
+
+    public void setBiomeName(String nameSet) {
+        this.name = nameSet;
+    }
+
+    public void setNumberOfHabitats(int num) {
+        this.numberOfHabitats = num;
+    }
+
+    public void setHabitats(ArrayList<Habitat> nameSet) {
+        this.habitats = nameSet;
     }
 
     public void addAnimalHabitat(Habitat habitat){
