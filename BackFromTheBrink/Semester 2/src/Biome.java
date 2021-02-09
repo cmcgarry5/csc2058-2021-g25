@@ -5,13 +5,14 @@ public  class Biome {
     private ArrayList<Habitat> habitats = new ArrayList<Habitat>();
     private String name;
     private int numberOfHabitats;
+    private int numberOwnedHabitats;
     //private Player ownedBy = player1; dont think we need this as this is held in a persons inventtory
 
 
     public Biome(String biomeName, int numberOfHabitats) {
         setBiomeName(biomeName);
         setNumberOfHabitats(numberOfHabitats);
-        setHabitats(habitats);
+        //setHabitats(habitats);
     }
 
 // broken
@@ -83,5 +84,14 @@ public  class Biome {
 
     public ArrayList<Habitat> getAnimalHabitats(){
         return habitats;
+    }
+
+    public boolean isAllOwned(){
+        if (numberOfHabitats == numberOwnedHabitats){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
