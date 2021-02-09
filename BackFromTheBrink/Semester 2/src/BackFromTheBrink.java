@@ -115,10 +115,8 @@ public class BackFromTheBrink {
                     }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
 
                     ProcessTurnOption(option, currentPlayer);
-
                 }
                 while(option != 1);
-
             }
         }
     }
@@ -201,7 +199,7 @@ public class BackFromTheBrink {
             if (verification.equals("y")) {
                 selectedPlayer.increasePlayerMaterials(amount);
                 currentPlayer.deductMaterials(amount);
-                selectedBiome.removeAnimalHabitat(selectedHabitat);
+                selectedBiome.removeHabitat(selectedHabitat);
                 currentPlayer.getInventory().addHabitat(selectedBiome,selectedHabitat);
             }
         } else {
@@ -209,5 +207,4 @@ public class BackFromTheBrink {
             return;
         }
     }
-
 }

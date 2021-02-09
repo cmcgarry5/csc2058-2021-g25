@@ -40,13 +40,6 @@ public  class Biome {
         habitats.add(habitat);
     }
 
-    public boolean removeAnimalHabitat(Habitat habitat){
-        if(habitats.remove(habitat)){
-            return true;
-        }
-        return false;
-    }
-
     public String displayAnimalHabitats() {
         System.out.println("Habitats");
         for (int i = 0; i < habitats.size(); i++) {

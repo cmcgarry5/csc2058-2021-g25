@@ -27,9 +27,11 @@ public class PlayerRegistration {
 
 		System.out.println("Welcome to Back to the Brink...");
 
-        int numPlayers = enterNumPlayers();
-
-		System.out.println(numPlayers);
+		int numPlayers;
+		do{
+		    numPlayers = enterNumPlayers();
+        }
+		while(numPlayers<=1 || numPlayers>8);
 
 
 		for(int i=0; i<numPlayers; i++) {
