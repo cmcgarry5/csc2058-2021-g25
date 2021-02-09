@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class receiveMatWildCard extends WildCard {
 
     private int payment;
@@ -15,8 +17,12 @@ public class receiveMatWildCard extends WildCard {
 
     public void execute(Player player) {
         if(getIsBreedAmt()){
-            //To be completed
+            ArrayList<Biome> biomesOwned = player.getInventory().getBiomes();
             int countHabitats = 0;
+            for(int i = 0; i < biomesOwned.size(); i++){
+                Biome currentBiome = biomesOwned.get(i);
+                countHabitats += currentBiome.getNumberHabitats();
+            }
             setPayBreed(countHabitats * 100);
             player.getInventory().increasePlayerMaterials(getPayBreedAmt());
         }
