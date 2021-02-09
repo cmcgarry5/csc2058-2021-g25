@@ -5,6 +5,7 @@ public class Board {
 	ArrayList<Square> Squares = new ArrayList<Square>();
 	ArrayList<WildCard> wildCards = new ArrayList<WildCard>();
 	static ArrayList<Piece> pieces = new ArrayList<Piece>();
+	ArrayList<Biome> biomes = new ArrayList<Biome>();
 
 
 
@@ -67,6 +68,24 @@ public class Board {
 
 	public Board setupBoard() {
 
+		Biome cave = new Biome("Cave Biome", 3, null);
+		Biome wetlands = new Biome("Wetlands Biome", 3, null);
+		Biome sky = new Biome("Sky Biome", 3, null);
+		Biome forest = new Biome("Forest Biome", 2, null);
+		Biome marine = new Biome("Marine Biome", 2, null);
+		Biome jungle = new Biome("Jungle Biome", 3, null);
+		Biome snow = new Biome("Snow Biome", 3, null);
+		Biome exotic = new Biome("Exotic Biome", 3, null);
+
+		biomes.add(cave);
+		biomes.add(wetlands);
+		biomes.add(sky);
+		biomes.add(forest);
+		biomes.add(marine);
+		biomes.add(jungle);
+		biomes.add(snow);
+		biomes.add(exotic);
+
 		this.addSquare(new Travel("Travel Square", 0));
 		this.addSquare(new Habitat("Brown Bear Habitat", 1, 60, 4, 20, 60, 180, 320, 450, 50));
 		this.addSquare(new WildCardSquare("Wild Card 1", 2));
@@ -105,7 +124,7 @@ public class Board {
 		this.addSquare(new Special("Duke River", 35));
 		this.addSquare(new Special("Wild Card 6", 36));
 		this.addSquare(new Habitat("Blue Whale Habitat", 37, 400, 50, 200, 600, 1400, 1700, 2000, 200));
-		this.addSquare(new Habitat("Sea Turtle Habitat", 38, 350, 35, 175, 500, 1100, 1300, 1500, 200));
+		this.addSquare(new Habitat("Sea Turtle Habitat", 39, 350, 35, 175, 500, 1100, 1300, 1500, 200));
 
 
 		this.addWildCard(new moveWildCard("Advance to Jaguar", true, false, BackFromTheBrink.board.getSquare(3)));
