@@ -143,8 +143,36 @@ public class BackFromTheBrink {
     }
 
     private static void buildOnSquare(Player currentPlayer) {
-        //display all biomes and
-        //
+        boolean ownsBiome = false;
+        for(Biome biome: currentPlayer.getInventory().getBiomes()) {
+            if(biome.getHabitats().size() == biome.getNumberOfHabitats()) {
+                ownsBiome = true;
+            }
+        }
+
+        if(ownsBiome) {
+            //display all owned biomes and habitats and zoos in that biome
+            for(int i = 0; i < currentPlayer.getInventory().getBiomes().size(); i++) {
+                Biome currentBiome = currentPlayer.getInventory().getBiomes().get(i);
+                if(currentBiome.getHabitats().size() == currentBiome.getNumberOfHabitats()) {
+                    IO.printHabitats(currentBiome);
+                }
+            }
+            //Ask player which biome they want to build a zoo
+            System.out.println("Which biome would you like to build a zoo on?");
+            int biomeIndex = IO.readInt();
+            //Biome currentBiome = currentPlayer.getInventory().getBiomes().get(biomeIndex);
+
+            //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
+            System.out.println("Which habitat would you like to build a zoo on?");
+            int habitatIndex = IO.readInt();
+
+            //Deduct money from player and increment number of zoos in owned habitats
+            //Display success message
+        } else {
+            System.out.println("You do not own any biomes therefore you can't build any zoos!");
+            return;
+        }
     }
 
     public static void trade(Player currentPlayer) {

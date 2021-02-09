@@ -50,6 +50,10 @@ public  class Biome {
         return null; // uncomplete
     }
 
+    public int getNumberOfHabitats() {
+        return numberOfHabitats;
+    }
+
     public int getNumberHabitats() {
         return habitats.size();
     }

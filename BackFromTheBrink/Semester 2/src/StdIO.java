@@ -30,7 +30,7 @@ public class StdIO {
              wildcards += "\n";
             wildcards += wildCard.getName();
          }
-         String piece = "Piece: " + "\n" + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName();
+         String piece = "Piece: " + "\n" + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Position: " + player.getPiece().getPos();
          String status = "In Safari: " + "\n";
          if (player.isInSafari()){
              status += "Yes";
@@ -69,13 +69,31 @@ public class StdIO {
             biomes+= "\n";
             biomeIndex++;
             int habitatIndex = 1;
-            for (int j = 0; j < player.getInventory().getBiomes().get(i).getAnimalHabitats().size(); j++) {
-                biomes += "\n";
-                biomes += habitatIndex + ". " + player.getInventory().getBiomes().get(i).getAnimalHabitats().get(j).getName();
-                habitatIndex++;
-            }
+            printHabitats(player.getInventory().getBiomes().get(i));
         }
         return biomes;
+    }
+
+    public String printHabitats(Biome biome) {
+        String print = "";
+        int habitatIndex = 1;
+        Habitat currentHabitat = null;
+        for(int i =0; i < biome.getHabitats().size(); i++) {
+            currentHabitat = biome.getHabitats().get(i);
+            print += habitatIndex + ". Name: " + currentHabitat.getName() + "\n";
+            print += "Cost: " + currentHabitat.getCost() + "\n";
+            print += "Number of Zoos built: " + currentHabitat.getNumberOfZoos() + "\n";
+            print += "Has National Park: " + currentHabitat.getNumberOfZoos() + "\n";
+            print += "Initial Fee: " + currentHabitat.getFee() + "\n";
+            print += "1 Zoo Fee: " + currentHabitat.getFee1Zoo() + "\n";
+            print += "2 Zoo Fee: " + currentHabitat.getFee2Zoo() + "\n";
+            print += "3 Zoo Fee: " + currentHabitat.getFee3Zoo() + "\n";
+            print += "4 Zoo Fee: " + currentHabitat.getFee4Zoo() + "\n";
+            print += "National Park Fee: " + currentHabitat.getFeePark() + "\n";
+            print += "Build Cost: " + currentHabitat.getBuildCost() + "\n";
+            habitatIndex++;
+        }
+        return print;
     }
 
     //Take string input from player
