@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class payUpWildCard extends WildCard{
 
     private int feeToPayZoosAndParks;
@@ -11,10 +13,22 @@ public class payUpWildCard extends WildCard{
     }
 
     public void execute(Player player){
+        int countZoo = 0;
+        int countPark = 0;
+
         if(getIsMaintenance()){
-            //To be completed - biome needed
-            int countZoo = 0;
-            int countPark = 0;
+            ArrayList<Biome> biomesOwned = player.getInventory().getBiomes();
+            for(int i = 0; i < biomesOwned.size(); i++){
+                Biome currentBiome = biomesOwned.get(i);
+                for (int j = 0; j < currentBiome.getNumberHabitats()-1; j++){
+                    if (currentBiome.getHabitats().get(j).hasNationalPark() != true){
+                        countZoo += currentBiome.getHabitats().get(j).getNumberOfZoos();
+                    }
+                    else{
+                        countPark += 1;
+                    }
+                }
+            }
             setFeeToPayZoosAndParks((40*countZoo) + (75*countPark));
             player.getInventory().deductPlayerMaterials(getFeeZoosAndParksAmount());
             return;
