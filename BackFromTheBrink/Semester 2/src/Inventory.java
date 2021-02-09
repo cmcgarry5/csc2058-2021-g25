@@ -68,9 +68,16 @@ public class Inventory {
     }
 
     public void deductPlayerMaterials(int qty) {
-        this.materials = this.materials - qty;
-        System.out.println("Materials successfully deducted!");
-        System.out.println("You now have: " + this.materials);
+        int diff = this.materials - qty;
+        if (this.materials >= diff) {
+            this.materials = this.materials - qty;
+            System.out.println("Materials successfully deducted!");
+            System.out.println("You now have: " + this.materials);
+        } else {
+            System.out.println("You do not have enough materials!");
+        }
+
+
     }
 
     public boolean checkPlayerMaterials(int qty) {

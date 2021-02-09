@@ -124,7 +124,7 @@ public class BackFromTheBrink {
         switch(option) {
             case 1: di.tryDouble(currentPlayer);
             break;
-            case 2: currentPlayer.deductMaterials(50);
+            case 2: currentPlayer.payFee(currentPlayer, 50);
             break;
             case 3: currentPlayer.useWildCard(currentPlayer);
             break;
