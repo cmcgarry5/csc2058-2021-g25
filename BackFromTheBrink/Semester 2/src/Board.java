@@ -58,6 +58,13 @@ public class Board {
 		
 	}
 
+	public WildCard draw(){
+		WildCard wildCardDrawn = wildCards.get(wildCards.size()-1);
+		wildCards.remove(wildCards.size()-1);
+		wildCards.add(0, wildCardDrawn);
+		return wildCardDrawn;
+	}
+
 	/*
 	 * Returns wildcard to wildcard deck
 	 */
