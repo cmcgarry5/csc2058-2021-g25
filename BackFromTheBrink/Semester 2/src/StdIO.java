@@ -6,7 +6,7 @@ public class StdIO {
         String completeList = "";
         int playerIndex = 1;
         for(int i = 0; i < playerList.size(); i++) {
-            completeList += playerIndex + ". " + printPlayer(playerList.get(i));
+            completeList += playerIndex + ". " + printPlayer(playerList.get(i)) + "\n";
             playerIndex++;
         }
         return completeList;
