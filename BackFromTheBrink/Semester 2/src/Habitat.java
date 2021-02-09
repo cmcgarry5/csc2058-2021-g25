@@ -14,6 +14,8 @@ public class Habitat extends Square{
 	private Player ownedBy;
 	private int buildCost;
 	private boolean nationalPark;
+
+	private Biome biome;
 	
 	public Habitat(String name, int pos, int cost, int fee, int fee1Zoo, int fee2Zoo, int fee3Zoo, int fee4Zoo, int feePark, int buildCost) {
 		super(name, pos);

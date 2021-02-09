@@ -13,6 +13,7 @@ public  class Biome {
         setNumberOfHabitats(numberOfHabitats);
         setHabitats(habitats);
     }
+
 // broken
 //    public boolean isOwned() {
 //        boolean isOwned = false;
@@ -21,8 +22,6 @@ public  class Biome {
 //            isOwned = true;
 //        }
 //        return isOwned;
-//
-//
 //    }
 
     public void setBiomeName(String nameSet) {

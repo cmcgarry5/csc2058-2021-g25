@@ -28,7 +28,6 @@ public class HidingFromPredator {
             System.out.println("invalid input, retry");
             choice = sc.nextInt();
         }
-
     }
 
 }

@@ -32,7 +32,6 @@ public class Board {
 			Square info = Squares.get(index);
 			System.out.println("Info : " + info);
 		}
-
 	}
 
 	/*
@@ -132,8 +131,6 @@ public class Board {
 		this.pieces.add(new Piece("John Muir",0));
 		this.pieces.add(new Piece("Theodore Roosevelt",0));
 		this.pieces.add(new Piece("Theodore Roosevelt v2",0));
-
-
 
 
 		return this;
