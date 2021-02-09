@@ -73,6 +73,32 @@ public class Board {
 
 	}
 
+	public void addAnimalHabitat(Habitat habitat){
+		Biome biome = habitat.getBiome();
+
+		for(int i = 0; i<biomes.size(); i++){
+			if(biomes.get(i).getName().equals(biome.getName())){
+				biomes.get(i).addAnimalHabitat(habitat);
+				return;
+			}
+		}
+	}
+
+	public Habitat removeAnimalHabitat(Habitat habitat){
+		Habitat hab = null;
+		Biome biome = habitat.getBiome();
+
+		for(int i = 0; i<biomes.size(); i++){
+			if(biomes.get(i).getName().equals(biome.getName())){
+				hab = biomes.get(i).removeHabitat(habitat);
+			}
+			else{
+				return hab;
+			}
+		}
+		return hab;
+	}
+
 	public Board setupBoard() {
 
 		Biome cave = new Biome("Cave Biome", 3);

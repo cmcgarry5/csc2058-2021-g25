@@ -40,12 +40,12 @@ public  class Biome {
         habitats.add(habitat);
     }
 
-    public boolean removeAnimalHabitat(Habitat habitat){
-        if(habitats.remove(habitat)){
-            return true;
-        }
-        return false;
-    }
+//    public boolean removeAnimalHabitat(Habitat habitat){
+//        if(habitats.remove(habitat)){
+//            return true;
+//        }
+//        return false;
+//    }
 
     public String displayAnimalHabitats() {
         System.out.println("Habitats");
@@ -68,16 +68,20 @@ public  class Biome {
         return name;
     }
 
-    public void removeHabitat(Habitat habitat) {
+    public Habitat removeHabitat(Habitat habitat) {
+        Habitat hab = null;
+
         for (int i = 0; i < habitats.size(); i++) {
             if (habitats.get(i).getName() == habitat.getName()) {
-                habitats.remove(i);
+                hab = habitats.remove(i);
             }
         }
         System.out.println("Habitat has been successfully removed.");
         for (int i = 0; i < habitats.size(); i++) {
             System.out.println(habitats.get(i).getName() + " ");
         }
+
+        return hab;
     }
 
     public String getBiomeName(){

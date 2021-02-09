@@ -27,7 +27,7 @@ public class Habitat extends Square{
 		setFee4Zoo(fee4Zoo);
 		setFeePark(feePark);
 		setBuildCost(buildCost);
-		setBiome(biome);
+		setBiome(Biome);
 		
 	}
 
@@ -201,7 +201,9 @@ public class Habitat extends Square{
 		info += getSquareInfo() + "Type: Habitat\n" + "Number Of Zoos: " + getNumberOfZoos() + "\nHas Park: " + hasNationalPark() + "\nOwned by: " + getOwner().getName();
 		return info;
 	}
-	
-	
-	
+
+
+	public Biome getBiome() {
+		return this.biome;
+	}
 }
