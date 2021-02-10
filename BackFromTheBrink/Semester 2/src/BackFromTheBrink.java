@@ -13,7 +13,7 @@ public class BackFromTheBrink {
     static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard."};
     static Menu InSafariMenu = new Menu("In Safari Options:",inSafariOptions);
 
-    static final String[] turnOptions = {"End turn", "Build on square", "Initiate a trade"};
+    static final String[] turnOptions = {"End turn", "Build on square", "Initiate a trade", "Forfeit Game"};
     static Menu turnOptionsMenu = new Menu("Additional Turn Options:",turnOptions);
 
     public static void main(String[] args) {
@@ -139,7 +139,13 @@ public class BackFromTheBrink {
             break;
             case 3: trade(currentPlayer);
             break;
+            case 4: forfeitGame(currentPlayer);
         }
+    }
+
+    private static void forfeitGame(Player currentPlayer) {
+
+        //currentPlayer.getInventory().restInventory();
     }
 
     private static void buildOnSquare(Player currentPlayer) {

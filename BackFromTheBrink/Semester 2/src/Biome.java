@@ -98,4 +98,8 @@ public  class Biome {
             return false;
         }
     }
+
+    public int getNumberOwnedHabitats() {
+        return this.numberOwnedHabitats;
+    }
 }
