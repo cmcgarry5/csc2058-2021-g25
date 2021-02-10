@@ -9,7 +9,6 @@ public class Inventory {
         this.biomes = new ArrayList<Biome>();
         this.wildCards = new ArrayList<WildCard>();
         this.materials = 200;
-
     }
 
     public int getMaterials() {
@@ -39,6 +38,22 @@ public class Inventory {
         }
 
         return null; // uncomplete
+    }
+
+    public void returnToBoard() {
+        for (int i = 0; i < biomes.size(); i++) {
+            for (int j = 0; j < biomes.get(i).getAnimalHabitats().size(); j++) {
+                biomes.get(i).getAnimalHabitats().get(j).resetHabitat(); // reset zoos and park
+                BackFromTheBrink.board.addAnimalHabitat(biomes.get(i).getAnimalHabitats().get(j));
+            }
+            biomes.get(i).resetHabitats();
+        }
+        for (int i = 0; i < wildCards.size(); i++) {
+            if (wildCards.get(i).getName() == "Escape Safari Card") { // Only one card can be stored
+                BackFromTheBrink.board.wildCards.add(wildCards.get(i));
+            }
+        }
+        this.wildCards = null;
     }
 
     public void addBiome(Biome biome) {
@@ -96,10 +111,7 @@ public class Inventory {
                 wildCards.remove(i);
             }
         }
-        System.out.println("Habitat has been successfully removed.");
-        for (int i = 0; i < wildCards.size(); i++) {
-            System.out.println(wildCards.get(i).getName() + " ");
-        }
+        System.out.println("Wild Card has been successfully removed.");
     }
 
 //	public void removeMaterials(int qty) { // Class Diagram???????????????

@@ -242,4 +242,10 @@ public class Habitat extends Square{
 	public Biome getBiome() {
 		return this.biome;
 	}
+
+	public void resetHabitat() {
+		this.numZoos = 0;
+		this.nationalPark = false;
+		this.ownedBy = null;
+	}
 }

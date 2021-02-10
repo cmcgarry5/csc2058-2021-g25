@@ -102,4 +102,8 @@ public  class Biome {
     public int getNumberOwnedHabitats() {
         return this.numberOwnedHabitats;
     }
+
+    public void resetHabitats() {
+        this.habitats = null;
+    }
 }
