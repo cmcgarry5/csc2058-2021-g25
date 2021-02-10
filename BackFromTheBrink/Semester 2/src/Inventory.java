@@ -41,19 +41,40 @@ public class Inventory {
     }
 
     public void returnToBoard() {
-        for (int i = 0; i < biomes.size(); i++) {
-            for (int j = 0; j < biomes.get(i).getAnimalHabitats().size(); j++) {
-                biomes.get(i).getAnimalHabitats().get(j).resetHabitat(); // reset zoos and park
-                BackFromTheBrink.board.addAnimalHabitat(biomes.get(i).getAnimalHabitats().get(j));
+        for (int i = 0; i < this.biomes.size(); i++) {
+            for (int j = 0; j < this.biomes.get(i).getAnimalHabitats().size(); j++) {
+                this.biomes.get(i).getAnimalHabitats().get(j).resetHabitat(); // reset zoos and park
+                BackFromTheBrink.board.addAnimalHabitat(this.biomes.get(i).getAnimalHabitats().get(j));
             }
-            biomes.get(i).resetHabitats();
+            this.biomes.get(i).resetHabitats();
         }
-        for (int i = 0; i < wildCards.size(); i++) {
-            if (wildCards.get(i).getName() == "Escape Safari Card") { // Only one card can be stored
-                BackFromTheBrink.board.wildCards.add(wildCards.get(i));
+        for (int i = 0; i < this.wildCards.size(); i++) {
+            if (this.wildCards.get(i).getName() == "Escape Safari Card") { // Only one card can be stored
+                BackFromTheBrink.board.wildCards.add(this.wildCards.get(i));
             }
         }
         this.wildCards = null;
+    }
+
+    public void forfeitToPlayer(Player squareOwner) {
+        int bankrupt_player_num_wildCards = this.getWildCard().size();
+        ArrayList<WildCard> bankrupt_player_wildCards = this.getWildCard();
+        int bankrupt_player_num_biomes = this.getBiomes().size();
+        ArrayList<Biome> bankrupt_player_biomes = this.getBiomes();
+
+        for (int i = 0; i < bankrupt_player_num_wildCards; i++) {
+            squareOwner.getInventory().addWildCard(bankrupt_player_wildCards.get(i));
+        }
+        this.wildCards = null;
+        for (int i = 0; i < bankrupt_player_num_biomes; i++) {
+            squareOwner.getInventory().addBiome(bankrupt_player_biomes.get(i));
+            for (int j = 0; j < bankrupt_player_biomes.get(i).getNumberOfHabitats(); j++) {
+                squareOwner.getInventory().addHabitat(bankrupt_player_biomes.get(i), bankrupt_player_biomes.get(i).getAnimalHabitats().get(j));
+                bankrupt_player_biomes.get(i).getAnimalHabitats().get(j).setOwner(squareOwner);
+                this.biomes.get(i).getAnimalHabitats().get(j).resetHabitat(); // reset zoos and park for bankrupt player
+            }
+            this.biomes.get(i).resetHabitats(); // resets habitats for bankrupt player
+        }
     }
 
     public void addBiome(Biome biome) {

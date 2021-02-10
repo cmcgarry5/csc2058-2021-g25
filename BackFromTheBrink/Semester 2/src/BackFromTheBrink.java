@@ -159,26 +159,14 @@ public class BackFromTheBrink {
 
     public static void bankrupt(Player bankruptPlayer, Player squareOwner) {
         int currentPosition = bankruptPlayer.getPiece().getPos();
-        int bankrupt_player_num_wildCards = bankruptPlayer.getInventory().getWildCard().size();
-        ArrayList<WildCard> bankrupt_player_wildCards = bankruptPlayer.getInventory().getWildCard();
-        int bankrupt_player_num_biomes = bankruptPlayer.getInventory().getBiomes().size();
-        ArrayList<Biome> bankrupt_player_biomes = bankruptPlayer.getInventory().getBiomes();
+
 
         Habitat currentHabitat = (Habitat)(board.getSquare(currentPosition));
         if (currentHabitat.getOwner() == null) {
             bankruptPlayer.getInventory().returnToBoard();
         }
         else if (currentHabitat.getOwner() == squareOwner) {
-            for (int i = 0; i < bankrupt_player_num_wildCards; i++) {
-                squareOwner.getInventory().addWildCard(bankrupt_player_wildCards.get(i));
-            }
-            for (int i = 0; i < bankrupt_player_num_biomes; i++) {
-                squareOwner.getInventory().addBiome(bankrupt_player_biomes.get(i));
-                for (int j = 0; j < bankrupt_player_biomes.get(i).getNumberHabitats(); j++) {
-                    squareOwner.getInventory().addHabitat(bankrupt_player_biomes.get(i), bankrupt_player_biomes.get(i).getAnimalHabitats().get(j));
-                    bankrupt_player_biomes.get(i).getAnimalHabitats().get(j).setOwner(squareOwner);
-                }
-            }
+            bankruptPlayer.getInventory().forfeitToPlayer(squareOwner);
         }
 
         System.out.println(IO.printPlayer(bankruptPlayer));
