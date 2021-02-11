@@ -97,6 +97,7 @@ public class BackFromTheBrink {
                     //moveAroundBoard(rollValue);
                     Square currentSquare = currentPlayer.getPiece().move(rollValue2);
 
+                    // to be put in method or square class
                     if(currentSquare instanceof Habitat){
                         if(currentSquare.isOwned()){
                             currentPlayer.payFee(((Habitat) currentSquare).getOwner(), ((Habitat) currentSquare).getLandingOnFee());
