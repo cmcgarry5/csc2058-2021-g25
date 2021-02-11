@@ -54,6 +54,7 @@ public class Player {
 
     public void setOutOfMaterials(boolean outOfMaterials) {
         this.outOfMaterials = outOfMaterials;
+
     }
 
     public void setInSafari(boolean inSafari) {

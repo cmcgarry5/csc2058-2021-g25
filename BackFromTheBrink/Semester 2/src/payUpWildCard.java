@@ -20,7 +20,7 @@ public class payUpWildCard extends WildCard{
             ArrayList<Biome> biomesOwned = player.getInventory().getBiomes();
             for(int i = 0; i < biomesOwned.size(); i++){
                 Biome currentBiome = biomesOwned.get(i);
-                for (int j = 0; j < currentBiome.getNumberHabitats()-1; j++){
+                for (int j = 0; j < currentBiome.getNumberOwnedHabitats()-1; j++){
                     if (currentBiome.getHabitats().get(j).hasNationalPark() != true){
                         countZoo += currentBiome.getHabitats().get(j).getNumberOfZoos();
                     }

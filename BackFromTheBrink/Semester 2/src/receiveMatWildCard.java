@@ -21,7 +21,7 @@ public class receiveMatWildCard extends WildCard {
             int countHabitats = 0;
             for(int i = 0; i < biomesOwned.size(); i++){
                 Biome currentBiome = biomesOwned.get(i);
-                countHabitats += currentBiome.getNumberHabitats();
+                countHabitats += currentBiome.getNumberOwnedHabitats();
             }
             setPayBreed(countHabitats * 100);
             player.getInventory().increasePlayerMaterials(getPayBreedAmt());

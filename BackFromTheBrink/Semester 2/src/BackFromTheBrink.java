@@ -54,7 +54,12 @@ public class BackFromTheBrink {
     public static void playerTurnHandler() {
         //print statements
         for (int i = 0; i < players.size(); i++) {
+
             Player currentPlayer = players.get(i);
+
+            if (currentPlayer.isOutOfMaterials()){
+                continue;
+            }
             //check if player is in jail/safari
             System.out.println(currentPlayer.getName() + ", it is your turn!");
 
@@ -116,7 +121,7 @@ public class BackFromTheBrink {
 
                     ProcessTurnOption(option, currentPlayer);
                 }
-                while(option != 1);
+                while(option == 2 || option == 3);
             }
         }
     }
@@ -140,12 +145,17 @@ public class BackFromTheBrink {
             case 3: trade(currentPlayer);
             break;
             case 4: forfeitGame(currentPlayer);
+            break;
         }
     }
 
     private static void forfeitGame(Player currentPlayer) {
 
-        //currentPlayer.getInventory().restInventory();
+        System.out.println(currentPlayer.getName() + " has forfeited the game!");
+        System.out.println("All of the players habitats are now available to be invested in if landed upon!\n");
+
+        currentPlayer.setOutOfMaterials(true);
+        currentPlayer.getInventory().returnToBoard();
     }
 
     public static void buyHabitat(int position, Player player) { // NOT FINISHED!!!!!!!!!!!!!!! :)
