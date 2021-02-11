@@ -9,7 +9,7 @@ public class Piece {
 	private boolean taken;
 
 
-	public Piece(String name, int position) { // do we need this constructor
+	public Piece(String name, int position) {
 		this.name = name;
 		this.pos = position;
 		this.taken = false;
@@ -28,7 +28,7 @@ public class Piece {
 
 	}
 	
-	public void move(int value) {
+	public Square move(int value) {
 		int boardSize = BackFromTheBrink.board.size();
 		int iter = 0;
 		int newPos = 0;
@@ -55,6 +55,11 @@ public class Piece {
 
 			this.pos = newPos;
 		}
+
+		System.out.println("You have landed on " + Board.getSquare(pos).getName());
+
+
+		return Board.getSquare(pos);
 	}
 	
 	public void move(Square square) {

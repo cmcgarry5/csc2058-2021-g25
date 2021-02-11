@@ -1,8 +1,12 @@
 import java.util.Scanner;
-public class HidingFromPredator {
+public class HidingFromPredator extends Square {
     Scanner sc = new Scanner(System.in);
-    Player player1 = new Player("xyz");
+    //Player player1 = new Player("xyz");
     public int roll;
+
+    public HidingFromPredator(String newName, int nextPos) {
+        super(newName, nextPos);
+    }
 
     public void hidingFromPredator() {
         System.out.println("You are hiding from a predator!/nChoose how you want to escape:");
@@ -11,7 +15,7 @@ public class HidingFromPredator {
         Dice roll = new Dice();
 
         if(choice == 1) {
-            roll.tryDouble(player1);
+            //roll.tryDouble(player1);
         }
 
         else if(choice == 2) {
@@ -30,5 +34,9 @@ public class HidingFromPredator {
         }
     }
 
+    @Override
+    public boolean isOwned() {
+        return false;
+    }
 }
 

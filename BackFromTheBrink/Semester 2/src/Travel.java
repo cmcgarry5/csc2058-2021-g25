@@ -6,6 +6,11 @@ public class Travel extends Square {
 
     }
 
+    @Override
+    public boolean isOwned() {
+        return false;
+    }
+
     public void execute(Player player)
     {
         player.increasePlayerMaterials(AMOUNT_GAIN);

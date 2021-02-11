@@ -95,14 +95,42 @@ public class BackFromTheBrink {
                     int rollValue2 = di.getRollValue();
                     // move around board
                     //moveAroundBoard(rollValue);
-                    currentPlayer.getPiece().move(rollValue);
+                    Square currentSquare = currentPlayer.getPiece().move(rollValue2);
+
+                    if(currentSquare instanceof Habitat){
+                        if(currentSquare.isOwned()){
+                            currentPlayer.payFee(((Habitat) currentSquare).getOwner(), ((Habitat) currentSquare).getLandingOnFee());
+                        }
+                        else{
+                            // ask to buy
+                            System.out.println("ASK TO BUY");
+                        }
+                    }
+                    else if(currentSquare instanceof WildCardSquare){
+                        // do
+                    }
+
+                    else if(currentSquare instanceof Travel){
+                        // do
+                    }
+                    else if(currentSquare instanceof SpottedByPredator){
+                        currentPlayer.getPiece().move(10);
+                    }
+                    else if(currentSquare instanceof BackFromTheBrinkSquare){
+                        //WINNING CONDITION
+                    }
+                    else if(currentSquare instanceof Special){
+                        System.out.println("You must pay " + ((Special) currentSquare).getFee());
+                        currentPlayer.getInventory().deductPlayerMaterials(((Special) currentSquare).getFee());
+                    }
+
                 }
 
                 if (di.getIsSecondDouble()) {
                     // go to jail
                     currentPlayer.setInSafari(true);
                     // move player to the spotted in the safari square
-                    currentPlayer.getPiece().move(board.getSquare(30));
+                    currentPlayer.getPiece().move(Board.getSquare(30));
                 }
 
                 //Display current player info

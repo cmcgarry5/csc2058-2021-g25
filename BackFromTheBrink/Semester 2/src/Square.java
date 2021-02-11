@@ -1,5 +1,5 @@
 
-public class Square {
+public abstract class Square {
 
 	private String name; // Instance name
 	private int position; // Instance position
@@ -61,4 +61,7 @@ public class Square {
 	}
 
 
+	public abstract boolean isOwned();
+
+	//public abstract int getLandingOnFee();
 }

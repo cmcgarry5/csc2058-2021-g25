@@ -27,6 +27,8 @@ public class Habitat extends Square{
 		setFeePark(feePark);
 		setBuildCost(buildCost);
 		setBiome(Biome);
+
+		ownedBy = null;
 		
 	}
 
@@ -247,5 +249,32 @@ public class Habitat extends Square{
 		this.numZoos = 0;
 		this.nationalPark = false;
 		this.ownedBy = null;
+	}
+
+	@Override
+	public boolean isOwned() {
+
+		if (getOwner() == null){
+			return false;
+		}
+		return true;
+	}
+
+	public int getLandingOnFee() {
+
+		if(numZoos == 1){
+			return fee1Zoo;
+		}else if(numZoos == 2){
+			return fee1Zoo;
+		}else if(numZoos == 3){
+			return fee1Zoo;
+		}else if(numZoos == 4){
+			return fee1Zoo;
+		}else if(nationalPark){
+			return feePark;
+		}
+		else{
+			return fee;
+		}
 	}
 }

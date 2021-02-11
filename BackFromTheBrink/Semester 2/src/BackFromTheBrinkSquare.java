@@ -23,5 +23,9 @@ public class BackFromTheBrinkSquare extends Square{
 		}
 	}
 
+	@Override
+	public boolean isOwned() {
+		return false;
+	}
 }
 
