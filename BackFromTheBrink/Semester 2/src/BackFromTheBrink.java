@@ -169,7 +169,7 @@ public class BackFromTheBrink {
     public static void ProcessTurnOption(int option, Player currentPlayer) {
         switch(option) {
             case 1: break;
-            case 2: buildOnSquare(currentPlayer);
+            case 2: buildZoo(currentPlayer);
             break;
             case 3: trade(currentPlayer);
             break;
@@ -213,33 +213,55 @@ public class BackFromTheBrink {
         outOfGame.add(bankruptPlayer);
     }
 
-    private static void buildOnSquare(Player currentPlayer) {
+    private static void buildZoo(Player currentPlayer) {
         boolean ownsBiome = false;
         for(Biome biome: currentPlayer.getInventory().getBiomes()) {
-            if(biome.getHabitats().size() == biome.getNumberOfHabitats()) {
+            if(biome.isAllOwned()) {
                 ownsBiome = true;
             }
         }
-
+        //if they at least own one biome for loop will execute
         if(ownsBiome) {
             //display all owned biomes and habitats and zoos in that biome
             for(int i = 0; i < currentPlayer.getInventory().getBiomes().size(); i++) {
                 Biome currentBiome = currentPlayer.getInventory().getBiomes().get(i);
-                if(currentBiome.getHabitats().size() == currentBiome.getNumberOfHabitats()) {
-                    IO.printHabitats(currentBiome);
+                //if player owns same number of  habitats as maximum number of habitats that a biome can have print them
+                if(currentBiome.isAllOwned()) {
+                    System.out.println(i + ". " + IO.printHabitats(currentBiome));
                 }
             }
+
             //Ask player which biome they want to build a zoo
             System.out.println("Which biome would you like to build a zoo on?");
             int biomeIndex = IO.readInt();
-            //Biome currentBiome = currentPlayer.getInventory().getBiomes().get(biomeIndex);
+            Biome currentBiome = currentPlayer.getInventory().getBiomes().get(biomeIndex);
 
             //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
             System.out.println("Which habitat would you like to build a zoo on?");
             int habitatIndex = IO.readInt();
+            Habitat currentHabitat = currentBiome.getHabitats().get(habitatIndex);
 
-            //Deduct money from player and increment number of zoos in owned habitats
-            //Display success message
+            //if current habitat is less than or equal to the rest of the habitats player can build
+            boolean zooCheck = false;
+            for(int i = 0; i < currentBiome.getHabitats().size();i++) {
+                //Skips current habitat
+                if(currentHabitat == currentBiome.getHabitats().get(i)) {
+                    continue;
+                }
+                if (currentHabitat.getNumberOfZoos() <= currentBiome.getHabitats().get(i).getNumberOfZoos()) {
+                    zooCheck = true;
+                } else {
+                    System.out.println("You cannot build a zoo here, all habitats must have an equal amount of zoos first!");
+                    break;
+                }
+            }
+
+            if(zooCheck) {
+                currentPlayer.deductMaterials(currentHabitat.getBuildCost());
+                currentHabitat.addZoo();
+            }
+            System.out.println("Successfully Built a zoo on " + currentHabitat.getName());
+            IO.printHabitats(currentBiome);
         } else {
             System.out.println("You do not own any biomes therefore you can't build any zoos!");
             return;

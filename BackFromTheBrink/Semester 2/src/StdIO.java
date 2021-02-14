@@ -63,11 +63,9 @@ public class StdIO {
     public String printBiomes(Player player) {
         String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
-        int biomeIndex = 1;
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
-            biomes += biomeIndex + ". " + player.getInventory().getBiomes().get(i).getBiomeName();
+            biomes += i + ". " + player.getInventory().getBiomes().get(i).getBiomeName();
             biomes+= "\n";
-            biomeIndex++;
             int habitatIndex = 1;
             printHabitats(player.getInventory().getBiomes().get(i));
         }
