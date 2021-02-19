@@ -1,6 +1,6 @@
 
 public class Habitat extends Square{
-	private StdIO IO;
+	private StdIO IO = new StdIO();
 	private int cost;
 	private int fee;
 	private int numZoos;
