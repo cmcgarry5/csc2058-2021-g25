@@ -92,13 +92,7 @@ public class BackFromTheBrink {
 
                 // to be put in method or square class
                 if(currentSquare instanceof Habitat){
-                    if(currentSquare.isOwned()){
-                        currentPlayer.payFee(((Habitat) currentSquare).getOwner(), ((Habitat) currentSquare).getLandingOnFee());
-                    }
-                    else{
-                        // ask to buy
-                        System.out.println("ASK TO BUY");
-                    }
+                   ((Habitat) currentSquare).execute(currentPlayer);
                 }
                 else if(currentSquare instanceof WildCardSquare){
                     // do
@@ -272,6 +266,7 @@ public class BackFromTheBrink {
         //print or display all players
         System.out.println(IO.printAllPlayers(players));
         //request user input to select player they want to trade with
+        System.out.println("Select Player you want to trade with");
         int input = IO.readInt()-1;
         //print selected players habitats
         if(input >= players.size() || input < 0) {
@@ -304,6 +299,7 @@ public class BackFromTheBrink {
             Biome selectedBiome = selectedPlayer.getInventory().getBiomes().get(input);
             //request which habitat they want to buy from
             System.out.println("Which Habitat would you like to buy?");
+            IO.printHabitats(selectedBiome);
             input = IO.readInt()-1;
             Habitat selectedHabitat = selectedBiome.getAnimalHabitats().get(input);
             //request user how much they want to pay for habitat
