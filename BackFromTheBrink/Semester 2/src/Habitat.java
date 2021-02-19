@@ -48,20 +48,21 @@ public class Habitat extends Square{
 					player.getInventory().deductPlayerMaterials(cost);
 					setOwner(player);
 					Habitat habitatBought = this;
-					Biome copiedBiome = biome;
-					ArrayList<Habitat> copiedHabitats = copiedBiome.getHabitats();
-					for(int i = 0; i < player.getInventory().getBiomes().size(); i++){
-						if(player.getInventory().getBiomes().get(i) == biome){
+					Biome copiedBiome = new Biome(biome.getName(), biome.getNumberOfHabitats());
+					for(int i = 0; i < player.getInventory().getBiomes().size(); i++) {
+						if (player.getInventory().getBiomes().get(i).getName() == biome.getName()) {
 							player.getInventory().getBiomes().get(i).addAnimalHabitat(habitatBought);
+							return;
 						}
-						else{
-							for (int j = 0; j < copiedHabitats.size(); j++){
-								copiedBiome.removeHabitat(copiedHabitats.get(j));
-							}
-							player.getInventory().addBiome(copiedBiome);
+					}
+					player.getInventory().addBiome(copiedBiome);
+					for(int i = 0; i < player.getInventory().getBiomes().size(); i++) {
+						if (player.getInventory().getBiomes().get(i).getName() == copiedBiome.getName()) {
 							player.getInventory().getBiomes().get(i).addAnimalHabitat(habitatBought);
 						}
 					}
+
+
 
 				}
 			}
