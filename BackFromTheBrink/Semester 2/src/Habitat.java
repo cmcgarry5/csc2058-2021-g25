@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Habitat extends Square{
 	private StdIO IO = new StdIO();
@@ -48,11 +49,15 @@ public class Habitat extends Square{
 					setOwner(player);
 					Habitat habitatBought = this;
 					Biome copiedBiome = biome;
+					ArrayList<Habitat> copiedHabitats = copiedBiome.getHabitats();
 					for(int i = 0; i < player.getInventory().getBiomes().size(); i++){
 						if(player.getInventory().getBiomes().get(i) == biome){
 							player.getInventory().getBiomes().get(i).addAnimalHabitat(habitatBought);
 						}
 						else{
+							for (int i = 0; i < copiedHabitats.size(); i++){
+								copiedBiome.removeHabitat(copiedHabitats.get(i));
+							}
 							player.getInventory().addBiome(copiedBiome);
 							player.getInventory().getBiomes().get(i).addAnimalHabitat(habitatBought);
 						}
