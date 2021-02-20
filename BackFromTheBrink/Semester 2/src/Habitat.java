@@ -40,7 +40,7 @@ public class Habitat extends Square{
 	public void execute(Player player) {
 		System.out.println(IO.printSquareLandedOn(player, this.getName()));
 		if (ownedBy == null) {
-			System.out.println("\nDo you want to invest in this Habitat? \nCost: "+ getCost() + " y/n\n");
+			System.out.println("\nWould you like to invest in the " + this.getName() + "?" + "\nCost: " + getCost() + " y/n\n");
 			
 			String answer = IO.read();
 
@@ -57,14 +57,14 @@ public class Habitat extends Square{
 						}
 					}
 					player.getInventory().addBiome(copiedBiome);
+					Biome addedBiome = null;
 					for(int i = 0; i < player.getInventory().getBiomes().size(); i++) {
 						if (player.getInventory().getBiomes().get(i).getName() == copiedBiome.getName()) {
 							player.getInventory().getBiomes().get(i).addAnimalHabitat(habitatBought);
+							addedBiome = player.getInventory().getBiomes().get(i);
 						}
 					}
-
-
-
+					System.out.println(IO.printBiomeAdded(player, copiedBiome.getName(), addedBiome.getNumberOwnedHabitats(), copiedBiome.getNumberOfHabitats(), habitatBought.getName()));
 				}
 			}
 			else if (answer.equals("n")) {

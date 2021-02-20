@@ -79,10 +79,10 @@ public class Inventory {
 
     public void addBiome(Biome biome) {
         biomes.add(biome);
-        System.out.println("Biome added");
-        for (int i = 0; i < biomes.size(); i++) {
-            System.out.println(biomes.get(i).getBiomeName());
-        }
+//        System.out.println("Biome added");
+//        for (int i = 0; i < biomes.size(); i++) {
+//            System.out.println(biomes.get(i).getBiomeName());
+//        }
     }
 
     public void addHabitat(Biome biome, Habitat habitat) {

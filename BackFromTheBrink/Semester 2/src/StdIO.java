@@ -136,9 +136,24 @@ public class StdIO {
         return print;
     }
 
+    public String printSafariSquare(Player player) {
+        String print = "";
+        print += "You go sightseeing around the Safari in search for exotic animals!";
+        return print;
+    }
+
     public String printPayFee(Player player, int amt) {
         String print = "";
-        print += player.getName() + " must pay " + amt + "!";
+        int prevMaterials = player.getInventory().getMaterials();
+        int newAmount = player.getInventory().getMaterials() - amt;
+        print += "You must pay a fee of " + amt + " materials!" + "\n";
+        print += "You now only have " + newAmount + " materials from a previous " + prevMaterials + " materials";
+        return print;
+    }
+
+    public String printBiomeAdded(Player player, String biomeName, int owned, int size, String habitatName) {
+        String print = "";
+        print += player.getName() + " has invested into the " + habitatName + " and now owns " + owned + " out of " + size + " habitats in the " + biomeName;
         return print;
     }
 

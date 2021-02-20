@@ -139,7 +139,7 @@ public class Board {
 		addSquare(duck);
 		sky.addAnimalHabitat(duck);
 
-		addSquare(new Special("Safari", 10, 0));
+		addSquare(new SafariSquare("Safari", 10));
 
 		Habitat egret = new Habitat("Great Egret Habitat", 11, 160, 12, 60, 180, 500, 700, 900, 100,wetlands);
 		addSquare(egret);

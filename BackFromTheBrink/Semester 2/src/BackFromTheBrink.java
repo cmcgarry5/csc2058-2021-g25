@@ -13,7 +13,7 @@ public class BackFromTheBrink {
     static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard."};
     static Menu InSafariMenu = new Menu("In Safari Options:",inSafariOptions);
 
-    static final String[] turnOptions = {"End turn", "Build on square", "Initiate a trade", "Forfeit Game"};
+    static final String[] turnOptions = {"End turn", "Build on Habitat", "Initiate a trade", "Forfeit Game"};
     static Menu turnOptionsMenu = new Menu("Additional Turn Options:",turnOptions);
 
     public static void main(String[] args) {
@@ -63,13 +63,16 @@ public class BackFromTheBrink {
             // do
         }
         else if(currentSquare instanceof SpottedByPredator){
-            currentPlayer.getPiece().move(10);
+            ((SpottedByPredator) currentSquare).execute(currentPlayer);
         }
         else if(currentSquare instanceof BackFromTheBrinkSquare){
             //WINNING CONDITION
         }
         else if(currentSquare instanceof Special){
             ((Special) currentSquare).execute(currentPlayer, ((Special) currentSquare).getFee());
+        }
+        else if(currentSquare instanceof SafariSquare) {
+            ((SafariSquare) currentSquare).execute(currentPlayer);
         }
     }
 
