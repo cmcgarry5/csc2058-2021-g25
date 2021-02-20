@@ -152,4 +152,14 @@ public class Inventory {
             System.out.println(wildCards.get(i).getName() + " ");
         }
     }
+
+    public boolean hasCompleteBiome(){
+
+        for(Biome b: biomes){
+            if(b.isAllOwned()){
+                return true;
+            }
+        }
+        return false;
+    }
 }

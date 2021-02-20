@@ -50,7 +50,7 @@ public class StdIO {
          else{
              status += "No";
          }
-         return name + "\n" + inventory + "\n" + materials + "\n" + biomes + "\n" + wildcards + "\n" + piece + "\n" + status;
+         return name + "\n" + inventory + "\n" + materials + "\n" + biomes + "\n" + wildcards + "\n" + piece + "\n" + status + "\n";
      }
 
     public static String printInventory(Player player) {

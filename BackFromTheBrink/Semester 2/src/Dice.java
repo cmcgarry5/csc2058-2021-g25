@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,7 +32,30 @@ public class Dice {
 
 	public int getRollValue() {
 
+		if(getIsDouble()){
+			System.out.println("You rolled a double in your previous roll!");
+		}
+
 		int totalRoll = 0;
+
+		Scanner sc = new Scanner(System.in);
+
+		String input;
+		do{
+			System.out.println("Roll the dice by entering 'r' :");
+
+			input = sc.nextLine();
+			input = input.trim();
+
+			if(input.equalsIgnoreCase("r")){
+				break;
+			}
+			else{
+				System.out.println("Invalid input, please try again");
+				continue;
+			}
+		}
+		while(true);
 
 		int roll1 = roll();
 		System.out.print("You rolled a " + roll1);

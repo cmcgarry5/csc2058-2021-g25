@@ -40,20 +40,25 @@ public class PlayerRegistration {
 
         }
 
-		System.out.println("To begin game all players must roll the dice to see who starts first!");
+		System.out.println("To begin game all players must roll the dice to see who starts first!\n");
 
         ArrayList<Integer> playerScores = new ArrayList<Integer>();
 
 		for (int i = 0; i<numPlayers; i++) {
 
-            System.out.println("Roll the dice, " + listPlayers.get(i).getName() + " by entering 'r' :");
-            String roll = sc.nextLine();
-
-        if(roll.toLowerCase().equals("r")) {
+		    System.out.println(listPlayers.get(i).getName() + ",");
             int rollValue = dice.getRollValue();
             playerScores.add(rollValue);
-            }
-        }
+
+//            System.out.println("Roll the dice, " + listPlayers.get(i).getName() + " by entering 'r' :");
+//            String roll = sc.nextLine();
+//
+//        if(roll.toLowerCase().equals("r")) {
+//            int rollValue = dice.getRollValue();
+//            playerScores.add(rollValue);
+//            }
+
+		}
 
         ListPlayersPlayer firstRoll = ListPlayersSameScore(listPlayers, playerScores);
 
