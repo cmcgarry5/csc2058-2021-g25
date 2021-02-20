@@ -14,16 +14,18 @@ public class BackFromTheBrinkSquare extends Square{
 	
 	public void execute(Player player) {
 		// implementation if player has enough materials and has a biome, player is prompted if they want to buy the square
-//		System.out.println(IO.printSquareLandedOn(player, this.getName()));
 		System.out.println(IO.printSquareLandedOn(player, this.getName()));
-		if (player.getInventory().getMaterials() >= REQUIRED_MATERIALS) {
+		if (player.getInventory().getMaterials() >= this.REQUIRED_MATERIALS && player.getInventory().getBiomes().size() > 0) {
 			System.out.println("Would you like to buy it? (y/n)");
 			String response = IO.read();
-			if (response.equals("y") && player.getInventory().getBiomes().size() > 0 && player.getInventory().getMaterials() >= this.REQUIRED_MATERIALS) {
+			if (response.equals("y")) {
 				BackFromTheBrink.setBftbWon();
+			} else {
+				System.out.println("Operation cancelled.");
 			}
 		} else {
-			System.out.println("You do not have enough materials to buy the BFTB square!");
+			System.out.println("Unfortunately you do not meet the requirements to buy the BFTB square.");
+			System.out.println("You need to own at least one biome and have a minimum of 1000 materials!");
 		}
 	}
 

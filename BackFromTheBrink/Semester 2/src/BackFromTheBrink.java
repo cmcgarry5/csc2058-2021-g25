@@ -66,7 +66,7 @@ public class BackFromTheBrink {
             ((SpottedByPredator) currentSquare).execute(currentPlayer);
         }
         else if(currentSquare instanceof BackFromTheBrinkSquare){
-            //WINNING CONDITION
+            ((BackFromTheBrinkSquare) currentSquare).execute(currentPlayer);
         }
         else if(currentSquare instanceof Special){
             ((Special) currentSquare).execute(currentPlayer, ((Special) currentSquare).getFee());
@@ -123,6 +123,7 @@ public class BackFromTheBrink {
                     int rollValue2 = di.getRollValue();
                     // move around board
                     //moveAroundBoard(rollValue);
+                    System.out.println("You rolled a double! Watch out! If you roll another double again you will get spotted by a predator!");
                     Square currentSquareDouble = currentPlayer.getPiece().move(rollValue2);
                     runSquareAction(currentSquareDouble, currentPlayer);
 
@@ -132,6 +133,7 @@ public class BackFromTheBrink {
                     // go to jail
                     currentPlayer.setInSafari(true);
                     // move player to the spotted in the safari square
+                    System.out.println("Unlucky, you rolled two doubles in a row!");
                     currentPlayer.getPiece().move(Board.getSquare(30));
                 }
 
