@@ -1,7 +1,7 @@
 public class Special extends Square {
 
     private int fee;
-    private static StdIO IO;
+    private static StdIO IO = new StdIO();
 
     public Special(String name, int position, int fee) {
         super(name, position);

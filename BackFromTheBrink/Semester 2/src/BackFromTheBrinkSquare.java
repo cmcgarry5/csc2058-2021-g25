@@ -1,6 +1,6 @@
 public class BackFromTheBrinkSquare extends Square{
 
-	private StdIO IO;
+	private StdIO IO = new StdIO();
 	private final int REQUIRED_MATERIALS;
 
 	public BackFromTheBrinkSquare(String name, int pos, int requiredMaterials) {

@@ -1,6 +1,6 @@
 public class Travel extends Square {
     private final int AMOUNT_GAIN = 200;
-    private static StdIO IO;
+    private static StdIO IO = new StdIO();
 
     public Travel(String name, int position) {
         super(name, position);
