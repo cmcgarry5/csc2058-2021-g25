@@ -171,7 +171,7 @@ public class Board {
 		addSquare(eel);
 		cave.addAnimalHabitat(eel);
 
-		addSquare(new Special("Back From The Brink Square", 20, 1000));
+		addSquare(new BackFromTheBrinkSquare("Back From The Brink Square", 20, 1000));
 
 		Habitat leopard = new Habitat("Amur Leopard Habitat", 21, 200, 18, 90, 250, 700, 875, 1050, 150,exotic);
 		addSquare(leopard);

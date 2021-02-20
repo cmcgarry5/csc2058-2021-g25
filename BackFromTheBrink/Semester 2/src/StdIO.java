@@ -2,12 +2,24 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class StdIO {
-    public String printAllPlayers(ArrayList<Player> playerList) {
+//    public String printAllPlayers(ArrayList<Player> playerList) {
+//        String completeList = "";
+//        int playerIndex = 1;
+//        for(int i = 0; i < playerList.size(); i++) {
+//            completeList += playerIndex + ". " + printPlayer(playerList.get(i)) + "\n";
+//            playerIndex++;
+//        }
+//        return completeList;
+//    }
+
+    public String printPlayersTrade(ArrayList<Player> playerList, Player player) {
         String completeList = "";
         int playerIndex = 1;
-        for(int i = 0; i < playerList.size(); i++) {
-            completeList += playerIndex + ". " + printPlayer(playerList.get(i)) + "\n";
-            playerIndex++;
+        for (int i = 0; i < playerList.size(); i++) {
+            if (playerList.get(i) != player) {
+                completeList += playerIndex + ". " + printPlayer(playerList.get(i)) + "\n";
+                playerIndex++;
+            }
         }
         return completeList;
     }
@@ -102,13 +114,31 @@ public class StdIO {
 
     public String printPlayerDecreasedMaterials(Player player, int amt){
         String print = "";
-        print += player.getName()+ "'s materials have been decreased by: " + amt;
+        print += player.getName() + "'s materials have been decreased by: " + amt;
         return print;
     }
 
     public String printPlayerIncreasedMaterials(Player player, int amt){
         String print = "";
-        print += player.getName()+ "'s materials have been increased by: " + amt;
+        print += player.getName() + "'s materials have been increased by: " + amt;
+        return print;
+    }
+
+    public String printTravelSquare(Player player, int amt) {
+        String print = "";
+        print += player.getName() + " has passed the TRAVEL SQUARE and their materials have been increased by: " + amt;
+        return print;
+    }
+
+    public String printSquareLandedOn(Player player, String name) {
+        String print = "";
+        print += player.getName() + " has landed on " + name + "!";
+        return print;
+    }
+
+    public String printPayFee(Player player, int amt) {
+        String print = "";
+        print += player.getName() + " must pay " + amt + "!";
         return print;
     }
 

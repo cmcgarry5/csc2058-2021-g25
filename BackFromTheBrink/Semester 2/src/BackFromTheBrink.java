@@ -69,8 +69,7 @@ public class BackFromTheBrink {
             //WINNING CONDITION
         }
         else if(currentSquare instanceof Special){
-            System.out.println("You must pay " + ((Special) currentSquare).getFee());
-            currentPlayer.getInventory().deductPlayerMaterials(((Special) currentSquare).getFee());
+            ((Special) currentSquare).execute(currentPlayer, ((Special) currentSquare).getFee());
         }
     }
 
@@ -269,7 +268,7 @@ public class BackFromTheBrink {
 
     public static void trade(Player currentPlayer) {
         //print or display all players
-        System.out.println(IO.printAllPlayers(players));
+        System.out.println(IO.printPlayersTrade(players, currentPlayer));
         //request user input to select player they want to trade with
         System.out.println("Select Player you want to trade with");
         int input = IO.readInt()-1;
@@ -280,10 +279,10 @@ public class BackFromTheBrink {
         }
         Player selectedPlayer = players.get(input);
         //ensure player is selecting a player other than themselves
-        if(selectedPlayer.getName() == currentPlayer.getName()) {
-        	System.out.println("You cannot trade with yourself!");
-        	return;
-        }
+//        if(selectedPlayer.getName() == currentPlayer.getName()) {
+//        	System.out.println("You cannot trade with yourself!");
+//        	return;
+//        }
         System.out.println(IO.printPlayer(selectedPlayer));
         //trade verification
         System.out.println("Are you sure you want to trade with this player? Type y for yes, n for no");

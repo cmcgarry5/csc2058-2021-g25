@@ -56,7 +56,7 @@ public class Piece {
 			this.pos = newPos;
 		}
 
-		System.out.println("You have landed on " + Board.getSquare(pos).getName());
+		//System.out.println("You have landed on " + Board.getSquare(pos).getName());
 
 
 		return Board.getSquare(pos);

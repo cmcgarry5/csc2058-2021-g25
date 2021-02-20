@@ -38,6 +38,7 @@ public class Habitat extends Square{
 	}
 
 	public void execute(Player player) {
+		System.out.println(IO.printSquareLandedOn(player, this.getName()));
 		if (ownedBy == null) {
 			System.out.println("\nDo you want to invest in this Habitat? \nCost: "+ getCost() + " y/n\n");
 			
