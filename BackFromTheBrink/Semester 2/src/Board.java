@@ -123,7 +123,7 @@ public class Board {
 		forest.addAnimalHabitat(jaguar);
 
 		addSquare(new Special("Conservation Fee Utility", 4, 200));
-		addSquare(new Special("Zile River", 5, 200));
+		addSquare(new RiverSquare("Zile River", 5));
 
 		Habitat crane = new Habitat("Whooping Crane Habitat", 6, 100, 6, 30, 90, 270, 400, 550, 50,sky);
 		addSquare(crane);
@@ -155,7 +155,7 @@ public class Board {
 		addSquare(shiner);
 		wetlands.addAnimalHabitat(shiner);
 
-		addSquare(new Special("Hatsu River", 15, 200));
+		addSquare(new RiverSquare("Hatsu River", 15));
 
 		Habitat bat = new Habitat("Grey Bat Habitat", 16, 160, 14, 70, 200, 550, 700, 900, 100,cave);
 		addSquare(bat);
@@ -187,7 +187,7 @@ public class Board {
 		addSquare(tiger);
 		exotic.addAnimalHabitat(tiger);
 
-		addSquare(new Special("Trinity River", 25, 200));
+		addSquare(new RiverSquare("Trinity River", 25));
 
 		Habitat bear = new Habitat("Polar Bear Habitat", 26, 260, 22, 110, 330, 800, 975, 1150, 150,snow);
 		addSquare(bear);
@@ -219,7 +219,7 @@ public class Board {
 		addSquare(elephant);
 		jungle.addAnimalHabitat(elephant);
 
-		addSquare(new Special("Duke River", 35, 200));
+		addSquare(new RiverSquare("Duke River", 35));
 		addSquare(new WildCardSquare("Wild Card 6", 36));
 
 		Habitat whale = new Habitat("Blue Whale Habitat", 37, 400, 50, 200, 600, 1400, 1700, 2000, 200,marine);

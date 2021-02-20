@@ -10,7 +10,7 @@ public class BackFromTheBrink {
 
     static Dice di = new Dice();
 
-    static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard."};
+    static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard.", "Forfeit Game"};
     static Menu InSafariMenu = new Menu("In Safari Options:",inSafariOptions);
 
     static final String[] turnOptions = {"End turn", "Build on Habitat", "Initiate a trade", "Forfeit Game"};
@@ -73,6 +73,9 @@ public class BackFromTheBrink {
         }
         else if(currentSquare instanceof SafariSquare) {
             ((SafariSquare) currentSquare).execute(currentPlayer);
+        }
+        else if (currentSquare instanceof  RiverSquare) {
+            ((RiverSquare) currentSquare).execute((currentPlayer));
         }
     }
 
@@ -168,6 +171,7 @@ public class BackFromTheBrink {
             break;
             case 3: currentPlayer.useWildCard(currentPlayer);
             break;
+            case 4: forfeitGame(currentPlayer);
         }
     }
 
