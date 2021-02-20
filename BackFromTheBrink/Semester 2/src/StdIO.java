@@ -12,7 +12,7 @@ public class StdIO {
 //        return completeList;
 //    }
 
-    public String printPlayersTrade(ArrayList<Player> playerList, Player player) {
+    public static String printPlayersTrade(ArrayList<Player> playerList, Player player) {
         String completeList = "";
         int playerIndex = 1;
         for (int i = 0; i < playerList.size(); i++) {
@@ -24,7 +24,7 @@ public class StdIO {
         return completeList;
     }
 
-     public String printPlayer(Player player) {
+     public static String printPlayer(Player player) {
          String name = player.getName();
          String inventory = "Inventory: ";
          String materials = "Materials: " + player.getInventory().getMaterials();
@@ -53,7 +53,7 @@ public class StdIO {
          return name + "\n" + inventory + "\n" + materials + "\n" + biomes + "\n" + wildcards + "\n" + piece + "\n" + status;
      }
 
-    public String printInventory(Player player) {
+    public static String printInventory(Player player) {
         String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
@@ -72,7 +72,7 @@ public class StdIO {
         return biomes + "\n" + wildcards;
     }
 
-    public String printBiomes(Player player) {
+    public static String printBiomes(Player player) {
         String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
@@ -84,7 +84,7 @@ public class StdIO {
         return biomes;
     }
 
-    public String printHabitats(Biome biome) {
+    public static String printHabitats(Biome biome) {
         String print = "";
         int habitatIndex = 1;
         Habitat currentHabitat = null;
@@ -106,43 +106,43 @@ public class StdIO {
         return print;
     }
 
-    public String printDrawnWildCard(WildCard wildcard, Player player){
+    public static String printDrawnWildCard(WildCard wildcard, Player player){
         String print = "";
         print += player.getName() + " has drawn " + wildcard.getName() + " wildcard";
         return print;
     }
 
-    public String printPlayerDecreasedMaterials(Player player, int amt){
+    public static String printPlayerDecreasedMaterials(Player player, int amt){
         String print = "";
         print += player.getName() + "'s materials have been decreased by: " + amt;
         return print;
     }
 
-    public String printPlayerIncreasedMaterials(Player player, int amt){
+    public static String printPlayerIncreasedMaterials(Player player, int amt){
         String print = "";
         print += player.getName() + "'s materials have been increased by: " + amt;
         return print;
     }
 
-    public String printTravelSquare(Player player, int amt) {
+    public static String printTravelSquare(Player player, int amt) {
         String print = "";
         print += player.getName() + " has passed the TRAVEL SQUARE and their materials have been increased by: " + amt;
         return print;
     }
 
-    public String printSquareLandedOn(Player player, String name) {
+    public static String printSquareLandedOn(Player player, String name) {
         String print = "";
         print += player.getName() + " has landed on " + name + "!";
         return print;
     }
 
-    public String printSafariSquare(Player player) {
+    public static String printSafariSquare(Player player) {
         String print = "";
         print += "You go sightseeing around the Safari in search for exotic animals!";
         return print;
     }
 
-    public String printPayFee(Player player, int amt) {
+    public static String printPayFee(Player player, int amt) {
         String print = "";
         int prevMaterials = player.getInventory().getMaterials();
         int newAmount = player.getInventory().getMaterials() - amt;
@@ -151,14 +151,14 @@ public class StdIO {
         return print;
     }
 
-    public String printBiomeAdded(Player player, String biomeName, int owned, int size, String habitatName) {
+    public static String printBiomeAdded(Player player, String biomeName, int owned, int size, String habitatName) {
         String print = "";
         print += player.getName() + " has invested into the " + habitatName + " and now owns " + owned + " out of " + size + " habitats in the " + biomeName;
         return print;
     }
 
     //Take string input from player
-    public String read() {
+    public static String read() {
         System.out.println("\nPlayer Input:");
         System.out.println(">");
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -171,7 +171,7 @@ public class StdIO {
     }
 
     //read int from player
-    public int readInt() {
+    public static int readInt() {
         System.out.println("\nPlayer Input:");
         System.out.println(">");
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

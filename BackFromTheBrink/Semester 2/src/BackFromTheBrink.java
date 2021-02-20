@@ -5,7 +5,7 @@ public class BackFromTheBrink {
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
     private static boolean bftbWon = false;
-    private static StdIO IO;
+    //private static StdIO StdIO;
     static Board board;
 
     static Dice di = new Dice();
@@ -19,7 +19,7 @@ public class BackFromTheBrink {
     public static void main(String[] args) {
 
         board = new Board();
-        IO = new StdIO();
+        //StdIO = new StdIO();
 
         board.setupBoard();
 
@@ -90,6 +90,8 @@ public class BackFromTheBrink {
 
             //message to let player know their state at the start of their turn.
 
+            System.out.println(StdIO.printPlayer(currentPlayer));
+
             if(currentPlayer.isInSafari()){
                 //print out options
 
@@ -98,7 +100,7 @@ public class BackFromTheBrink {
                 int option;
                 do{
                     InSafariMenu.display();
-                    option = IO.readInt();
+                    option = StdIO.readInt();
 
                 }
                 while(option <= 0 || option> InSafariMenu.getNumOptions());
@@ -138,7 +140,7 @@ public class BackFromTheBrink {
                 }
 
                 //Display current player info
-                IO.printPlayer(currentPlayer);
+                StdIO.printPlayer(currentPlayer);
 
                 //print out all options available
                 //request input
@@ -147,7 +149,7 @@ public class BackFromTheBrink {
                     turnOptionsMenu.display();
                     do{
 
-                        option = IO.readInt();
+                        option = StdIO.readInt();
 
                     }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
 
@@ -211,7 +213,7 @@ public class BackFromTheBrink {
             bankruptPlayer.getInventory().forfeitToPlayer(squareOwner);
         }
 
-        System.out.println(IO.printPlayer(bankruptPlayer));
+        System.out.println(StdIO.printPlayer(bankruptPlayer));
         players.remove(bankruptPlayer);
         outOfGame.add(bankruptPlayer);
     }
@@ -230,18 +232,18 @@ public class BackFromTheBrink {
                 Biome currentBiome = currentPlayer.getInventory().getBiomes().get(i);
                 //if player owns same number of  habitats as maximum number of habitats that a biome can have print them
                 if(currentBiome.isAllOwned()) {
-                    System.out.println(i + ". " + IO.printHabitats(currentBiome));
+                    System.out.println(i + ". " + StdIO.printHabitats(currentBiome));
                 }
             }
 
             //Ask player which biome they want to build a zoo
             System.out.println("Which biome would you like to build a zoo on?");
-            int biomeIndex = IO.readInt();
+            int biomeIndex = StdIO.readInt();
             Biome currentBiome = currentPlayer.getInventory().getBiomes().get(biomeIndex);
 
             //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
             System.out.println("Which habitat would you like to build a zoo on?");
-            int habitatIndex = IO.readInt();
+            int habitatIndex = StdIO.readInt();
             Habitat currentHabitat = currentBiome.getHabitats().get(habitatIndex);
 
             //if current habitat is less than or equal to the rest of the habitats player can build
@@ -264,7 +266,7 @@ public class BackFromTheBrink {
                 currentHabitat.addZoo();
             }
             System.out.println("Successfully Built a zoo on " + currentHabitat.getName());
-            IO.printHabitats(currentBiome);
+            StdIO.printHabitats(currentBiome);
         } else {
             System.out.println("You do not own any biomes therefore you can't build any zoos!");
             return;
@@ -273,10 +275,10 @@ public class BackFromTheBrink {
 
     public static void trade(Player currentPlayer) {
         //print or display all players
-        System.out.println(IO.printPlayersTrade(players, currentPlayer));
+        System.out.println(StdIO.printPlayersTrade(players, currentPlayer));
         //request user input to select player they want to trade with
         System.out.println("Select Player you want to trade with");
-        int input = IO.readInt()-1;
+        int input = StdIO.readInt()-1;
         //print selected players habitats
         if(input >= players.size() || input < 0) {
             System.out.println("This player does not exist!");
@@ -288,19 +290,19 @@ public class BackFromTheBrink {
 //        	System.out.println("You cannot trade with yourself!");
 //        	return;
 //        }
-        System.out.println(IO.printPlayer(selectedPlayer));
+        System.out.println(StdIO.printPlayer(selectedPlayer));
         //trade verification
         System.out.println("Are you sure you want to trade with this player? Type y for yes, n for no");
         //request user input
-        String verification = IO.read().toLowerCase();
+        String verification = StdIO.read().toLowerCase();
         if (verification.equals("y")){
             //ask user which biome they want to buy from
             System.out.println("Select the biome you would like to buy from");
             for(int i = 0; i < selectedPlayer.getInventory().getBiomes().size(); i++) {
-                System.out.println(IO.printBiomes(selectedPlayer));
+                System.out.println(StdIO.printBiomes(selectedPlayer));
             }
             //request user input
-            input = IO.readInt()-1;
+            input = StdIO.readInt()-1;
             if(input >= selectedPlayer.getInventory().getBiomes().size() || input < 0) {
                 System.out.println("This biome does not exist!");
                 return;
@@ -308,19 +310,19 @@ public class BackFromTheBrink {
             Biome selectedBiome = selectedPlayer.getInventory().getBiomes().get(input);
             //request which habitat they want to buy from
             System.out.println("Which Habitat would you like to buy?");
-            IO.printHabitats(selectedBiome);
-            input = IO.readInt()-1;
+            StdIO.printHabitats(selectedBiome);
+            input = StdIO.readInt()-1;
             Habitat selectedHabitat = selectedBiome.getAnimalHabitats().get(input);
             //request user how much they want to pay for habitat
             System.out.println("How much would you like to pay for it?");
-            int amount = IO.readInt();
+            int amount = StdIO.readInt();
             //request user2 if they want to accept
             System.out.println("Pass the remote controller to " + selectedPlayer.getName());
             String tradeRequest = "";
             tradeRequest += currentPlayer.getName() + " has requested to buy " + selectedHabitat.getName() +
                     " in the " + selectedBiome.getName() + " biome for " + amount;
             System.out.println("Would you like to accept this trade? y for yes, n for no ");
-            verification = IO.read();
+            verification = StdIO.read();
             //transaction body
             if (verification.equals("y")) {
                 selectedPlayer.increasePlayerMaterials(amount);
