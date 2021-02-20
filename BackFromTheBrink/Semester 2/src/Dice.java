@@ -83,7 +83,7 @@ public class Dice {
 				player.getPiece().move(rollValue);
 				nextPlayer();
 			} else {
-				System.out.println("Unlucky, the predator is still lurking nearby...");
+				System.out.println("Unlucky, " + player.getName() + ", the predator is still lurking nearby...");
 				nextPlayer();
 			}
 		}
