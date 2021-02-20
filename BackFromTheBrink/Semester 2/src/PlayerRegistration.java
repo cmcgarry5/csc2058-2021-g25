@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -219,9 +220,13 @@ public class PlayerRegistration {
     public static int enterNumPlayers() {
 
         System.out.println("Enter the number of players (2-8)");
-
+        int numPlayers = 0;
         Scanner sc =  new Scanner(System.in);
-        int numPlayers = sc.nextInt();
+        try {
+            numPlayers = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid Input. Must be of type Integer.");
+        }
 
         return numPlayers;
 
