@@ -94,6 +94,24 @@ public class StdIO {
         return print;
     }
 
+    public String printDrawnWildCard(WildCard wildcard, Player player){
+        String print = "";
+        print += player.getName() + " has drawn " + wildcard.getName() + " wildcard";
+        return print;
+    }
+
+    public String printPlayerDecreasedMaterials(Player player, int amt){
+        String print = "";
+        print += player.getName()+ "'s materials have been decreased by: " + amt;
+        return print;
+    }
+
+    public String printPlayerIncreasedMaterials(Player player, int amt){
+        String print = "";
+        print += player.getName()+ "'s materials have been increased by: " + amt;
+        return print;
+    }
+
     //Take string input from player
     public String read() {
         System.out.println("\nPlayer Input:");
