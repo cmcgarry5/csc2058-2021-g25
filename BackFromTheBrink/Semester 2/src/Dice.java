@@ -8,7 +8,7 @@ public class Dice {
 	private int rollValue;
 	private boolean isDouble;
 	private boolean isSecondDouble;
-	
+
 	
 
 	public Dice() { // does this class need a constructor - should we do the thing we did in SDP for only allowing one instance? Singleton Pattern?
@@ -67,25 +67,22 @@ public class Dice {
 
 	public void tryDouble(Player player) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
-		String roll = sc.nextLine();
-		String reRoll = "";
+		String roll = "";
+		do {
+			System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
+			 roll = sc.nextLine();
+		} while (!roll.toLowerCase().equals("r"));
 
-		while (!roll.toLowerCase().equals("r") || !reRoll.toLowerCase().equals("r")) {
-			System.out.println("Invalid input. You must roll the dice to continue... Please press 'r' to roll.");
-			reRoll = sc.nextLine();
-		}
-
-		if (roll.toLowerCase().equals("r") || reRoll.toLowerCase().equals("r")) {
-			int rollValue = this.getRollValue();
-			if(this.isDouble) {
-				System.out.println("You rolled a double! You luckily escaped from the predator and escaped!");
-				player.getPiece().move(rollValue);
-				nextPlayer();
-			} else {
-				System.out.println("Unlucky, " + player.getName() + ", the predator is still lurking nearby...");
-				nextPlayer();
+			if (roll.toLowerCase().equals("r")) {
+				int rollValue = this.getRollValue();
+				if(this.isDouble) {
+					System.out.println("You rolled a double! You luckily escaped from the predator and escaped!");
+					player.getPiece().move(rollValue);
+					nextPlayer();
+				} else {
+					System.out.println("Unlucky, " + player.getName() + ", the predator is still lurking nearby...");
+					nextPlayer();
+				}
 			}
-		}
 	}
 }

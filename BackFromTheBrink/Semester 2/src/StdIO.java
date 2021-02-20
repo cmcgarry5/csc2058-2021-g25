@@ -142,12 +142,25 @@ public class StdIO {
         return print;
     }
 
-    public static String printPayFee(Player player, int amt) {
+    public static String showMaterialsDeducted(Player player, int amt) {
         String print = "";
         int prevMaterials = player.getInventory().getMaterials();
         int newAmount = player.getInventory().getMaterials() - amt;
+        print += "\nYou now only have " + newAmount + " materials from a previous " + prevMaterials + " materials";
+        return print;
+    }
+
+    public static String printRiverSquare(Player player, int amt, String name) {
+        String print = "";
+        print += "You must use up " + amt + " materials to cross " + name + "!";
+        print += showMaterialsDeducted(player, amt);
+        return print;
+    }
+
+    public static String printPayFee(Player player, int amt) {
+        String print = "";
         print += "You must pay a fee of " + amt + " materials!" + "\n";
-        print += "You now only have " + newAmount + " materials from a previous " + prevMaterials + " materials";
+        print += showMaterialsDeducted(player, amt);
         return print;
     }
 

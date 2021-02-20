@@ -16,4 +16,3 @@ public class SpottedByPredator extends Square{
         System.out.println(player.getName() + "is now being hunted by a deadly predator and is stuck in hiding in the safari!");
     }
 }
-
