@@ -3,14 +3,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Dice {
-
 	private final int MAX_VALUE = 6;
-
 	private int rollValue;
 	private boolean isDouble;
 	private boolean isSecondDouble;
-
-	
 
 	public Dice() { // does this class need a constructor - should we do the thing we did in SDP for only allowing one instance? Singleton Pattern?
 		this.isDouble = false;
@@ -18,9 +14,7 @@ public class Dice {
 	}
 
 	private int roll() {
-
 		Random rand = new Random();
-		
 		int value = 1 + rand.nextInt(MAX_VALUE);
 		return value;
 	}
