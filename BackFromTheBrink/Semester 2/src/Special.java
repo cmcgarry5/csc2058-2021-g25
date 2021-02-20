@@ -34,7 +34,7 @@ public class Special extends Square {
     //Use the method below as execute(player, getFee(3))
     public void execute(Player player, int amount) {
         System.out.println(IO.printSquareLandedOn(player, this.getName()));
-        IO.printPayFee(player, amount);
+        System.out.println(IO.printPayFee(player, amount));
         player.deductMaterials(amount);
     }
 
