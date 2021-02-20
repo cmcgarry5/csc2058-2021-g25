@@ -12,6 +12,7 @@ public class WildCardSquare extends Square{
 
 	public void execute(Player player) {
 		WildCard wildCardDrawn = BackFromTheBrink.board.draw();
+		System.out.println(wildCardDrawn.getName());
 		wildCardDrawn.execute(player);
 	}
 

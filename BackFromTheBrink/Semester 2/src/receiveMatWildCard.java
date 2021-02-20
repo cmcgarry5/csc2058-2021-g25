@@ -28,7 +28,7 @@ public class receiveMatWildCard extends WildCard {
         }
         else if (getIsConSch()){
             int countPlayers = BackFromTheBrink.players.size();
-            setPayCon(countPlayers*50);
+            setPayCon((countPlayers-1)*50);
             player.getInventory().increasePlayerMaterials(getPayConAmt());
 
             for(int i = 0; i < countPlayers; i++){

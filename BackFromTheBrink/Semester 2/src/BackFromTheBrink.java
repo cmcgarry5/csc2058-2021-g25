@@ -51,6 +51,29 @@ public class BackFromTheBrink {
        return bftbWon;
     }
 
+    public static void runSquareAction(Square currentSquare, Player currentPlayer){
+        if(currentSquare instanceof Habitat){
+            ((Habitat) currentSquare).execute(currentPlayer);
+        }
+        else if(currentSquare instanceof WildCardSquare){
+            ((WildCardSquare) currentSquare).execute(currentPlayer);
+        }
+
+        else if(currentSquare instanceof Travel){
+            // do
+        }
+        else if(currentSquare instanceof SpottedByPredator){
+            currentPlayer.getPiece().move(10);
+        }
+        else if(currentSquare instanceof BackFromTheBrinkSquare){
+            //WINNING CONDITION
+        }
+        else if(currentSquare instanceof Special){
+            System.out.println("You must pay " + ((Special) currentSquare).getFee());
+            currentPlayer.getInventory().deductPlayerMaterials(((Special) currentSquare).getFee());
+        }
+    }
+
     public static void playerTurnHandler() {
         //print statements
         for (int i = 0; i < players.size(); i++) {
@@ -91,26 +114,7 @@ public class BackFromTheBrink {
                 Square currentSquare = currentPlayer.getPiece().move(rollValue);
 
                 // to be put in method or square class
-                if(currentSquare instanceof Habitat){
-                   ((Habitat) currentSquare).execute(currentPlayer);
-                }
-                else if(currentSquare instanceof WildCardSquare){
-                    // do
-                }
-
-                else if(currentSquare instanceof Travel){
-                    // do
-                }
-                else if(currentSquare instanceof SpottedByPredator){
-                    currentPlayer.getPiece().move(10);
-                }
-                else if(currentSquare instanceof BackFromTheBrinkSquare){
-                    //WINNING CONDITION
-                }
-                else if(currentSquare instanceof Special){
-                    System.out.println("You must pay " + ((Special) currentSquare).getFee());
-                    currentPlayer.getInventory().deductPlayerMaterials(((Special) currentSquare).getFee());
-                }
+                runSquareAction(currentSquare, currentPlayer);
 
 
                 if (di.getIsDouble()) {
@@ -118,6 +122,7 @@ public class BackFromTheBrink {
                     // move around board
                     //moveAroundBoard(rollValue);
                     Square currentSquareDouble = currentPlayer.getPiece().move(rollValue2);
+                    runSquareAction(currentSquareDouble, currentPlayer);
 
                 }
 
