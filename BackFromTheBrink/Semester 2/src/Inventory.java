@@ -8,7 +8,7 @@ public class Inventory {
     public Inventory() {
         this.biomes = new ArrayList<Biome>();
         this.wildCards = new ArrayList<WildCard>();
-        this.materials = 200;
+        this.materials = 1500;
     }
 
     public int getMaterials() {

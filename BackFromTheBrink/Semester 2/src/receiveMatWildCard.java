@@ -7,7 +7,6 @@ public class receiveMatWildCard extends WildCard {
     private int paymentConservation;
     private boolean isBreedingSuccessful;
     private boolean isConservationScheme;
-    private StdIO IO = new StdIO();
 
     public receiveMatWildCard(String cardName, boolean isBr, boolean isCon, int toPay) {
         super(cardName);
@@ -26,7 +25,7 @@ public class receiveMatWildCard extends WildCard {
             }
             setPayBreed(countHabitats * 100);
             player.getInventory().increasePlayerMaterials(getPayBreedAmt());
-            System.out.println(IO.printPlayerIncreasedMaterials(player, getPayBreedAmt()));
+            System.out.println(StdIO.printPlayerIncreasedMaterials(player, getPayBreedAmt()));
         }
         else if (getIsConSch()){
             int countPlayers = BackFromTheBrink.players.size();
@@ -36,17 +35,17 @@ public class receiveMatWildCard extends WildCard {
                 Player currentPlayer = BackFromTheBrink.players.get(i);
                 if (currentPlayer != player){
                     currentPlayer.getInventory().deductPlayerMaterials(getPayConAmt());
-                    System.out.println(IO.printPlayerDecreasedMaterials(currentPlayer, 50));
+                    System.out.println(StdIO.printPlayerDecreasedMaterials(currentPlayer, 50));
 
                 }
             }
 
             player.getInventory().increasePlayerMaterials(getPayConAmt());
-            System.out.println(IO.printPlayerIncreasedMaterials(player, getPayConAmt()));
+            System.out.println(StdIO.printPlayerIncreasedMaterials(player, getPayConAmt()));
         }
         else {
             player.getInventory().increasePlayerMaterials(getPayAmt());
-            System.out.println(IO.printPlayerIncreasedMaterials(player, getPayAmt()));
+            System.out.println(StdIO.printPlayerIncreasedMaterials(player, getPayAmt()));
         }
     }
 

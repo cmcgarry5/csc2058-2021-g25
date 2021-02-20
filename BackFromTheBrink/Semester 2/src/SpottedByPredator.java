@@ -1,7 +1,5 @@
 public class SpottedByPredator extends Square{
 
-    private static StdIO IO = new StdIO();
-
     public SpottedByPredator(String newName, int nextPos) {
         super(newName, nextPos);
     	//player.getPiece().move(hiding);

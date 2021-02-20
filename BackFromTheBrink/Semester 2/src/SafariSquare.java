@@ -1,5 +1,4 @@
 public class SafariSquare extends Square {
-    private StdIO IO = new StdIO();
 
     public SafariSquare(String name, int position) {
         super(name, position);
@@ -12,7 +11,7 @@ public class SafariSquare extends Square {
 
 
     public void execute(Player player) {
-        System.out.println(IO.printSquareLandedOn(player, this.getName()));
-        System.out.println(IO.printSafariSquare(player));
+        System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
+        System.out.println(StdIO.printSafariSquare(player));
     }
 }

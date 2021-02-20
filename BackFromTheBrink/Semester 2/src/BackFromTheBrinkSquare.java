@@ -1,6 +1,5 @@
 public class BackFromTheBrinkSquare extends Square{
 
-	private StdIO IO = new StdIO();
 	private final int REQUIRED_MATERIALS;
 
 	public BackFromTheBrinkSquare(String name, int pos, int requiredMaterials) {
@@ -14,10 +13,10 @@ public class BackFromTheBrinkSquare extends Square{
 	
 	public void execute(Player player) {
 		// implementation if player has enough materials and has a biome, player is prompted if they want to buy the square
-		System.out.println(IO.printSquareLandedOn(player, this.getName()));
+		System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
 		if (player.getInventory().getMaterials() >= this.REQUIRED_MATERIALS && player.getInventory().getBiomes().size() > 0) {
 			System.out.println("Would you like to buy it? (y/n)");
-			String response = IO.read();
+			String response = StdIO.read();
 			if (response.equals("y")) {
 				BackFromTheBrink.setBftbWon();
 			} else {

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class PlayerRegistration {
 
     static Dice dice = new Dice();

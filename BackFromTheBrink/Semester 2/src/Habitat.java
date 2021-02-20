@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Habitat extends Square{
-	private StdIO IO = new StdIO();
 	private int cost;
 	private int fee;
 	private int numZoos;
@@ -38,11 +37,11 @@ public class Habitat extends Square{
 	}
 
 	public void execute(Player player) {
-		System.out.println(IO.printSquareLandedOn(player, this.getName()));
+		System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
 		if (ownedBy == null) {
 			System.out.println("\nWould you like to invest in the " + this.getName() + "?" + "\nCost: " + getCost() + " y/n\n");
 			
-			String answer = IO.read();
+			String answer = StdIO.read();
 
 			if (answer.equals("y")) {
 				if (player.getInventory().checkPlayerMaterials(cost)) {
@@ -64,7 +63,7 @@ public class Habitat extends Square{
 							addedBiome = player.getInventory().getBiomes().get(i);
 						}
 					}
-					System.out.println(IO.printBiomeAdded(player, copiedBiome.getName(), addedBiome.getNumberOwnedHabitats(), copiedBiome.getNumberOfHabitats(), habitatBought.getName()));
+					System.out.println(StdIO.printBiomeAdded(player, copiedBiome.getName(), addedBiome.getNumberOwnedHabitats(), copiedBiome.getNumberOfHabitats(), habitatBought.getName()));
 				}
 			}
 			else if (answer.equals("n")) {

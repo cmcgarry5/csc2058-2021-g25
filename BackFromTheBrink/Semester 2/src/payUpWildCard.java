@@ -5,7 +5,6 @@ public class payUpWildCard extends WildCard{
     private int feeToPayZoosAndParks;
     private int feeToPay;
     private boolean isMaintenance;
-    private StdIO IO = new StdIO();
 
     public payUpWildCard(String cardName, boolean isMaint, int fee) {
         super(cardName);
@@ -32,13 +31,13 @@ public class payUpWildCard extends WildCard{
             }
             setFeeToPayZoosAndParks((40*countZoo) + (75*countPark));
             player.getInventory().deductPlayerMaterials(getFeeZoosAndParksAmount());
-            System.out.println(IO.printPlayerDecreasedMaterials(player, getFeeZoosAndParksAmount()));
+            System.out.println(StdIO.printPlayerDecreasedMaterials(player, getFeeZoosAndParksAmount()));
 
             return;
         }
 
         player.getInventory().deductPlayerMaterials(getFeeAmount());
-        System.out.println(IO.printPlayerDecreasedMaterials(player, getFeeAmount()));
+        System.out.println(StdIO.printPlayerDecreasedMaterials(player, getFeeAmount()));
     }
 
     private void setMaintenance(boolean bool){
