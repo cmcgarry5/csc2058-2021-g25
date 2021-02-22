@@ -5,7 +5,7 @@ public class BackFromTheBrink {
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
     private static boolean bftbWon = false;
-    private static StdIO StdIO;
+    //private static StdIO StdIO;
     static Board board;
 
     static Dice di = new Dice();
