@@ -6,6 +6,7 @@ public class Player {
     private Piece piece;
     private boolean outOfMaterials;
     private boolean inSafari;
+    private static String remove;
 
     public Player(String name) {
         this.name = name;
