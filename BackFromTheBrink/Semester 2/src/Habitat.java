@@ -234,12 +234,10 @@ public class Habitat extends Square{
 		}
 		else{
 			setPark(true);
-			for (int i = 0; i < 4 ; i++) {
-				removeZoo();
+			setNumZoos(100);
 			}
 		}
 
-	}
 	
 	public boolean hasNationalPark() {
 		return this.nationalPark;
@@ -273,7 +271,10 @@ public class Habitat extends Square{
 
 	public int getLandingOnFee() {
 
-		if(numZoos == 1){
+		if (nationalPark) {
+			return feePark;
+		}
+		else if(numZoos == 1){
 			return fee1Zoo;
 		}else if(numZoos == 2){
 			return fee1Zoo;
@@ -281,8 +282,6 @@ public class Habitat extends Square{
 			return fee1Zoo;
 		}else if(numZoos == 4){
 			return fee1Zoo;
-		}else if(nationalPark){
-			return feePark;
 		}
 		else{
 			return fee;
