@@ -13,7 +13,13 @@ public class moveWildCard extends WildCard{
 
     public void execute(Player player) {
         if (isSq == true && isRi == false) {
-            player.getPiece().move(moveToSquare);
+            if(moveToSquare.getPos() == 10) {
+                player.getPiece().move(moveToSquare);
+                player.setInSafari(true);
+            }
+            else{
+                player.getPiece().move(moveToSquare);
+            }
 
         } else if (isSq == true && isRi == true) {
             int playerPos = player.getPiece().getPos();
