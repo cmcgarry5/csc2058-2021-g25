@@ -21,7 +21,7 @@ public class Travel extends Square {
     //If player has passed travel square and not landed on it this method is called
     public static void passedTravelSquare(Player player) {
         player.increasePlayerMaterials(AMOUNT_GAIN);
-        StdIO.printTravelSquare(player, AMOUNT_GAIN);
+        System.out.println(StdIO.printTravelSquare(player, AMOUNT_GAIN));
         player.getPiece().setPassedTravelSquare(false);
     }
 

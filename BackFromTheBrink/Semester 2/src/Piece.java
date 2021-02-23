@@ -22,6 +22,10 @@ public class Piece {
 		this.pos = 0;
 	}
 
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
+
 	public static int getNextID() {
 		int id = nextID;
 		nextID++;

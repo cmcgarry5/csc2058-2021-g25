@@ -74,6 +74,7 @@ public class Habitat extends Square{
 		else if(player != ownedBy) {
 			if(hasNationalPark()) {
 				if(player.getInventory().checkPlayerMaterials(feePark)) {
+					StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, 0);
 					player.deductMaterials(feePark);
 				} else {
 					player.setOutOfMaterials(true);
@@ -83,6 +84,7 @@ public class Habitat extends Square{
 				switch(getNumberOfZoos()) {
 					case 0:
 						if(player.getInventory().checkPlayerMaterials(getFee())) {
+							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
 							player.deductMaterials(getFee());
 						} else {
 							player.setOutOfMaterials(true);
@@ -91,6 +93,7 @@ public class Habitat extends Square{
 						break;
 					case 1:
 						if(player.getInventory().checkPlayerMaterials(getFee1Zoo())) {
+							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
 							player.deductMaterials(getFee1Zoo());
 						} else {
 							player.setOutOfMaterials(true);
@@ -99,6 +102,7 @@ public class Habitat extends Square{
 						break;
 					case 2:
 						if(player.getInventory().checkPlayerMaterials(getFee2Zoo())) {
+							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
 							player.deductMaterials(getFee2Zoo());
 						} else {
 							player.setOutOfMaterials(true);
@@ -107,6 +111,7 @@ public class Habitat extends Square{
 						break;
 					case 3:
 						if(player.getInventory().checkPlayerMaterials(getFee3Zoo())) {
+							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
 							player.deductMaterials(getFee3Zoo());
 						} else {
 							player.setOutOfMaterials(true);
@@ -115,6 +120,7 @@ public class Habitat extends Square{
 						break;
 					case 4:
 						if(player.getInventory().checkPlayerMaterials(getFee4Zoo())) {
+							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
 							player.deductMaterials(getFee4Zoo());
 						} else {
 							player.setOutOfMaterials(true);

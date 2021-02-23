@@ -60,7 +60,7 @@ public class BackFromTheBrink {
         }
 
         else if(currentSquare instanceof Travel){
-            // do
+            ((Travel)currentSquare).execute(currentPlayer);
         }
         else if(currentSquare instanceof SpottedByPredator){
             ((SpottedByPredator) currentSquare).execute(currentPlayer);

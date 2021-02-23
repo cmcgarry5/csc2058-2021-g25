@@ -30,7 +30,6 @@ public class StdIO {
          String materials = "Materials: " + player.getInventory().getMaterials();
          String biomes = "Biomes and Habitats: ";
          for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
-             biomes +=  player.getInventory().getBiomes().get(i).getName();
              biomes+= "\n";
              biomes +=  player.getInventory().getBiomes().get(i).getName();
                 biomes+= "\n";
@@ -140,7 +139,7 @@ public class StdIO {
 
     public static String printHabitatLandedOn(Player player, String name, Biome biome) {
         String print = "";
-        print += player.getName() + " has landed on " + name + "in the " + biome.getName() + " biome!";
+        print += player.getName() + " has landed on " + name + " in the " + biome.getName() + "!";
         return print;
     }
 
@@ -167,6 +166,19 @@ public class StdIO {
 
     public static String printPayFee(Player player, int amt) {
         String print = "";
+        print += "You must pay a fee of " + amt + " materials!" + "\n";
+        print += showMaterialsDeducted(player, amt);
+        return print;
+    }
+
+    public static String printOwnedHabitatPay(Player player, int amt, Biome biome, Habitat habitat, boolean hasNationalPark, int numberOfZoos) {
+        String print = "";
+        print += "You landed on  " + habitat.getName() + " in the " + biome.getName() + "\n";
+        if(hasNationalPark) {
+            print+= "This habitat has a National Park" + "\n";
+        } else {
+            print+= "This habitat has " + numberOfZoos + "\n";
+        }
         print += "You must pay a fee of " + amt + " materials!" + "\n";
         print += showMaterialsDeducted(player, amt);
         return print;
