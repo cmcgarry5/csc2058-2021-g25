@@ -119,7 +119,10 @@ public class BackFromTheBrink {
                 //move around board
                 //moveAroundBoard(rollValue);
                 Square currentSquare = currentPlayer.getPiece().move(rollValue);
-
+                //check if player has passed travel and is not on travel square
+                if(currentPlayer.getPiece().hasPassedTravelSquare() && currentPlayer.getPiece().getPos() != 0) {
+                    Travel.passedTravelSquare(currentPlayer);
+                }
                 // to be put in method or square class
                 runSquareAction(currentSquare, currentPlayer);
 
@@ -129,6 +132,10 @@ public class BackFromTheBrink {
                     // move around board
                     //moveAroundBoard(rollValue);
                     Square currentSquareDouble = currentPlayer.getPiece().move(rollValue2);
+                    //check if player has passed travel and is not on travel square
+                    if(currentPlayer.getPiece().hasPassedTravelSquare() && currentPlayer.getPiece().getPos() != 0) {
+                        Travel.passedTravelSquare(currentPlayer);
+                    }
                     runSquareAction(currentSquareDouble, currentPlayer);
 
                 }

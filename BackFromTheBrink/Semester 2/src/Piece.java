@@ -7,6 +7,7 @@ public class Piece {
 	private int id;
 
 	private boolean taken;
+	private boolean passedTravelSquare = false;
 
 
 	public Piece(String name, int position) {
@@ -38,6 +39,9 @@ public class Piece {
 				iter++;
 				if (pos >= boardSize) {
 					pos = 0;
+					if(value - iter > 0) {
+						passedTravelSquare = true;
+					}
 				}
 				newPos = pos;
 			}
@@ -89,5 +93,13 @@ public class Piece {
 
 	public void setTaken(boolean b) {
 		this.taken = b;
+	}
+
+	public boolean hasPassedTravelSquare() {
+		return passedTravelSquare;
+	}
+
+	public void setPassedTravelSquare(boolean bool) {
+		passedTravelSquare = bool;
 	}
 }

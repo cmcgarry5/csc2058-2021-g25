@@ -1,5 +1,5 @@
 public class Travel extends Square {
-    private final int AMOUNT_GAIN = 200;
+    private final static int AMOUNT_GAIN = 200;
 
     public Travel(String name, int position) {
         super(name, position);
@@ -17,4 +17,12 @@ public class Travel extends Square {
         player.increasePlayerMaterials(AMOUNT_GAIN);
         StdIO.printTravelSquare(player, AMOUNT_GAIN);
     }
+
+    //If player has passed travel square and not landed on it this method is called
+    public static void passedTravelSquare(Player player) {
+        player.increasePlayerMaterials(AMOUNT_GAIN);
+        StdIO.printTravelSquare(player, AMOUNT_GAIN);
+        player.getPiece().setPassedTravelSquare(false);
+    }
+
 }
