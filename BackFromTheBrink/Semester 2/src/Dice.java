@@ -84,23 +84,18 @@ public class Dice {
 	}
 
 	public void tryDouble(Player player) {
-		Scanner sc = new Scanner(System.in);
-		String roll = "";
-		do {
-			System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
-			 roll = sc.nextLine();
-		} while (!roll.toLowerCase().equals("r"));
-
-			if (roll.toLowerCase().equals("r")) {
-				int rollValue = this.getRollValue();
-				if(this.isDouble) {
-					System.out.println("You rolled a double! You luckily escaped from the predator and escaped!");
-					player.getPiece().move(rollValue);
-					nextPlayer();
-				} else {
-					System.out.println("Unlucky, " + player.getName() + ", the predator is still lurking nearby...");
-					nextPlayer();
+		nextPlayer();
+		int rollValue = this.getRollValue();
+			if(this.isDouble) {
+				System.out.println("You rolled a double! You luckily escaped from the predator and escaped! \n");
+				player.getPiece().move(rollValue);
+				player.setInSafari(false);
+				nextPlayer();
+			}
+			else {
+				System.out.println("Unlucky, " + player.getName() + ", the predator is still lurking nearby...\n");
+				nextPlayer();
 				}
 			}
-	}
+
 }

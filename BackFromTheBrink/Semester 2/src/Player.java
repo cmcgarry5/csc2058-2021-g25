@@ -92,6 +92,7 @@ public class Player {
             } while (!response.toLowerCase().equals("y") || !response.toLowerCase().equals("n"));
 
             if (response.toLowerCase().equals("y")) {
+                player.setInSafari(false);
                 player.getInventory().removeCard(card);
                 System.out.println("You have been saved by the safari rescue team!");
                 String roll = "";
@@ -125,24 +126,20 @@ public class Player {
                 System.out.println("You have sufficient materials! Are you sure you want to pay the fee? (y/n)");
 
                 response = sc.nextLine();
-            } while (!response.toLowerCase().equals("y") || !response.toLowerCase().equals("n"));
+            } while (response.toLowerCase().equals("y") == false && response.toLowerCase().equals("n") == false);
 
             if (response.toLowerCase().equals("y")) {
                 player.getInventory().deductPlayerMaterials(amount);
                 System.out.println("Successfully paid fee!");
-                do {
-                    System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
-                    roll = sc.nextLine();
-                } while (!response.toLowerCase().equals("r"));
+                player.setInSafari(false);
+                int rollValue = BackFromTheBrink.di.getRollValue();
+                player.getPiece().move(rollValue);
+                System.out.println(StdIO.printSquareLandedOn(player,BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName()) + "\n");
+                //System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
+                BackFromTheBrink.di.nextPlayer();
 
-                if (roll.toLowerCase().equals("r")) {
-                    int rollValue = BackFromTheBrink.di.getRollValue();
-                    player.getPiece().move(rollValue);
-                    //System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
-                    BackFromTheBrink.di.nextPlayer();
-                }
-            } else {
-                System.out.println("operation cancelled.");
+            } else if (response.toLowerCase().equals("n")){
+                System.out.println("operation cancelled.\n" );
             }
         } else {
             System.out.println("You do not have sufficient materials to pay the fee...");
