@@ -138,6 +138,12 @@ public class StdIO {
         return print;
     }
 
+    public static String printHabitatLandedOn(Player player, String name, Biome biome) {
+        String print = "";
+        print += player.getName() + " has landed on " + name + "in the " + biome.getName() + " biome!";
+        return print;
+    }
+
     public static String printSafariSquare(Player player) {
         String print = "";
         print += "You go sightseeing around the Safari in search for exotic animals!";
