@@ -38,7 +38,7 @@ public class PassedTravelSquareTest {
     }
 
     @Test
-    public void checkLandedoOnTravelSquare() {
+    public void checkLandedOnTravelSquare() {
         Board.setupBoard();
         testPlayer.setPiece(Board.pieces.get(1));
 
