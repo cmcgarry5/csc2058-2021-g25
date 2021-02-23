@@ -26,7 +26,7 @@ public class Dice {
 
 	public int getRollValue() {
 
-		if(getIsDouble()){
+		if(getIsDouble() && BackFromTheBrink.begun == true){
 			System.out.println("You rolled a double in your previous roll!");
 		}
 

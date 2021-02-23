@@ -4,6 +4,7 @@ public class BackFromTheBrink {
 
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
+    static boolean begun = false;
     private static boolean bftbWon = false;
     //private static StdIO StdIO;
     static Board board;
@@ -24,8 +25,9 @@ public class BackFromTheBrink {
         board.setupBoard();
 
         players = PlayerRegistration.BeginRegistration();
+        begun = true;
 
-        System.out.println("Lets Begin.....\n");
+        System.out.println("\nLets Begin.....\n");
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();
@@ -75,7 +77,7 @@ public class BackFromTheBrink {
             ((SafariSquare) currentSquare).execute(currentPlayer);
         }
         else if (currentSquare instanceof  RiverSquare) {
-            ((RiverSquare) currentSquare).execute((currentPlayer));
+            ((RiverSquare) currentSquare).execute(currentPlayer, ((RiverSquare) currentSquare).getCOST());
         }
     }
 
@@ -89,7 +91,7 @@ public class BackFromTheBrink {
                 continue;
             }
             //check if player is in jail/safari
-            System.out.println(currentPlayer.getName() + ", it is your turn!");
+            System.out.println(currentPlayer.getName() + ", it's your turn!\n");
 
             //message to let player know their state at the start of their turn.
 
@@ -140,7 +142,7 @@ public class BackFromTheBrink {
 
                 }
 
-                if (di.getIsSecondDouble()) {
+                if (di.getIsSecondDouble() && begun == true) {
                     // go to jail
                     currentPlayer.setInSafari(true);
                     // move player to the spotted in the safari square
@@ -227,6 +229,34 @@ public class BackFromTheBrink {
         System.out.println(StdIO.printPlayer(bankruptPlayer));
         players.remove(bankruptPlayer);
         outOfGame.add(bankruptPlayer);
+    }
+
+    public static int ranking(Player player) {
+        ArrayList<Player> rankings = new ArrayList<>();
+        for (Player p : players) {
+            rankings.add(p);
+        }
+        int rank = -1;
+        int size = rankings.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size-i-1; j++) {
+                if (rankings.get(j).getRanking() < rankings.get(j+1).getRanking()) {
+                    Player temp = rankings.get(j);
+                    rankings.set(j, rankings.get(j+1));
+                    rankings.set(j+1, temp);
+                }
+            }
+        }
+
+        for (int i = 0; i < size; i++) {
+            if (player == rankings.get(i)) {
+                rank = i+1;
+                break;
+            } else {
+                rank = -1;
+            }
+        }
+        return rank;
     }
 
     private static void buildZoo(Player currentPlayer) {

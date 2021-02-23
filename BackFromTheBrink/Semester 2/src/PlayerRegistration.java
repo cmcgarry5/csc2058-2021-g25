@@ -30,6 +30,9 @@ public class PlayerRegistration {
 		int numPlayers;
 		do{
 		    numPlayers = enterNumPlayers();
+            if (numPlayers<=1 || numPlayers>8) {
+                System.out.println("Invalid selection. Must be a number between 2 and 8 (inclusive)");
+            }
         }
 		while(numPlayers<=1 || numPlayers>8);
 
@@ -137,34 +140,37 @@ public class PlayerRegistration {
 
             PlayerChoosePiece(listPlayers);
         }
-
 		return listPlayers;
     }
 
     private static void PlayerChoosePiece(ArrayList<Player> listPlayers) {
-
-        Scanner sc =  new Scanner(System.in);
 
         for(Player player : listPlayers){
             do{
                 printAvailablePieces();
 
                 System.out.println("Enter the number of the piece you would like, " + player.getName() + ":");
-                int option = sc.nextInt();
+                int option = 0;
+                Scanner sc =  new Scanner(System.in);
+                try {
+                     option = sc.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid Input. Must be of type Integer.");
+                }
 
                 if(option >0 && option <=8){
                     if(!Board.pieces.get(option-1).getTaken()){
                         player.setPiece(Board.pieces.get(option-1));
                         Board.pieces.get(option-1).setTaken(true);
+                        System.out.println(player.getName() + " has chosen the piece " + Board.pieces.get(option-1).getName() + "!");
                         break;
 
                     }
                     else{
                         System.out.println("Piece already taken, please pick another");
                     }
-                }
-                else{
-                    System.out.println("Invalid selection");
+                } else {
+                    System.out.println("Invalid Selection. Must enter a number between 1-8 (inclusive)");
                 }
             }
             while(true);

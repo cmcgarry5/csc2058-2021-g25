@@ -5,13 +5,14 @@ public class Player {
     private Inventory inventory;
     private Piece piece;
     private boolean outOfMaterials;
+    private int ranking;
     private boolean inSafari;
-    private static String remove;
 
     public Player(String name) {
         this.name = name;
         this.inventory = new Inventory();
         this.outOfMaterials = false;
+        this.ranking = calculateRank();
         this.inSafari = false;
     }
 
@@ -55,8 +56,11 @@ public class Player {
 
     public void setOutOfMaterials(boolean outOfMaterials) {
         this.outOfMaterials = outOfMaterials;
-
     }
+
+    public int getRanking() {return ranking;}
+
+    public void setRanking(int score) {this.ranking = score;}
 
     public void setInSafari(boolean inSafari) {
         this.inSafari = inSafari;
@@ -144,6 +148,23 @@ public class Player {
         } else {
             System.out.println("You do not have sufficient materials to pay the fee...");
         }
+    }
+
+    public int calculateRank() {
+        int numBiomes = this.getInventory().getBiomes().size();
+        int numHabitats = 0;
+        int numZoos = 0;
+        for (int j = 0; j < this.getInventory().getBiomes().size(); j++) {
+            numHabitats = this.getInventory().getBiomes().get(j).getNumberOwnedHabitats();
+            for (int k = 0; k < numHabitats; k++) {
+                if (this.getInventory().getBiomes().get(j).getHabitats().get(k).hasNationalPark()) {
+                    numZoos = this.getInventory().getBiomes().get(j).getHabitats().get(k).getNumberOfZoos()+1;
+                } else {
+                    numZoos = this.getInventory().getBiomes().get(j).getHabitats().get(k).getNumberOfZoos();
+                }
+            }
+        }
+        return this.getInventory().getMaterials() + (numBiomes*1000) + (numHabitats*1000) + (numZoos*1000);
     }
 
 }

@@ -25,9 +25,10 @@ public class StdIO {
     }
 
      public static String printPlayer(Player player) {
-         String name = player.getName();
-         String inventory = "Inventory: ";
-         String materials = "Materials: " + player.getInventory().getMaterials();
+         player.setRanking(player.calculateRank());
+         String name = "Nickname: " + player.getName();
+         String inventory = "--------Inventory--------";
+         String materials = "Materials: " + "⚒" + player.getInventory().getMaterials();
          String biomes = "Biomes and Habitats: ";
          for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
              biomes+= "\n";
@@ -43,15 +44,17 @@ public class StdIO {
              wildcards += "\n";
             wildcards += wildCard.getName();
          }
-         String piece = "Piece: " + "\n" + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Position: " + player.getPiece().getPos();
-         String status = "In Safari: " + "\n";
+         String position = "--------Position---------";
+//         String piece = "Piece: " + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Position: " + player.getPiece().getPos();
+         String piece = "Piece: " + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Ranking: " + BackFromTheBrink.ranking(player);
+         String status = "In Safari: ";
          if (player.isInSafari()){
              status += "Yes";
          }
          else{
              status += "No";
          }
-         return name + "\n" + inventory + "\n" + materials + "\n" + biomes + "\n" + wildcards + "\n" + piece + "\n" + status + "\n";
+         return name + "\n" + inventory + "\n" + materials + "\n" + biomes + "\n" + wildcards + "\n" + position + "\n" + piece + "\n" + status + "\n";
      }
 
     public static String printInventory(Player player) {
@@ -92,16 +95,16 @@ public class StdIO {
         for(int i =0; i < biome.getHabitats().size(); i++) {
             currentHabitat = biome.getHabitats().get(i);
             print += habitatIndex + ". Name: " + currentHabitat.getName() + "\n";
-            print += "Cost: " + currentHabitat.getCost() + "\n";
+            print += "Cost: ⚒" + currentHabitat.getCost() + "\n";
             print += "Number of Zoos built: " + currentHabitat.getNumberOfZoos() + "\n";
             print += "Has National Park: " + currentHabitat.getNumberOfZoos() + "\n";
-            print += "Initial Fee: " + currentHabitat.getFee() + "\n";
-            print += "1 Zoo Fee: " + currentHabitat.getFee1Zoo() + "\n";
-            print += "2 Zoo Fee: " + currentHabitat.getFee2Zoo() + "\n";
-            print += "3 Zoo Fee: " + currentHabitat.getFee3Zoo() + "\n";
-            print += "4 Zoo Fee: " + currentHabitat.getFee4Zoo() + "\n";
-            print += "National Park Fee: " + currentHabitat.getFeePark() + "\n";
-            print += "Build Cost: " + currentHabitat.getBuildCost() + "\n";
+            print += "Initial Fee: ⚒" + currentHabitat.getFee() + "\n";
+            print += "1 Zoo Fee: ⚒" + currentHabitat.getFee1Zoo() + "\n";
+            print += "2 Zoo Fee: ⚒" + currentHabitat.getFee2Zoo() + "\n";
+            print += "3 Zoo Fee: ⚒" + currentHabitat.getFee3Zoo() + "\n";
+            print += "4 Zoo Fee: ⚒" + currentHabitat.getFee4Zoo() + "\n";
+            print += "National Park Fee: ⚒" + currentHabitat.getFeePark() + "\n";
+            print += "Build Cost: ⚒" + currentHabitat.getBuildCost() + "\n";
             habitatIndex++;
         }
         return print;
@@ -115,19 +118,19 @@ public class StdIO {
 
     public static String printPlayerDecreasedMaterials(Player player, int amt){
         String print = "";
-        print += player.getName() + "'s materials have been decreased by: " + amt;
+        print += player.getName() + "'s materials have been decreased by: ⚒" + amt;
         return print;
     }
 
     public static String printPlayerIncreasedMaterials(Player player, int amt){
         String print = "";
-        print += player.getName() + "'s materials have been increased by: " + amt;
+        print += player.getName() + "'s materials have been increased by: ⚒" + amt;
         return print;
     }
 
     public static String printTravelSquare(Player player, int amt) {
         String print = "";
-        print += player.getName() + " has passed the TRAVEL SQUARE and their materials have been increased by: " + amt;
+        print += player.getName() + " has passed the TRAVEL SQUARE and their materials have been increased by: ⚒" + amt;
         return print;
     }
 
@@ -153,20 +156,20 @@ public class StdIO {
         String print = "";
         int prevMaterials = player.getInventory().getMaterials();
         int newAmount = player.getInventory().getMaterials() - amt;
-        print += "\nYou now only have " + newAmount + " materials from a previous " + prevMaterials + " materials";
+        print += "\nYou now only have ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
         return print;
     }
 
     public static String printRiverSquare(Player player, int amt, String name) {
         String print = "";
-        print += "You must use up " + amt + " materials to cross " + name + "!";
+        print += "You must use up ⚒" + amt + " to cross " + name + "!";
         print += showMaterialsDeducted(player, amt);
         return print;
     }
 
     public static String printPayFee(Player player, int amt) {
         String print = "";
-        print += "You must pay a fee of " + amt + " materials!" + "\n";
+        print += "You must pay a fee of ⚒" + amt + "!" + "\n";
         print += showMaterialsDeducted(player, amt);
         return print;
     }

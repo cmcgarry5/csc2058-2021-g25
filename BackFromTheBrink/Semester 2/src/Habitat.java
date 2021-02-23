@@ -64,6 +64,7 @@ public class Habitat extends Square{
 						}
 					}
 					System.out.println(StdIO.printBiomeAdded(player, copiedBiome.getName(), addedBiome.getNumberOwnedHabitats(), copiedBiome.getNumberOfHabitats(), habitatBought.getName()));
+					System.out.println(StdIO.showMaterialsDeducted(player, getCost()));
 				}
 			}
 			else if (answer.equals("n")) {
