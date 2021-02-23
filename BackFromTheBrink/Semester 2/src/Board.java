@@ -51,26 +51,13 @@ public class Board {
 	}
 
 	/*
-	 * Gets card from Wildcard class then displays it to player
+	 * Gets card from Wildcard array 
 	 */
-	public static void draw(WildCard wildcard, Player player) {
-		//String name = WildCard.getCard(); //error
-		
-	}
-
 	public static WildCard draw(){
 		WildCard wildCardDrawn = wildCards.get(wildCards.size()-1);
 		wildCards.remove(wildCards.size()-1);
 		wildCards.add(0, wildCardDrawn);
 		return wildCardDrawn;
-	}
-
-	/*
-	 * Returns wildcard to wildcard deck
-	 */
-	public static void returnCard(WildCard wildcard) {
-		//WildCard.restoreCard(wildcard); //error
-
 	}
 
 	public static void addAnimalHabitat(Habitat habitat){

@@ -316,7 +316,7 @@ public class BackFromTheBrink {
             System.out.println("Which Habitat would you like to buy?");
             StdIO.printHabitats(selectedBiome);
             input = StdIO.readInt()-1;
-            Habitat selectedHabitat = selectedBiome.getAnimalHabitats().get(input);
+            Habitat selectedHabitat = selectedBiome.getHabitats().get(input);
             //request user how much they want to pay for habitat
             System.out.println("How much would you like to pay for it?");
             int amount = StdIO.readInt();

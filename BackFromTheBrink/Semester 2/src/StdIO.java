@@ -30,11 +30,11 @@ public class StdIO {
          String materials = "Materials: " + player.getInventory().getMaterials();
          String biomes = "Biomes and Habitats: ";
          for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
-             biomes +=  player.getInventory().getBiomes().get(i).getBiomeName();
+             biomes +=  player.getInventory().getBiomes().get(i).getName();
                 biomes+= "\n";
-             for (int j = 0; j < player.getInventory().getBiomes().get(i).getAnimalHabitats().size(); j++) {
+             for (int j = 0; j < player.getInventory().getBiomes().get(i).getHabitats().size(); j++) {
                  biomes += "\n";
-                 biomes += player.getInventory().getBiomes().get(i).getAnimalHabitats().get(j).getName();
+                 biomes += player.getInventory().getBiomes().get(i).getHabitats().get(j).getName();
              }
          }
          String wildcards = "Wildcards: ";
@@ -57,11 +57,11 @@ public class StdIO {
         String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
-            biomes +=  player.getInventory().getBiomes().get(i).getBiomeName();
+            biomes +=  player.getInventory().getBiomes().get(i).getName();
             biomes+= "\n";
-            for (int j = 0; j < player.getInventory().getBiomes().get(i).getAnimalHabitats().size(); j++) {
+            for (int j = 0; j < player.getInventory().getBiomes().get(i).getHabitats().size(); j++) {
                 biomes += "\n";
-                biomes += player.getInventory().getBiomes().get(i).getAnimalHabitats().get(j).getName();
+                biomes += player.getInventory().getBiomes().get(i).getHabitats().get(j).getName();
             }
         }
         String wildcards = "Wildcards: ";
@@ -76,7 +76,7 @@ public class StdIO {
         String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
-            biomes += i + ". " + player.getInventory().getBiomes().get(i).getBiomeName();
+            biomes += i + ". " + player.getInventory().getBiomes().get(i).getName();
             biomes+= "\n";
             int habitatIndex = 1;
             printHabitats(player.getInventory().getBiomes().get(i));

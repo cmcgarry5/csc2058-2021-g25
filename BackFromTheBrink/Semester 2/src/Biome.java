@@ -81,13 +81,6 @@ public  class Biome {
         return hab;
     }
 
-    public String getBiomeName(){
-        return name;
-    }
-
-    public ArrayList<Habitat> getAnimalHabitats(){
-        return habitats;
-    }
 
     public boolean isAllOwned(){
         if (numberOfHabitats == getNumberOwnedHabitats()){
