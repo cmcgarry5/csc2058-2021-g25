@@ -38,5 +38,10 @@ public class HidingFromPredator extends Square {
     public boolean isOwned() {
         return false;
     }
+
+    @Override
+    public void execute(Player player) {
+
+    }
 }
 

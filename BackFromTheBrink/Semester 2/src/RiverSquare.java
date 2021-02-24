@@ -1,5 +1,4 @@
 public class RiverSquare extends Square{
-    private StdIO IO = new StdIO();
     private final int COST = 200;
 
     public RiverSquare(String name, int position) {
@@ -12,10 +11,10 @@ public class RiverSquare extends Square{
     }
 
 
-    public void execute(Player player, int amount) {
-        System.out.println(IO.printSquareLandedOn(player, this.getName()));
-        System.out.println(IO.printRiverSquare(player, this.COST, this.getName()));
-        player.deductMaterials(amount);
+    public void execute(Player player) {
+        System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
+        System.out.println(StdIO.printRiverSquare(player, this.COST, this.getName()));
+        player.deductMaterials(COST);
     }
 
     public int getCOST() {

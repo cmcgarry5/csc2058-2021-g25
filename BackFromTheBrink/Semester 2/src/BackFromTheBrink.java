@@ -27,7 +27,7 @@ public class BackFromTheBrink {
         players = PlayerRegistration.BeginRegistration();
         begun = true;
 
-        System.out.println("\nLets Begin.....\n");
+        System.out.println("\nEach of you start with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks to help save them! \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             playerTurnHandler();
@@ -71,13 +71,13 @@ public class BackFromTheBrink {
             ((BackFromTheBrinkSquare) currentSquare).execute(currentPlayer);
         }
         else if(currentSquare instanceof Special){
-            ((Special) currentSquare).execute(currentPlayer, ((Special) currentSquare).getFee());
+            ((Special) currentSquare).execute(currentPlayer);
         }
         else if(currentSquare instanceof SafariSquare) {
             ((SafariSquare) currentSquare).execute(currentPlayer);
         }
         else if (currentSquare instanceof  RiverSquare) {
-            ((RiverSquare) currentSquare).execute(currentPlayer, ((RiverSquare) currentSquare).getCOST());
+            ((RiverSquare) currentSquare).execute(currentPlayer);
         }
     }
 
@@ -105,25 +105,38 @@ public class BackFromTheBrink {
 
 
                 if(currentPlayer.getRoundsInSafari() == 3){
+
+                    System.out.println("You haven't been able to roll a double in your previous two rounds.\nYou must now pay 50 materials to get rescued!");
                     currentPlayer.payFee(currentPlayer, 50);
+                    currentPlayer.setInSafari(false);
+
                 }
 
                 else{
 
-                    //print out options
+                    if(currentPlayer.getInventory().hasWildCard()){
 
-                    int option;
-                    do{
-                        InSafariMenu.display();
-                        option = StdIO.readInt();
+                        System.out.println("\nYou have a wildcard. Do you want to use it to escape from the safari immediately? ");
 
+                        String input;
+                        do{
+                            input = StdIO.read();
+                        }
+                        while(!input.equalsIgnoreCase("y") || !input.equalsIgnoreCase("n"));
+
+
+                        if(input.equalsIgnoreCase("y")){
+                            currentPlayer.useWildCard(currentPlayer);
+                            currentPlayer.getInventory().removeWildCard();
+                        }
+                        else{ //display menu if the user doesnt want to use their wildcard
+                            displayInSafariOptionsMenu(currentPlayer);
+                        }
                     }
-                    while(option <= 0 || option> InSafariMenu.getNumOptions());
-
-                    ProcessInSafariOption(option, currentPlayer);
-
+                    else{ // display the menu if they user doesnt have a wildcard
+                        displayInSafariOptionsMenu(currentPlayer);
+                    }
                 }
-
             }
             else {
 
@@ -183,6 +196,19 @@ public class BackFromTheBrink {
                 while(option == 2 || option == 3);
             }
         }
+    }
+
+    static void displayInSafariOptionsMenu(Player currentPlayer) {
+
+        int option;
+        do{
+            InSafariMenu.display();
+            option = StdIO.readInt();
+
+        }
+        while(option <= 0 || option> InSafariMenu.getNumOptions());
+
+        ProcessInSafariOption(option, currentPlayer);
     }
 
     public static void ProcessInSafariOption(int option, Player currentPlayer) {

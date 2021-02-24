@@ -162,4 +162,17 @@ public class Inventory {
         }
         return false;
     }
+
+    public boolean hasWildCard() {
+        if(wildCards.size() >= 1){
+            return true;
+        }
+        return false;
+    }
+
+    public void removeWildCard() {
+        if(hasWildCard()){
+            Board.addWildCard(wildCards.remove(0)); //remove wild card from inventory and add back to board
+        }
+    }
 }

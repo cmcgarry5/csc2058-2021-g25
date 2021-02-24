@@ -219,6 +219,7 @@ public class Board {
 		addSquare(turtle);
 		marine.addAnimalHabitat(turtle);
 
+		addWildCard(new EscapeCard("Escape Safari Card")); // testing
 
 		addWildCard(new moveWildCard("Advance to Jaguar", true, false, BackFromTheBrink.board.getSquare(3)));
 		addWildCard(new moveWildCard("Advance to Blue Whale", true, false, BackFromTheBrink.board.getSquare(37)));
@@ -234,6 +235,7 @@ public class Board {
 		addWildCard(new payUpWildCard("Food Bills", false, 100));
 		addWildCard(new receiveMatWildCard("Conservation Fee Refund", false, false, 200));
 		addWildCard(new receiveMatWildCard("Conservation Scheme", false, true, 0));
+		addWildCard(new EscapeCard("Escape Safari Card"));
 
 
 		biomes.add(cave);

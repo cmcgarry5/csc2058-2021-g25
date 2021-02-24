@@ -32,10 +32,10 @@ public class Special extends Square {
     }
 
     //Use the method below as execute(player, getFee(3))
-    public void execute(Player player, int amount) {
+    public void execute(Player player) {
         System.out.println(IO.printSquareLandedOn(player, this.getName()));
-        System.out.println(IO.printPayFee(player, amount));
-        player.deductMaterials(amount);
+        System.out.println(IO.printPayFee(player, fee));
+        player.deductMaterials(fee);
     }
 
 }
