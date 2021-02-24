@@ -132,7 +132,7 @@ public class BackFromTheBrink {
                     // move player to the spotted in the safari square
                     System.out.println("\nUnlucky, you rolled two doubles in a row! ");
                     System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
-                    currentPlayer.getPiece().move(Board.getSquare(30));
+                    currentPlayer.getPiece().move(Board.getSquare(10));
                 }else{
 
                 }
