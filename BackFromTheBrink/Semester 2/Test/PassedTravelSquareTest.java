@@ -22,7 +22,7 @@ public class PassedTravelSquareTest {
         int actualMaterials = testPlayer.getInventory().getMaterials();
 
         Assert.assertEquals("Materials: ", expectedMaterials, actualMaterials);
-        Assert.assertTrue(testPlayer.getPiece().hasPassedTravelSquare());
+        Assert.assertFalse(testPlayer.getPiece().hasPassedTravelSquare());
     }
 //    public void checkPassedTravelSquareHit() {
 //        Player testPlayer = new Player("test");

@@ -24,7 +24,7 @@ public class Travel extends Square {
         System.out.println(StdIO.printTravelSquare(player, AMOUNT_GAIN));
         System.out.println(StdIO.showMaterialsIncreased(player, AMOUNT_GAIN));
         player.increasePlayerMaterials(AMOUNT_GAIN);
-        player.getPiece().setPassedTravelSquare(true);
+        player.getPiece().setPassedTravelSquare(false);
     }
 
 }
