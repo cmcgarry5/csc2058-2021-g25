@@ -45,8 +45,18 @@ public class StdIO {
             wildcards += wildCard.getName();
          }
          String position = "--------Position---------";
+         String rank = "";
+         if (BackFromTheBrink.ranking(player) == 1) {
+             rank = "1st";
+         } else if (BackFromTheBrink.ranking(player) == 2) {
+             rank = "2nd";
+         } else if (BackFromTheBrink.ranking(player) == 3) {
+             rank = "3rd";
+         } else if (BackFromTheBrink.ranking(player) > 3 && BackFromTheBrink.ranking(player) <= 8) {
+             rank = BackFromTheBrink.ranking(player) + "th";
+         }
 //         String piece = "Piece: " + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Position: " + player.getPiece().getPos();
-         String piece = "Piece: " + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Ranking: " + BackFromTheBrink.ranking(player);
+         String piece = "Piece: " + player.getPiece().getName() + "\n" + "Square: " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName() + "\n" + "Ranking: " + rank;
          String status = "In Safari: ";
          if (player.isInSafari()){
              status += "Yes";
@@ -149,6 +159,14 @@ public class StdIO {
     public static String printSafariSquare(Player player) {
         String print = "";
         print += "You go sightseeing around the Safari in search for exotic animals!";
+        return print;
+    }
+
+    public static String showMaterialsIncreased(Player player, int amt) {
+        String print = "";
+        int prevMaterials = player.getInventory().getMaterials();
+        int newAmount = player.getInventory().getMaterials() + amt;
+        print += "\nYou now have ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
         return print;
     }
 

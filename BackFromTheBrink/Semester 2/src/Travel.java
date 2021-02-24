@@ -13,16 +13,18 @@ public class Travel extends Square {
 
     public void execute(Player player)
     {
-        System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
+        System.out.println(StdIO.printSquareLandedOn(player, this.getName()) + " and has gained ⚒200");
+        System.out.println(StdIO.showMaterialsIncreased(player, AMOUNT_GAIN));
         player.increasePlayerMaterials(AMOUNT_GAIN);
         StdIO.printTravelSquare(player, AMOUNT_GAIN);
     }
 
     //If player has passed travel square and not landed on it this method is called
     public static void passedTravelSquare(Player player) {
-        player.increasePlayerMaterials(AMOUNT_GAIN);
         System.out.println(StdIO.printTravelSquare(player, AMOUNT_GAIN));
-        player.getPiece().setPassedTravelSquare(false);
+        System.out.println(StdIO.showMaterialsIncreased(player, AMOUNT_GAIN));
+        player.increasePlayerMaterials(AMOUNT_GAIN);
+        player.getPiece().setPassedTravelSquare(true);
     }
 
 }

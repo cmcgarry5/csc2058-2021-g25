@@ -14,6 +14,9 @@ public class Inventory {
     public int getMaterials() {
         return materials;
     }
+    public void setMaterials(int amount) {
+        this.materials = amount;
+    }
 
     public ArrayList<WildCard> getWildCard() {
         return wildCards;
