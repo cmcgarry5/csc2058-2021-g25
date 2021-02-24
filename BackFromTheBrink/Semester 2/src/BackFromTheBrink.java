@@ -79,10 +79,11 @@ public class BackFromTheBrink {
                 if(currentPlayer.getRoundsInSafari() == 3){
 
                     System.out.println("You haven't been able to roll a double in your previous two rounds.\nYou must now pay 50 materials to get rescued!");
-                    currentPlayer.payFee(currentPlayer, 50);
-                    currentPlayer.setInSafari(false);
+                    currentPlayer.payFee(50);
+                    //currentPlayer.setInSafari(false);
 
                     // ability to roll and move
+                    System.out.println("You are no longer hiding in the safari.");
                     playerTurnHandler(currentPlayer);
 
                 }
@@ -134,7 +135,21 @@ public class BackFromTheBrink {
                     currentPlayer.getPiece().move(Board.getSquare(10));
                 }else{
 
+                    int option;
+                    do{
+                        turnOptionsMenu.display();
+                        do{
+
+                            option = StdIO.readInt();
+
+                        }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
+
+                        ProcessTurnOption(option, currentPlayer);
+                    }
+                    while(option == 2 || option == 3);
                 }
+
+
 
 
             }
@@ -145,19 +160,7 @@ public class BackFromTheBrink {
             //request input
 
             // Display additional options menu at all times unless they have just moved into Safari
-            if (!di.getIsSecondDouble()){
-                int option;
-                do{
-                    turnOptionsMenu.display();
-                    do{
-
-                        option = StdIO.readInt();
-
-                    }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
-
-                    ProcessTurnOption(option, currentPlayer);
-                }
-                while(option == 2 || option == 3);
+            if (!di.getIsSecondDouble() ) {
             }
 
             di.nextPlayer(); // reset Double "memory" of dice
@@ -192,10 +195,12 @@ public class BackFromTheBrink {
 
     public static void ProcessInSafariOption(int option, Player currentPlayer) {
         switch(option) {
-            case 1: di.tryDouble(currentPlayer);
+            case 1: tryDouble(currentPlayer);
             break;
-            case 2: currentPlayer.payFee(currentPlayer, 50);
-            break;
+            case 2: currentPlayer.payFee(50);
+                System.out.println("You are no longer hiding in the safari.");
+                playerTurnHandler(currentPlayer);
+                break;
             case 4: forfeitGame(currentPlayer);
         }
     }
@@ -209,6 +214,23 @@ public class BackFromTheBrink {
             break;
             case 4: forfeitGame(currentPlayer);
             break;
+        }
+    }
+
+    private static void tryDouble(Player currentPlayer) {
+        di.nextPlayer();
+        int rollValue = di.getRollValue();
+        if(di.getIsDouble()) {
+            System.out.println("You rolled a double! You luckily escaped from the predator and escaped! \n");
+            currentPlayer.getPiece().move(rollValue);
+            //currentSquare.execute(currentPlayer);
+            //playerTurnHandler(currentPlayer);
+            currentPlayer.setInSafari(false);
+            di.nextPlayer();
+        }
+        else {
+            System.out.println("Unlucky, " + currentPlayer.getName() + ", the predator is still lurking nearby...\n");
+            di.nextPlayer();
         }
     }
 

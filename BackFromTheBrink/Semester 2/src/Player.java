@@ -125,31 +125,19 @@ public class Player {
         }
     }
 
-    public void payFee(Player player, int amount) {
-        boolean eligible = player.getInventory().checkPlayerMaterials(amount);
-        Scanner sc = new Scanner(System.in);
-        String response = "";
-        String roll = "";
-        if (eligible) {
-            do {
-                System.out.println("You have sufficient materials! Are you sure you want to pay the fee? (y/n)");
+    public void payFee(int amount) {
 
-                response = sc.nextLine();
-            } while (response.toLowerCase().equals("y") == false && response.toLowerCase().equals("n") == false);
+        if (this.getInventory().checkPlayerMaterials(amount)) {
 
-            if (response.toLowerCase().equals("y")) {
-                player.getInventory().deductPlayerMaterials(amount);
+                this.getInventory().deductPlayerMaterials(amount);
                 System.out.println("Successfully paid fee!");
-                player.setInSafari(false);
-                int rollValue = BackFromTheBrink.di.getRollValue();
-                player.getPiece().move(rollValue);
-                System.out.println(StdIO.printSquareLandedOn(player,BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName()) + "\n");
-                //System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
-                BackFromTheBrink.di.nextPlayer();
+                setInSafari(false);
+//                int rollValue = BackFromTheBrink.di.getRollValue();
+//                player.getPiece().move(rollValue);
+//                System.out.println(StdIO.printSquareLandedOn(player,BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName()) + "\n");
+//                //System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
+//                BackFromTheBrink.di.nextPlayer();
 
-            } else if (response.toLowerCase().equals("n")){
-                System.out.println("operation cancelled.\n" );
-            }
         } else {
             System.out.println("You do not have sufficient materials to pay the fee...");
         }

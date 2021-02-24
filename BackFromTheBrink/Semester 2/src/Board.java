@@ -248,7 +248,7 @@ public class Board {
 		biomes.add(exotic);
 
 
-		pieces.add(new Piece("Sir David Attenborough",0));
+		pieces.add(new Piece("Sir David Attenborough",0)); //testing pos =10
 		pieces.add(new Piece("Steve Irwin",0));
 		pieces.add(new Piece("Greta Thunberg",0));
 		pieces.add(new Piece("Steve Backshall",0));

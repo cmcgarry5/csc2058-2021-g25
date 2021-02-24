@@ -83,19 +83,4 @@ public class Dice {
 
 	}
 
-	public void tryDouble(Player player) {
-		nextPlayer();
-		int rollValue = this.getRollValue();
-			if(this.isDouble) {
-				System.out.println("You rolled a double! You luckily escaped from the predator and escaped! \n");
-				player.getPiece().move(rollValue);
-				player.setInSafari(false);
-				nextPlayer();
-			}
-			else {
-				System.out.println("Unlucky, " + player.getName() + ", the predator is still lurking nearby...\n");
-				nextPlayer();
-				}
-			}
-
 }

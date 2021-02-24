@@ -30,18 +30,24 @@ public class StdIO {
          String inventory = "--------Inventory--------";
          String materials = "Materials: " + "⚒" + player.getInventory().getMaterials();
          String biomes = "Biomes and Habitats: ";
+         if(player.getInventory().getBiomes().size() == 0){
+             biomes+="You currently dont own any Habitats";
+         }
          for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
              biomes+= "\n";
              biomes +=  player.getInventory().getBiomes().get(i).getName();
-                biomes+= "\n";
+                //biomes+= "\n";
              for (int j = 0; j < player.getInventory().getBiomes().get(i).getHabitats().size(); j++) {
-                 biomes += "\n";
+                 biomes += "\n\t";
                  biomes += player.getInventory().getBiomes().get(i).getHabitats().get(j).getName();
              }
          }
          String wildcards = "Wildcards: ";
+         if(player.getInventory().getWildCard().size()==0){
+             wildcards+="You currently dont have an Wildcards in your inventory";
+         }
          for(WildCard wildCard: player.getInventory().getWildCard()) {
-             wildcards += "\n";
+             wildcards += "\n\t";
             wildcards += wildCard.getName();
          }
          String position = "--------Position---------";
@@ -70,15 +76,21 @@ public class StdIO {
     public static String printInventory(Player player) {
         String name = "Player: " + player.getName();
         String biomes = "Biomes and Habitats: ";
+        if(player.getInventory().getBiomes().size() == 0){
+            biomes+="You currently dont own any Habitats";
+        }
         for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
             biomes +=  player.getInventory().getBiomes().get(i).getName();
-            biomes+= "\n";
+            //biomes+= "\n";
             for (int j = 0; j < player.getInventory().getBiomes().get(i).getHabitats().size(); j++) {
-                biomes += "\n";
+                biomes += "\n\t";
                 biomes += player.getInventory().getBiomes().get(i).getHabitats().get(j).getName();
             }
         }
         String wildcards = "Wildcards: ";
+        if(player.getInventory().getWildCard().size()==0){
+            wildcards+="You currently dont have an Wildcards in your inventory";
+        }
         for(WildCard wildCard: player.getInventory().getWildCard()) {
             wildcards += "\n";
             wildcards += wildCard.getName();
