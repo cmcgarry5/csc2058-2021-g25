@@ -86,8 +86,6 @@ public class BackFromTheBrink {
                     // ability to roll and move
                     rollAndMove(currentPlayer);
 
-
-
                 }
 
                 else{
@@ -135,27 +133,31 @@ public class BackFromTheBrink {
                     System.out.println("\nUnlucky, you rolled two doubles in a row! ");
                     System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
                     currentPlayer.getPiece().move(Board.getSquare(30));
+                }else{
+
                 }
 
-                //Display current player info
-                StdIO.printPlayer(currentPlayer);
 
-                //print out all options available
-                //request input
-                int option;
-                do{
-                    turnOptionsMenu.display();
-                    do{
-
-                        option = StdIO.readInt();
-
-                    }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
-
-                    ProcessTurnOption(option, currentPlayer);
-                }
-                while(option == 2 || option == 3);
             }
+            //Display current player info
+            StdIO.printPlayer(currentPlayer);
+
+            //print out all options available
+            //request input
+            int option;
+            do{
+                turnOptionsMenu.display();
+                do{
+
+                    option = StdIO.readInt();
+
+                }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
+
+                ProcessTurnOption(option, currentPlayer);
+            }
+            while(option == 2 || option == 3);
         }
+
     }
 
     private static void rollAndMove(Player currentPlayer) {
