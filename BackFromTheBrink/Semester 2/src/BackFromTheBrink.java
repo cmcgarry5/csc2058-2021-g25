@@ -11,7 +11,7 @@ public class BackFromTheBrink {
 
     static Dice di = new Dice();
 
-    static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Use a wildcard.", "Forfeit Game"};
+    static final String[] inSafariOptions = {"Try to Roll a double.", "Pay 50 materials to escape.", "Forfeit Game"};
     static Menu InSafariMenu = new Menu("In Safari Options:",inSafariOptions);
 
     static final String[] turnOptions = {"End turn", "Build on Habitat", "Initiate a trade", "Forfeit Game"};
@@ -53,34 +53,6 @@ public class BackFromTheBrink {
        return bftbWon;
     }
 
-    public static void runSquareAction(Square currentSquare, Player currentPlayer){
-        if(currentSquare instanceof Habitat){
-            ((Habitat) currentSquare).execute(currentPlayer);
-        }
-        else if(currentSquare instanceof WildCardSquare){
-            ((WildCardSquare) currentSquare).execute(currentPlayer);
-        }
-
-        else if(currentSquare instanceof Travel){
-            ((Travel)currentSquare).execute(currentPlayer);
-        }
-        else if(currentSquare instanceof SpottedByPredator){
-            ((SpottedByPredator) currentSquare).execute(currentPlayer);
-        }
-        else if(currentSquare instanceof BackFromTheBrinkSquare){
-            ((BackFromTheBrinkSquare) currentSquare).execute(currentPlayer);
-        }
-        else if(currentSquare instanceof Special){
-            ((Special) currentSquare).execute(currentPlayer);
-        }
-        else if(currentSquare instanceof SafariSquare) {
-            ((SafariSquare) currentSquare).execute(currentPlayer);
-        }
-        else if (currentSquare instanceof  RiverSquare) {
-            ((RiverSquare) currentSquare).execute(currentPlayer);
-        }
-    }
-
     public static void playerTurnHandler() {
         //print statements
         for (int i = 0; i < players.size(); i++) {
@@ -110,6 +82,12 @@ public class BackFromTheBrink {
                     currentPlayer.payFee(currentPlayer, 50);
                     currentPlayer.setInSafari(false);
 
+
+                    // ability to roll and move
+                    rollAndMove(currentPlayer);
+
+
+
                 }
 
                 else{
@@ -128,6 +106,9 @@ public class BackFromTheBrink {
                         if(input.equalsIgnoreCase("y")){
                             currentPlayer.useWildCard(currentPlayer);
                             currentPlayer.getInventory().removeWildCard();
+
+                            // roll and move
+                            rollAndMove(currentPlayer);
                         }
                         else{ //display menu if the user doesnt want to use their wildcard
                             displayInSafariOptionsMenu(currentPlayer);
@@ -140,36 +121,15 @@ public class BackFromTheBrink {
             }
             else {
 
-                //System.out.println("Roll the Dice to move around the board:");
-                di.nextPlayer(); // reset Double "memory" of dice
-                int rollValue = di.getRollValue();
-
-                //move around board
-                //moveAroundBoard(rollValue);
-                Square currentSquare = currentPlayer.getPiece().move(rollValue);
-                //check if player has passed travel and is not on travel square
-                if(currentPlayer.getPiece().hasPassedTravelSquare() && currentPlayer.getPiece().getPos() != 0) {
-                    Travel.passedTravelSquare(currentPlayer);
-                }
-                // to be put in method or square class
-                runSquareAction(currentSquare, currentPlayer);
+                rollAndMove(currentPlayer);
 
 
                 if (di.getIsDouble()) {
-                    int rollValue2 = di.getRollValue();
-                    // move around board
-                    //moveAroundBoard(rollValue);
-                    Square currentSquareDouble = currentPlayer.getPiece().move(rollValue2);
-                    //check if player has passed travel and is not on travel square
-                    if(currentPlayer.getPiece().hasPassedTravelSquare() && currentPlayer.getPiece().getPos() != 0) {
-                        Travel.passedTravelSquare(currentPlayer);
-                    }
-                    runSquareAction(currentSquareDouble, currentPlayer);
-
+                    rollAndMove(currentPlayer);
                 }
 
                 if (di.getIsSecondDouble() && begun == true) {
-                    // go to jail
+                    // go to safari
                     currentPlayer.setInSafari(true);
                     // move player to the spotted in the safari square
                     System.out.println("\nUnlucky, you rolled two doubles in a row! ");
@@ -198,6 +158,19 @@ public class BackFromTheBrink {
         }
     }
 
+    private static void rollAndMove(Player currentPlayer) {
+        di.nextPlayer(); // reset Double "memory" of dice
+        int rollValue = di.getRollValue();
+
+        //move around board
+        Square currentSquare = currentPlayer.getPiece().move(rollValue);
+        //check if player has passed travel and is not on travel square
+        if(currentPlayer.getPiece().hasPassedTravelSquare() && currentPlayer.getPiece().getPos() != 0) {
+            Travel.passedTravelSquare(currentPlayer);
+        }
+        currentSquare.execute(currentPlayer);
+    }
+
     static void displayInSafariOptionsMenu(Player currentPlayer) {
 
         int option;
@@ -216,8 +189,6 @@ public class BackFromTheBrink {
             case 1: di.tryDouble(currentPlayer);
             break;
             case 2: currentPlayer.payFee(currentPlayer, 50);
-            break;
-            case 3: currentPlayer.useWildCard(currentPlayer);
             break;
             case 4: forfeitGame(currentPlayer);
         }

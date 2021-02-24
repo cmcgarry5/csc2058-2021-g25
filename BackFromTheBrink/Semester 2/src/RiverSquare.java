@@ -13,8 +13,8 @@ public class RiverSquare extends Square{
 
     public void execute(Player player) {
         System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
-        System.out.println(StdIO.printRiverSquare(player, this.COST, this.getName()));
-        player.deductMaterials(COST);
+        System.out.println(StdIO.printRiverSquare(player, getCOST(), this.getName()));
+        player.deductMaterials(getCOST());
     }
 
     public int getCOST() {

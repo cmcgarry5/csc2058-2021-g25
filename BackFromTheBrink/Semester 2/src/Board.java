@@ -103,20 +103,20 @@ public class Board {
 		addSquare(brownBear);
 		forest.addAnimalHabitat(brownBear);
 
-		addSquare(new WildCardSquare("Wild Card 1", 2));
+		addSquare(new WildCardSquare("Wild Card", 2));
 
 		Habitat jaguar =  new Habitat("Jaguar Habitat", 3, 60, 2, 10, 30, 90, 160, 250, 50,forest);
 		addSquare(jaguar);
 		forest.addAnimalHabitat(jaguar);
 
-		addSquare(new Special("Conservation Fee Utility", 4, 200));
+		addSquare(new Special("Conservation Fee", 4, 200));
 		addSquare(new RiverSquare("Zile River", 5));
 
 		Habitat crane = new Habitat("Whooping Crane Habitat", 6, 100, 6, 30, 90, 270, 400, 550, 50,sky);
 		addSquare(crane);
 		sky.addAnimalHabitat(crane);
 
-		addSquare(new WildCardSquare("Wild Card 2", 7));
+		addSquare(new WildCardSquare("Wild Card", 7));
 
 		Habitat parrot = new Habitat("Grey Parrot Habitat", 8, 100, 6, 30, 90, 270, 400, 550, 50,sky);
 		addSquare(parrot);
@@ -126,13 +126,13 @@ public class Board {
 		addSquare(duck);
 		sky.addAnimalHabitat(duck);
 
-		addSquare(new SafariSquare("Safari", 10));
+		addSquare(new SafariSquare("Visiting Safari", 10));
 
 		Habitat egret = new Habitat("Great Egret Habitat", 11, 160, 12, 60, 180, 500, 700, 900, 100,wetlands);
 		addSquare(egret);
 		wetlands.addAnimalHabitat(egret);
 
-		addSquare(new Special("Electricity Utility", 12, 150));
+		addSquare(new Special("Pay Electricity", 12, 150));
 
 		Habitat rail = new Habitat("King Rail Habitat", 13, 140, 10, 50, 150, 450, 675, 750, 100,wetlands);
 		addSquare(rail);
@@ -148,7 +148,7 @@ public class Board {
 		addSquare(bat);
 		cave.addAnimalHabitat(bat);
 
-		addSquare(new WildCardSquare("Wild Card 3", 17));
+		addSquare(new WildCardSquare("Wild Card", 17));
 
 		Habitat salamander = new Habitat("Blind Salamander Habitat", 18, 160, 14, 70, 200, 550, 700, 950, 100,cave);
 		addSquare(salamander);
@@ -164,7 +164,7 @@ public class Board {
 		addSquare(leopard);
 		exotic.addAnimalHabitat(leopard);
 
-		addSquare(new WildCardSquare("Wild Card 4", 22));
+		addSquare(new WildCardSquare("Wild Card", 22));
 
 		Habitat rhino = new Habitat("Black Rhino Habitat", 23, 220, 18, 90, 250, 700, 875, 1050, 150,exotic);
 		addSquare(rhino);
@@ -200,14 +200,14 @@ public class Board {
 		addSquare(orangutan);
 		jungle.addAnimalHabitat(orangutan);
 
-		addSquare(new WildCardSquare("Wild Card 5", 33));
+		addSquare(new WildCardSquare("Wild Card", 33));
 
 		Habitat elephant = new Habitat("Asian Elephant Habitat", 34, 320, 28, 150, 450, 1000, 1200, 1400, 200,jungle);
 		addSquare(elephant);
 		jungle.addAnimalHabitat(elephant);
 
 		addSquare(new RiverSquare("Duke River", 35));
-		addSquare(new WildCardSquare("Wild Card 6", 36));
+		addSquare(new WildCardSquare("Wild Card", 36));
 
 		Habitat whale = new Habitat("Blue Whale Habitat", 37, 400, 50, 200, 600, 1400, 1700, 2000, 200,marine);
 		addSquare(whale);
