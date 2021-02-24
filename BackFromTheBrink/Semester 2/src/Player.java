@@ -7,6 +7,7 @@ public class Player {
     private boolean outOfMaterials;
     private int ranking;
     private boolean inSafari;
+    private int roundsInSafari = 0;
 
     public Player(String name) {
         this.name = name;
@@ -63,6 +64,10 @@ public class Player {
     public void setRanking(int score) {this.ranking = score;}
 
     public void setInSafari(boolean inSafari) {
+
+        if(!inSafari){
+            roundsInSafari = 0; //once they escape from safari set their rounds back to 0
+        }
         this.inSafari = inSafari;
     }
 
@@ -167,4 +172,11 @@ public class Player {
         return this.getInventory().getMaterials() + (numBiomes*1000) + (numHabitats*1000) + (numZoos*1000);
     }
 
+    public void incrementRound() {
+        roundsInSafari++;
+    }
+
+    public int getRoundsInSafari(){
+        return roundsInSafari;
+    }
 }

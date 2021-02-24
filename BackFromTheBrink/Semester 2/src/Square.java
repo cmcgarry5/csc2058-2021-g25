@@ -63,5 +63,7 @@ public abstract class Square {
 
 	public abstract boolean isOwned();
 
-	//public abstract int getLandingOnFee();
+    public abstract void execute(Player player);
+
+    //public abstract int getLandingOnFee();
 }

@@ -10,6 +10,7 @@ public class SpottedByPredator extends Square{
         return false;
     }
 
+    @Override
     public void execute(Player player) {
         player.getPiece().move(10);
         System.out.println("Oh no! a predator has spotted you!\nGo into hiding!");

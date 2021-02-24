@@ -98,19 +98,32 @@ public class BackFromTheBrink {
             System.out.println(StdIO.printPlayer(currentPlayer));
 
             if(currentPlayer.isInSafari()){
-                //print out options
+
+                currentPlayer.incrementRound();
 
                 System.out.println("You are hiding in the Safari.");
 
-                int option;
-                do{
-                    InSafariMenu.display();
-                    option = StdIO.readInt();
+
+                if(currentPlayer.getRoundsInSafari() == 3){
+                    currentPlayer.payFee(currentPlayer, 50);
+                }
+
+                else{
+
+                    //print out options
+
+                    int option;
+                    do{
+                        InSafariMenu.display();
+                        option = StdIO.readInt();
+
+                    }
+                    while(option <= 0 || option> InSafariMenu.getNumOptions());
+
+                    ProcessInSafariOption(option, currentPlayer);
 
                 }
-                while(option <= 0 || option> InSafariMenu.getNumOptions());
 
-                ProcessInSafariOption(option, currentPlayer);
             }
             else {
 
