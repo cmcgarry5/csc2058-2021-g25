@@ -164,16 +164,16 @@ public class StdIO {
 
     public static String showMaterialsIncreased(Player player, int amt) {
         String print = "";
-        int prevMaterials = player.getInventory().getMaterials();
-        int newAmount = player.getInventory().getMaterials() + amt;
+        int newAmount = player.getInventory().getMaterials();
+        int prevMaterials = player.getInventory().getMaterials() - amt;
         print += "\nYou now have ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
         return print;
     }
 
     public static String showMaterialsDeducted(Player player, int amt) {
         String print = "";
-        int prevMaterials = player.getInventory().getMaterials();
-        int newAmount = player.getInventory().getMaterials() - amt;
+        int newAmount = player.getInventory().getMaterials();
+        int prevMaterials = player.getInventory().getMaterials() + amt;
         print += "\nYou now only have ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
         return print;
     }

@@ -27,10 +27,14 @@ public class BackFromTheBrink {
         players = PlayerRegistration.BeginRegistration();
         begun = true;
 
-        System.out.println("\nEach of you start with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks to help save them! \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
+        System.out.println("\nEach of you start with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks. \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
-            playerTurnHandler();
+            for (int i = 0; i < players.size(); i++) {
+                Player currentPlayer = players.get(i);
+                playerTurnHandler(currentPlayer);
+            }
+
         }
         //win condition
     }
@@ -53,16 +57,12 @@ public class BackFromTheBrink {
        return bftbWon;
     }
 
-    public static void playerTurnHandler() {
-        //print statements
-        for (int i = 0; i < players.size(); i++) {
-
-            Player currentPlayer = players.get(i);
+    public static void playerTurnHandler(Player currentPlayer) {
 
             if (currentPlayer.isOutOfMaterials()){
-                continue;
+                return;
             }
-            //check if player is in jail/safari
+            //check if player is in safari
             System.out.println(currentPlayer.getName() + ", it's your turn!\n");
 
             //message to let player know their state at the start of their turn.
@@ -82,9 +82,8 @@ public class BackFromTheBrink {
                     currentPlayer.payFee(currentPlayer, 50);
                     currentPlayer.setInSafari(false);
 
-
                     // ability to roll and move
-                    rollAndMove(currentPlayer);
+                    playerTurnHandler(currentPlayer);
 
                 }
 
@@ -106,7 +105,7 @@ public class BackFromTheBrink {
                             currentPlayer.getInventory().removeWildCard();
 
                             // roll and move
-                            rollAndMove(currentPlayer);
+                            playerTurnHandler(currentPlayer);
                         }
                         else{ //display menu if the user doesnt want to use their wildcard
                             displayInSafariOptionsMenu(currentPlayer);
@@ -164,7 +163,6 @@ public class BackFromTheBrink {
             di.nextPlayer(); // reset Double "memory" of dice
         }
 
-    }
 
     private static void rollAndMove(Player currentPlayer) {
 

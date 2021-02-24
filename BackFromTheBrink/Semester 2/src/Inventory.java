@@ -107,7 +107,7 @@ public class Inventory {
     }
 
     public void deductPlayerMaterials(int qty) {
-        int diff = this.materials - qty;
+        int diff = getMaterials() - qty;
         if (this.materials >= diff) {
             this.materials = this.materials - qty;
             //System.out.println("Materials successfully deducted!");
