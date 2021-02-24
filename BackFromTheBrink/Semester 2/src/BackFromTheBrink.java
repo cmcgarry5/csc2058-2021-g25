@@ -144,24 +144,30 @@ public class BackFromTheBrink {
 
             //print out all options available
             //request input
-            int option;
-            do{
-                turnOptionsMenu.display();
+
+            // Display additional options menu at all times unless they have just moved into Safari
+            if (!di.getIsSecondDouble()){
+                int option;
                 do{
+                    turnOptionsMenu.display();
+                    do{
 
-                    option = StdIO.readInt();
+                        option = StdIO.readInt();
 
-                }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
+                    }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
 
-                ProcessTurnOption(option, currentPlayer);
+                    ProcessTurnOption(option, currentPlayer);
+                }
+                while(option == 2 || option == 3);
             }
-            while(option == 2 || option == 3);
+
+            di.nextPlayer(); // reset Double "memory" of dice
         }
 
     }
 
     private static void rollAndMove(Player currentPlayer) {
-        di.nextPlayer(); // reset Double "memory" of dice
+
         int rollValue = di.getRollValue();
 
         //move around board
