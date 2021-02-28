@@ -9,6 +9,8 @@ public class Inventory {
         this.biomes = new ArrayList<Biome>();
         this.wildCards = new ArrayList<WildCard>();
         this.materials = 1500;
+
+        wildCards.add(new EscapeCard("Escape Safari Card"));
     }
 
     public int getMaterials() {
@@ -129,18 +131,21 @@ public class Inventory {
         }
     }
 
-    public void removeCard(WildCard wildcard) {
-        for (int i = 0; i < wildCards.size(); i++) {
-            if (wildCards.get(i).getName() == wildcard.getName()) {
-                wildCards.remove(i);
-            }
-        }
-        System.out.println("Wild Card has been successfully removed.");
-    }
-
-//	public void removeMaterials(int qty) { // Class Diagram???????????????
-//		
-//	}
+//    public void removeCard() {
+//        if(wildCards.size()>0){
+//            wildCards.remove(0);
+//        }
+////        for (int i = 0; i < wildCards.size(); i++) {
+////            if (wildCards.get(i).getName() == wildcard.getName()) {
+////
+////            }
+////        }
+//        System.out.println("Wild Card has been successfully removed.");
+//    }
+//
+////	public void removeMaterials(int qty) { // Class Diagram???????????????
+////
+////	}
 
     public void updateInfo() {
         System.out.println("Materials: " + materials + "\n");
@@ -173,7 +178,7 @@ public class Inventory {
         return false;
     }
 
-    public void removeWildCard() {
+    public void returnWildCardToBoard() {
         if(hasWildCard()){
             Board.addWildCard(wildCards.remove(0)); //remove wild card from inventory and add back to board
         }

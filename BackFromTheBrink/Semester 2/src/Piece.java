@@ -12,7 +12,7 @@ public class Piece {
 
 	public Piece(String name, int position) {
 		this.name = name;
-		this.pos = position;
+		this.pos = 10; //position;
 		this.taken = false;
 		this.id = getNextID();
 	}

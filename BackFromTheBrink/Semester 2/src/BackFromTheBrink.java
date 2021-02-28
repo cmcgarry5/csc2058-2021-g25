@@ -62,7 +62,7 @@ public class BackFromTheBrink {
             if (currentPlayer.isOutOfMaterials()){
                 return;
             }
-            //check if player is in safari
+
             System.out.println(currentPlayer.getName() + ", it's your turn!\n");
 
             //message to let player know their state at the start of their turn.
@@ -85,6 +85,7 @@ public class BackFromTheBrink {
                     // ability to roll and move
                     System.out.println("You are no longer hiding in the safari.");
                     playerTurnHandler(currentPlayer);
+                    return;
 
                 }
 
@@ -92,21 +93,21 @@ public class BackFromTheBrink {
 
                     if(currentPlayer.getInventory().hasWildCard()){
 
-                        System.out.println("\nYou have a wildcard. Do you want to use it to escape from the safari immediately? ");
+                        System.out.println("\nYou have a wildcard. Do you want to use it to escape from the safari immediately? (y/n) ");
 
                         String input;
                         do{
                             input = StdIO.read();
                         }
-                        while(!input.equalsIgnoreCase("y") || !input.equalsIgnoreCase("n"));
+                        while(!(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("n")));
 
 
                         if(input.equalsIgnoreCase("y")){
-                            currentPlayer.useWildCard(currentPlayer);
-                            currentPlayer.getInventory().removeWildCard();
+                            currentPlayer.useWildCard();
 
                             // roll and move
                             playerTurnHandler(currentPlayer);
+                            return;
                         }
                         else{ //display menu if the user doesnt want to use their wildcard
                             displayInSafariOptionsMenu(currentPlayer);
@@ -171,6 +172,12 @@ public class BackFromTheBrink {
 
         int rollValue = di.getRollValue();
 
+        move(currentPlayer, rollValue);
+
+    }
+
+    private static void move(Player currentPlayer, int rollValue){
+
         //move around board
         Square currentSquare = currentPlayer.getPiece().move(rollValue);
         //check if player has passed travel and is not on travel square
@@ -178,6 +185,7 @@ public class BackFromTheBrink {
             Travel.passedTravelSquare(currentPlayer);
         }
         currentSquare.execute(currentPlayer);
+
     }
 
     static void displayInSafariOptionsMenu(Player currentPlayer) {
@@ -222,10 +230,11 @@ public class BackFromTheBrink {
         int rollValue = di.getRollValue();
         if(di.getIsDouble()) {
             System.out.println("You rolled a double! You luckily escaped from the predator and escaped! \n");
-            currentPlayer.getPiece().move(rollValue);
+            currentPlayer.setInSafari(false);
+            move(currentPlayer, rollValue);
+            //currentPlayer.getPiece().move(rollValue).execute(currentPlayer);
             //currentSquare.execute(currentPlayer);
             //playerTurnHandler(currentPlayer);
-            currentPlayer.setInSafari(false);
             di.nextPlayer();
         }
         else {
