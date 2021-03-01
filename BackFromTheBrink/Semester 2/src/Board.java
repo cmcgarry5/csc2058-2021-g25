@@ -90,6 +90,14 @@ public class Board {
 		return hab;
 	}
 
+	public static void removeWildCard(WildCard wildCard) {
+		for (int i = 0; i < wildCards.size(); i++) {
+			if (wildCard.getName().equals(wildCards.get(i).getName())) {
+				wildCards.remove(i);
+			}
+		}
+	}
+
 	public static void setupBoard() {
 
 		Biome cave = new Biome("Cave Biome", 3);
