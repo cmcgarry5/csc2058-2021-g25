@@ -49,7 +49,7 @@ public class Inventory {
         for (int i = 0; i < this.biomes.size(); i++) {
             for (int j = 0; j < this.biomes.get(i).getHabitats().size(); j++) {
                 this.biomes.get(i).getHabitats().get(j).resetHabitat(); // reset zoos and park
-                BackFromTheBrink.board.addAnimalHabitat(this.biomes.get(i).getHabitats().get(j));
+//                BackFromTheBrink.board.addAnimalHabitat(this.biomes.get(i).getHabitats().get(j));
             }
             this.biomes.get(i).resetHabitats();
         }
@@ -103,9 +103,13 @@ public class Inventory {
     }
 
     public void increasePlayerMaterials(int qty) {
-        this.materials = this.materials + qty;
-        //System.out.println("Materials successfully added!");
-        //System.out.println("You now have: " + this.materials);
+        if (qty >= 0) {
+            this.materials = this.materials + qty;
+            //System.out.println("Materials successfully added!");
+            //System.out.println("You now have: " + this.materials);
+        } else {
+            System.out.println("Invalid amount.");
+        }
     }
 
     public void deductPlayerMaterials(int qty) {
@@ -115,7 +119,8 @@ public class Inventory {
             //System.out.println("Materials successfully deducted!");
             //System.out.println("You now have: " + this.materials);
         } else {
-            //System.out.println("You do not have enough materials!");
+            this.materials = 0;
+            System.out.println("You have used up all of your materials and are now bankrupt!");
         }
 
 

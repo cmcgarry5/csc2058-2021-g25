@@ -73,6 +73,9 @@ public class Player {
 
     public void deductMaterials(int amount) {
         this.inventory.deductPlayerMaterials(amount);
+        if (this.inventory.getMaterials() == 0) {
+            BackFromTheBrink.bankrupt(this, Board.getHabitat(this.getPiece().getPos()).getOwner());
+        }
     }
 
     public void increasePlayerMaterials(int amount) {

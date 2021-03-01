@@ -27,7 +27,7 @@ public class BackFromTheBrink {
         players = PlayerRegistration.BeginRegistration();
         begun = true;
 
-        System.out.println("\nEach of you start with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks. \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
+        System.out.println("\nEach player starts with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks to help save them! \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
 
         while(getPlayersInGame(players) > 1 || !getBftbWon()) {
             for (int i = 0; i < players.size(); i++) {
