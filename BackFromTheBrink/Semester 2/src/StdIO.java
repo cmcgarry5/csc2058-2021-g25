@@ -35,11 +35,11 @@ public class StdIO {
          }
          for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
              biomes+= "\n";
-             biomes +=  player.getInventory().getBiomes().get(i).getName();
+             biomes +=  "ID: " + player.getInventory().getBiomes().get(i).getID() + " - "+ player.getInventory().getBiomes().get(i).getName();
                 //biomes+= "\n";
              for (int j = 0; j < player.getInventory().getBiomes().get(i).getHabitats().size(); j++) {
                  biomes += "\n\t";
-                 biomes += player.getInventory().getBiomes().get(i).getHabitats().get(j).getName();
+                 biomes += "ID: " + player.getInventory().getBiomes().get(i).getHabitats().get(j).getID() + " - "+ player.getInventory().getBiomes().get(i).getHabitats().get(j).getName();
              }
          }
          String wildcards = "Wildcards: ";
@@ -119,7 +119,7 @@ public class StdIO {
             print += habitatIndex + ". Name: " + currentHabitat.getName() + "\n";
             print += "Cost: ⚒" + currentHabitat.getCost() + "\n";
             print += "Number of Zoos built: " + currentHabitat.getNumberOfZoos() + "\n";
-            print += "Has National Park: " + currentHabitat.getNumberOfZoos() + "\n";
+            print += "Has National Park: " + currentHabitat.hasNationalPark() + "\n";
             print += "Initial Fee: ⚒" + currentHabitat.getFee() + "\n";
             print += "1 Zoo Fee: ⚒" + currentHabitat.getFee1Zoo() + "\n";
             print += "2 Zoo Fee: ⚒" + currentHabitat.getFee2Zoo() + "\n";
@@ -178,7 +178,7 @@ public class StdIO {
         String print = "";
         int newAmount = player.getInventory().getMaterials();
         int prevMaterials = player.getInventory().getMaterials() - amt;
-        print += "\nYou now have ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
+        print += "\n"+ player.getName() +" now has ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
         return print;
     }
 
@@ -186,7 +186,7 @@ public class StdIO {
         String print = "";
         int newAmount = player.getInventory().getMaterials();
         int prevMaterials = player.getInventory().getMaterials() + amt;
-        print += "\nYou now only have ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
+        print += "\n"+ player.getName() +" now only has ⚒" + newAmount + " from a previous ⚒" + prevMaterials;
         return print;
     }
 
@@ -204,16 +204,18 @@ public class StdIO {
         return print;
     }
 
-    public static String printOwnedHabitatPay(Player player, int amt, Biome biome, Habitat habitat, boolean hasNationalPark, int numberOfZoos) {
-        String print = "";
-        print += "You landed on  " + habitat.getName() + " in the " + biome.getName() + "\n";
-        if(hasNationalPark) {
+    public static String printOwnedHabitatPay(Player player, int amt, Habitat habitat) {
+        String print = "\n";
+        //print += "You have landed on " + habitat.getName() + " in the " + habitat.getBiome().getName() + "\n";
+        if(habitat.hasNationalPark()) {
             print+= "This habitat has a National Park" + "\n";
         } else {
-            print+= "This habitat has " + numberOfZoos + "\n";
+            print+= "This habitat has " + habitat.getNumberOfZoos() + " zoos\n";
         }
-        print += "You must pay a fee of " + amt + " materials!" + "\n";
+        print += player.getName() + " must pay an investment fee of " + amt + " materials to " + habitat.getOwner().getName() + "\n";
         print += showMaterialsDeducted(player, amt);
+        print += showMaterialsIncreased(habitat.getOwner(), amt);
+
         return print;
     }
 
@@ -254,5 +256,26 @@ public class StdIO {
         }
         catch (IOException ex) { ex.printStackTrace(); }
         return intValue;
+    }
+
+    public static String PrintCompleteBiomes(Player player){
+        String biomes = "Your completed Biomes:\n\n";
+        biomes += "Biome ID -  Biome Name\n";
+        biomes += "\t Habitat ID - Habitat Name - Number of Zoos built - Cost to build a Zoo\n";
+        for (int i = 0; i < player.getInventory().getBiomes().size(); i++) {
+            biomes+= "\n";
+            if(player.getInventory().getBiomes().get(i).isAllOwned()){
+                biomes +=  "ID: " + player.getInventory().getBiomes().get(i).getID() + " - "+ player.getInventory().getBiomes().get(i).getName();
+                //biomes+= "\n";
+                for (int j = 0; j < player.getInventory().getBiomes().get(i).getHabitats().size(); j++) {
+                    biomes += "\n\t";
+                    biomes += "ID: " + player.getInventory().getBiomes().get(i).getHabitats().get(j).getID() + " - "+ player.getInventory().getBiomes().get(i).getHabitats().get(j).getName() + " - " + player.getInventory().getBiomes().get(i).getHabitats().get(j).getNumberOfZoos() + " - ⚒" + player.getInventory().getBiomes().get(i).getHabitats().get(j).getBuildCost();
+                }
+            }
+
+        }
+
+        return biomes;
+
     }
 }

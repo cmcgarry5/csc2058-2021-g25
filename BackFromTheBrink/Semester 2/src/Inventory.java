@@ -183,4 +183,29 @@ public class Inventory {
             Board.addWildCard(wildCards.remove(0)); //remove wild card from inventory and add back to board
         }
     }
+
+    public Biome getBiome(int id) {
+
+        Biome biome = null;
+
+        for(Biome b : biomes){
+            if(b.getID() == id){
+                biome =  b;
+            }
+        }
+        return biome;
+    }
+
+    public Habitat getHabitat(Biome currentBiome, int habitatID) {
+
+        Habitat habitat = null;
+
+            for(Habitat h : currentBiome.getHabitats()){
+                if(h.getID() == habitatID){
+                    habitat =  h;
+                }
+            }
+
+        return habitat;
+    }
 }

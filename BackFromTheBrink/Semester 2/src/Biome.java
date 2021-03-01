@@ -4,6 +4,9 @@ public  class Biome {
 
     private ArrayList<Habitat> habitats = new ArrayList<Habitat>();
     private String name;
+    private int id;
+
+    private static int nextID = 1;
     private int numberOfHabitats;
     //private Player ownedBy = player1; dont think we need this as this is held in a persons inventtory
 
@@ -11,7 +14,14 @@ public  class Biome {
     public Biome(String biomeName, int numberOfHabitats) {
         setBiomeName(biomeName);
         setNumberOfHabitats(numberOfHabitats);
+        id = nextID++;
         //setHabitats(habitats);
+    }
+
+    public Biome(int id, String biomeName, int numberOfHabitats){
+        setBiomeName(biomeName);
+        setNumberOfHabitats(numberOfHabitats);
+        this.id = id;
     }
 
 // broken
@@ -94,4 +104,10 @@ public  class Biome {
     public void resetHabitats() {
         this.habitats = null;
     }
+
+    public int getID() {
+        return id;
+    }
+
+
 }

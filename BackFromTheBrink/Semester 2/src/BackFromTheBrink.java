@@ -4,7 +4,7 @@ public class BackFromTheBrink {
 
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
-    static boolean begun = false;
+    //static boolean begun = false;
     private static boolean bftbWon = false;
     //private static StdIO StdIO;
     static Board board;
@@ -25,7 +25,19 @@ public class BackFromTheBrink {
         board.setupBoard();
 
         players = PlayerRegistration.BeginRegistration();
-        begun = true;
+        //begun = true;
+
+        // first player owns all habitats - testing
+//        Player p1 = players.get(0);
+//
+//        for(Biome b : Board.biomes){
+//            for(Habitat h: b.getHabitats()){
+//                h.setOwner(p1);
+//            }
+//            p1.getInventory().addBiome(b);
+//        }
+
+
 
         System.out.println("\nEach of you start with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks. \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
 
@@ -127,15 +139,6 @@ public class BackFromTheBrink {
                     rollAndMove(currentPlayer, false);
                 }
 
-//                if (di.getIsSecondDouble() && begun == true) {
-//                    // go to safari
-//                    currentPlayer.setInSafari(true);
-//                    // move player to the spotted in the safari square
-//                    System.out.println("\nUnlucky, you rolled two doubles in a row! ");
-//                    System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
-//                    currentPlayer.getPiece().move(Board.getSquare(10));
-//                }
-
                 if(!di.getIsSecondDouble()){
 
                     int option;
@@ -169,7 +172,7 @@ public class BackFromTheBrink {
             move(currentPlayer, rollValue);
         }
         else{
-            if (di.getIsSecondDouble() && begun == true) {
+            if (di.getIsSecondDouble()) {
                 // go to safari
                 currentPlayer.setInSafari(true);
                 // move player to the spotted in the safari square
@@ -181,26 +184,6 @@ public class BackFromTheBrink {
                 move(currentPlayer, rollValue);
             }
         }
-
-
-//        if (di.getIsSecondDouble() && begun == true) {
-//            // go to safari
-//            currentPlayer.setInSafari(true);
-//            // move player to the spotted in the safari square
-//            System.out.println("\nUnlucky, you rolled two doubles in a row! ");
-//            System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
-//            currentPlayer.getPiece().move(Board.getSquare(10));
-//
-//            return;
-//        }
-//
-//        else if(di.getIsDouble() && firstRoll){
-//            rollAndMove(currentPlayer, false);
-//        }else{
-//            move(currentPlayer, rollValue);
-//            return; //returning has they did not roll a double;
-//        }
-
     }
 
     private static void move(Player currentPlayer, int rollValue){
@@ -262,12 +245,11 @@ public class BackFromTheBrink {
             //currentPlayer.getPiece().move(rollValue).execute(currentPlayer);
             //currentSquare.execute(currentPlayer);
             //playerTurnHandler(currentPlayer);
-            di.nextPlayer();
         }
         else {
             System.out.println("Unlucky, " + currentPlayer.getName() + ", the predator is still lurking nearby...\n");
-            di.nextPlayer();
         }
+        di.nextPlayer();
     }
 
     private static void forfeitGame(Player currentPlayer) {
@@ -343,23 +325,32 @@ public class BackFromTheBrink {
         //if they at least own one biome for loop will execute
         if(ownsBiome) {
             //display all owned biomes and habitats and zoos in that biome
-            for(int i = 0; i < currentPlayer.getInventory().getBiomes().size(); i++) {
-                Biome currentBiome = currentPlayer.getInventory().getBiomes().get(i);
-                //if player owns same number of  habitats as maximum number of habitats that a biome can have print them
-                if(currentBiome.isAllOwned()) {
-                    System.out.println(i + ". " + StdIO.printHabitats(currentBiome));
-                }
-            }
+
+            System.out.println(StdIO.PrintCompleteBiomes(currentPlayer));
+//            for(int i = 0; i < currentPlayer.getInventory().getBiomes().size(); i++) {
+//                Biome currentBiome = currentPlayer.getInventory().getBiomes().get(i);
+//                //if player owns same number of  habitats as maximum number of habitats that a biome can have print them
+//                if(currentBiome.isAllOwned()) {
+//                    System.out.println(i + ". " + StdIO.printHabitats(currentBiome));
+//                }
+//            }
 
             //Ask player which biome they want to build a zoo
-            System.out.println("Which biome would you like to build a zoo on?");
-            int biomeIndex = StdIO.readInt();
-            Biome currentBiome = currentPlayer.getInventory().getBiomes().get(biomeIndex);
+            System.out.println("\n\nWhich biome would you like to build a zoo on?");
+            int ID = StdIO.readInt();
+            Biome currentBiome = currentPlayer.getInventory().getBiome(ID);
+
+//            System.out.println(currentBiome.getName());
+//            System.out.println(currentBiome.getNumberOfHabitats());
+//            System.out.println(currentBiome.getNumberOwnedHabitats());
+
 
             //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
             System.out.println("Which habitat would you like to build a zoo on?");
-            int habitatIndex = StdIO.readInt();
-            Habitat currentHabitat = currentBiome.getHabitats().get(habitatIndex);
+            int habitatID = StdIO.readInt();
+            Habitat currentHabitat = currentPlayer.getInventory().getHabitat(currentBiome, habitatID);
+
+            System.out.println(currentHabitat.getName());
 
             //if current habitat is less than or equal to the rest of the habitats player can build
             boolean zooCheck = false;
@@ -372,16 +363,21 @@ public class BackFromTheBrink {
                     zooCheck = true;
                 } else {
                     System.out.println("You cannot build a zoo here, all habitats must have an equal amount of zoos first!");
-                    break;
+                    return;
                 }
             }
 
             if(zooCheck) {
                 currentPlayer.deductMaterials(currentHabitat.getBuildCost());
                 currentHabitat.addZoo();
+
+                System.out.println("Successfully Built a zoo on " + currentHabitat.getName());
+                System.out.println(StdIO.showMaterialsDeducted(currentPlayer,currentHabitat.getBuildCost()));
+
+                //System.out.println(StdIO.printHabitats(currentBiome));
             }
-            System.out.println("Successfully Built a zoo on " + currentHabitat.getName());
-            StdIO.printHabitats(currentBiome);
+
+
         } else {
             System.out.println("You do not own any biomes therefore you can't build any zoos!");
             return;
@@ -436,7 +432,8 @@ public class BackFromTheBrink {
             String tradeRequest = "";
             tradeRequest += currentPlayer.getName() + " has requested to buy " + selectedHabitat.getName() +
                     " in the " + selectedBiome.getName() + " biome for " + amount;
-            System.out.println("Would you like to accept this trade? y for yes, n for no ");
+            System.out.println(tradeRequest);
+            System.out.println("\n\nWould you like to accept this trade? y for yes, n for no ");
             verification = StdIO.read();
             //transaction body
             if (verification.equals("y")) {
