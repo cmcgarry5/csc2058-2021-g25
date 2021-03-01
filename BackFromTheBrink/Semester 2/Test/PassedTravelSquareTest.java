@@ -8,7 +8,7 @@ public class PassedTravelSquareTest {
     static Player testPlayer;
 
     @Before
-    public void setUp() {
+    public static void setUp() {
         testPlayer = new Player("test");
         testPlayer.getInventory().setMaterials(1500);
         Board.setupBoard();
@@ -24,26 +24,23 @@ public class PassedTravelSquareTest {
         Assert.assertEquals("Materials: ", expectedMaterials, actualMaterials);
         Assert.assertFalse(testPlayer.getPiece().hasPassedTravelSquare());
     }
-//    public void checkPassedTravelSquareHit() {
-//        Player testPlayer = new Player("test");
-//        Board board = new Board();
-//        Board.setupBoard();
-//        testPlayer.getInventory().setMaterials(1500);
-//        int expectedMaterials = testPlayer.getInventory().getMaterials() + ((Travel)board.getSquare((0))).getAmountGain();
+
+//    public static void main(String args[]) {
+//        setUp();
 //        testPlayer.setPiece(Board.pieces.get(1));
+//
 //        testPlayer.getPiece().setPos(38);
 //        System.out.println(StdIO.printPlayer(testPlayer));
 //        testPlayer.getPiece().move(4);
 //        if(board.getSquare(testPlayer.getPiece().getPos()) instanceof Travel){
 //            ((Travel)board.getSquare(testPlayer.getPiece().getPos())).execute(testPlayer);
 //        }
-//        if(!testPlayer.getPiece().hasPassedTravelSquare() && testPlayer.getPiece().getPos() != 0) {
+//        if(testPlayer.getPiece().hasPassedTravelSquare() && testPlayer.getPiece().getPos() != 0) {
 //            Travel.passedTravelSquare(testPlayer);
 //        }
-//        int actualMaterials = testPlayer.getInventory().getMaterials();
 //        System.out.println(StdIO.printPlayer(testPlayer));
 //
-//        Assert.assertEquals("Materials: ", expectedMaterials, actualMaterials);
+//        //Assert.assertEquals("Materials: ", expectedMaterials, actualMaterials);
 //    }
 
 //    @Test

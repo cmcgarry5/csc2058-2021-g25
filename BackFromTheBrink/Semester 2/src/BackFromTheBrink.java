@@ -344,44 +344,68 @@ public class BackFromTheBrink {
 //            System.out.println(currentBiome.getNumberOfHabitats());
 //            System.out.println(currentBiome.getNumberOwnedHabitats());
 
-
-            //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
-            System.out.println("Which habitat would you like to build a zoo on?");
-            int habitatID = StdIO.readInt();
-            Habitat currentHabitat = currentPlayer.getInventory().getHabitat(currentBiome, habitatID);
-
-            System.out.println(currentHabitat.getName());
-
-            //if current habitat is less than or equal to the rest of the habitats player can build
-            boolean zooCheck = false;
-            for(int i = 0; i < currentBiome.getHabitats().size();i++) {
-                //Skips current habitat
-                if(currentHabitat == currentBiome.getHabitats().get(i)) {
-                    continue;
-                }
-                if (currentHabitat.getNumberOfZoos() <= currentBiome.getHabitats().get(i).getNumberOfZoos()) {
-                    zooCheck = true;
+            //if all habitats have 4 zoos ask user to build national park
+            boolean checkForNationalPark = false;
+            for(Habitat habitat : currentBiome.getHabitats()) {
+                if(habitat.getNumberOfZoos()==4) {
+                    checkForNationalPark = true;
                 } else {
-                    System.out.println("You cannot build a zoo here, all habitats must have an equal amount of zoos first!");
-                    return;
+                    checkForNationalPark = false;
+                    break;
                 }
             }
+            if(checkForNationalPark) {
+                System.out.println("Which habitat would you like to build a national park on?");
+                int habitatID = StdIO.readInt();
+                Habitat currentHabitat = currentPlayer.getInventory().getHabitat(currentBiome, habitatID);
 
-            if(zooCheck) {
-                currentPlayer.deductMaterials(currentHabitat.getBuildCost());
-                currentHabitat.addZoo();
+                System.out.println(currentHabitat.getName());
 
-                System.out.println("Successfully Built a zoo on " + currentHabitat.getName());
-                System.out.println(StdIO.showMaterialsDeducted(currentPlayer,currentHabitat.getBuildCost()));
+                if(!currentHabitat.hasNationalPark()) {
+                    currentHabitat.addNationalPark();
+                } else {
+                    System.out.println("This habitat already has a national park");
+                }
+            } else {
 
-                //System.out.println(StdIO.printHabitats(currentBiome));
+                //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
+                System.out.println("Which habitat would you like to build a zoo on?");
+                int habitatID = StdIO.readInt();
+                Habitat currentHabitat = currentPlayer.getInventory().getHabitat(currentBiome, habitatID);
+
+                System.out.println(currentHabitat.getName());
+
+                //if current habitat is less than or equal to the rest of the habitats player can build
+                boolean zooCheck = false;
+                for (int i = 0; i < currentBiome.getHabitats().size(); i++) {
+                    //Skips current habitat
+                    if (currentHabitat == currentBiome.getHabitats().get(i)) {
+                        continue;
+                    }
+                    if (currentHabitat.getNumberOfZoos() <= currentBiome.getHabitats().get(i).getNumberOfZoos()) {
+                        zooCheck = true;
+                    } else {
+                        System.out.println("You cannot build a zoo here, all habitats must have an equal amount of zoos first!");
+                        return;
+                    }
+                }
+
+                if (zooCheck) {
+                    currentPlayer.deductMaterials(currentHabitat.getBuildCost());
+                    currentHabitat.addZoo();
+
+                    System.out.println("Successfully Built a zoo on " + currentHabitat.getName());
+                    System.out.println(StdIO.showMaterialsDeducted(currentPlayer, currentHabitat.getBuildCost()));
+
+                    //System.out.println(StdIO.printHabitats(currentBiome));
+                }
+
             }
-
-
         } else {
             System.out.println("You do not own any biomes therefore you can't build any zoos!");
             return;
         }
+
     }
 
     public static void trade(Player currentPlayer) {
