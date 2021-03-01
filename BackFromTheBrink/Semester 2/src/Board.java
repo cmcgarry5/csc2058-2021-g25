@@ -71,6 +71,10 @@ public class Board {
 		}
 	}
 
+	public static Habitat getHabitat(int pos) {
+		return (Habitat) Squares.get(pos);
+	}
+
 	public static Habitat removeAnimalHabitat(Habitat habitat){
 		Habitat hab = null;
 		Biome biome = habitat.getBiome();

@@ -260,7 +260,11 @@ public class Habitat extends Square{
 	
 	public void addZoo() {
 		if(biome.getNumberOfHabitats() == biome.getNumberOwnedHabitats()){
-			setNumZoos(getNumberOfZoos()+1);
+			if (numZoos < 4) {
+				setNumZoos(getNumberOfZoos()+1);
+			} else {
+				System.out.println("Reached maximum number of zoos. Upgrade to National Park?");
+			}
 		}
 		else{
 			System.out.println("Player doesn't own all habitats in " + biome.getName());
