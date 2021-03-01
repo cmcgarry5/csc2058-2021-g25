@@ -211,8 +211,7 @@ public class PlayerRegistration {
                 rolledSameScore.add(listPlayers.get(i));
             }
         }
-        //System.out.println(highestScoring.getName());
-        //System.out.println(highestScore);
+
         return new ListPlayersPlayer(rolledSameScore, highestScoring, highestScore);
 
 

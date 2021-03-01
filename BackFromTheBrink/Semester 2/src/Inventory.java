@@ -41,7 +41,6 @@ public class Inventory {
                 System.out.println(biomes.get(i).getHabitats().get(j) + " ");
             }
         }
-
         return null; // uncomplete
     }
 
@@ -58,7 +57,6 @@ public class Inventory {
                 BackFromTheBrink.board.wildCards.add(this.wildCards.get(i));
             }
         }
-        //this.wildCards = null;
     }
 
     public void forfeitToPlayer(Player squareOwner) {
@@ -84,10 +82,6 @@ public class Inventory {
 
     public void addBiome(Biome biome) {
         biomes.add(biome);
-//        System.out.println("Biome added");
-//        for (int i = 0; i < biomes.size(); i++) {
-//            System.out.println(biomes.get(i).getName());
-//        }
     }
 
     public void addHabitat(Biome biome, Habitat habitat) {
@@ -105,8 +99,6 @@ public class Inventory {
     public void increasePlayerMaterials(int qty) {
         if (qty >= 0) {
             this.materials = this.materials + qty;
-            //System.out.println("Materials successfully added!");
-            //System.out.println("You now have: " + this.materials);
         } else {
             System.out.println("Invalid amount.");
         }
@@ -116,53 +108,17 @@ public class Inventory {
         int diff = getMaterials() - qty;
         if (this.materials >= diff) {
             this.materials = this.materials - qty;
-            //System.out.println("Materials successfully deducted!");
-            //System.out.println("You now have: " + this.materials);
         } else {
             this.materials = 0;
             System.out.println("You have used up all of your materials and are now bankrupt!");
         }
-
-
     }
 
     public boolean checkPlayerMaterials(int qty) {
         if (materials >= qty) {
-            //System.out.println("Sufficient materials!");
             return true;
         } else {
-            //System.out.println("Insufficient materials!");
             return false;
-        }
-    }
-
-//    public void removeCard() {
-//        if(wildCards.size()>0){
-//            wildCards.remove(0);
-//        }
-////        for (int i = 0; i < wildCards.size(); i++) {
-////            if (wildCards.get(i).getName() == wildcard.getName()) {
-////
-////            }
-////        }
-//        System.out.println("Wild Card has been successfully removed.");
-//    }
-//
-////	public void removeMaterials(int qty) { // Class Diagram???????????????
-////
-////	}
-
-    public void updateInfo() {
-        System.out.println("Materials: " + materials + "\n");
-
-        System.out.println("Biomes" + "\n");
-        for (int i = 0; i < biomes.size(); i++) {
-            System.out.println(biomes.get(i).getName() + " ");
-        }
-
-        System.out.println("WildCards" + "\n");
-        for (int i = 0; i < wildCards.size(); i++) {
-            System.out.println(wildCards.get(i).getName() + " ");
         }
     }
 

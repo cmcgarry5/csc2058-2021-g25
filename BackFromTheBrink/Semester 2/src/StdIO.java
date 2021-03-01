@@ -2,15 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class StdIO {
-//    public String printAllPlayers(ArrayList<Player> playerList) {
-//        String completeList = "";
-//        int playerIndex = 1;
-//        for(int i = 0; i < playerList.size(); i++) {
-//            completeList += playerIndex + ". " + printPlayer(playerList.get(i)) + "\n";
-//            playerIndex++;
-//        }
-//        return completeList;
-//    }
 
     public static String printPlayersTrade(ArrayList<Player> playerList, Player player) {
         String completeList = "";

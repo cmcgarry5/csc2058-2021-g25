@@ -1,7 +1,6 @@
 public class Special extends Square {
 
     private int fee;
-    private static StdIO IO = new StdIO();
 
     public Special(String name, int position, int fee) {
         super(name, position);
@@ -33,8 +32,8 @@ public class Special extends Square {
 
     //Use the method below as execute(player, getFee(3))
     public void execute(Player player) {
-        System.out.println(IO.printSquareLandedOn(player, this.getName()));
-        System.out.println(IO.printPayFee(player, fee));
+        System.out.println(StdIO.printSquareLandedOn(player, this.getName()));
+        System.out.println(StdIO.printPayFee(player, fee));
         player.deductMaterials(fee);
     }
 

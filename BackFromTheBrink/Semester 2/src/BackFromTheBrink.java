@@ -60,7 +60,7 @@ public class BackFromTheBrink {
     public static int getPlayersInGame(ArrayList<Player> players) {
         int number = 0;
         for(int i = 0; i < players.size(); i++) {
-            if(players.get(i).isOutOfMaterials() == false){
+            if(!players.get(i).isOutOfMaterials()){
                 number++;
             }
         }

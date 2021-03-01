@@ -80,8 +80,6 @@ public class Habitat extends Square{
 		}
 		else if(player != ownedBy) {
 
-			//System.out.println("HIT");
-
 			int feeToPay = getFee();
 
 			if(hasNationalPark()){
@@ -111,63 +109,6 @@ public class Habitat extends Square{
 				player.setOutOfMaterials(true);
 			}
 
-//			if(hasNationalPark()) {
-//				if(player.getInventory().checkPlayerMaterials(feePark)) {
-//					StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, 0);
-//					player.deductMaterials(feePark);
-//				} else {
-//					player.setOutOfMaterials(true);
-//					return;
-//				}
-//			} else  {
-//				switch(getNumberOfZoos()) {
-//					case 0:
-//						if(player.getInventory().checkPlayerMaterials(getFee())) {
-//							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
-//							player.deductMaterials(getFee());
-//						} else {
-//							player.setOutOfMaterials(true);
-//							return;
-//						}
-//						break;
-//					case 1:
-//						if(player.getInventory().checkPlayerMaterials(getFee1Zoo())) {
-//							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
-//							player.deductMaterials(getFee1Zoo());
-//						} else {
-//							player.setOutOfMaterials(true);
-//							return;
-//						}
-//						break;
-//					case 2:
-//						if(player.getInventory().checkPlayerMaterials(getFee2Zoo())) {
-//							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
-//							player.deductMaterials(getFee2Zoo());
-//						} else {
-//							player.setOutOfMaterials(true);
-//							return;
-//						}
-//						break;
-//					case 3:
-//						if(player.getInventory().checkPlayerMaterials(getFee3Zoo())) {
-//							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
-//							player.deductMaterials(getFee3Zoo());
-//						} else {
-//							player.setOutOfMaterials(true);
-//							return;
-//						}
-//						break;
-//					case 4:
-//						if(player.getInventory().checkPlayerMaterials(getFee4Zoo())) {
-//							StdIO.printOwnedHabitatPay(player, feePark, biome, this, nationalPark, getNumberOfZoos());
-//							player.deductMaterials(getFee4Zoo());
-//						} else {
-//							player.setOutOfMaterials(true);
-//							return;
-//						}
-//						break;
-//				}
-//			}
 		}else if(player == getOwner()){
 			System.out.println("\nYou own this Habitat!");
 		}
@@ -257,7 +198,6 @@ public class Habitat extends Square{
 		return this.buildCost;
 	}
 
-	
 	public void addZoo() {
 		if(biome.getNumberOfHabitats() == biome.getNumberOwnedHabitats()){
 			if (numZoos < 4) {
@@ -289,17 +229,9 @@ public class Habitat extends Square{
 			}
 		}
 
-	
 	public boolean hasNationalPark() {
 		return this.nationalPark;
 	}
-	
-	public String getHabitatInfo() {
-		String info = "";
-		info += getSquareInfo() + "Type: Habitat\n" + "Number Of Zoos: " + getNumberOfZoos() + "\nHas Park: " + hasNationalPark() + "\nOwned by: " + getOwner().getName();
-		return info;
-	}
-
 
 	public Biome getBiome() {
 		return this.biome;

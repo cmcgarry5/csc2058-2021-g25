@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Player {
     private String name;
     private Inventory inventory;
@@ -29,10 +27,6 @@ public class Player {
         this.name = p.name;
         this.piece= p.piece;
         this.inventory = p.inventory;
-    }
-
-    private void checkMaterials() {
-
     }
 
     public String getName() {
@@ -86,66 +80,13 @@ public class Player {
         setInSafari(false);
         getInventory().returnWildCardToBoard();
         System.out.println("You have been saved by the safari rescue team!");
-
-
-//        int size = player.getInventory().getWildCard().size();
-//        boolean hasCard = false;
-//        WildCard card = null;
-//        for (int i = 0; i < size; i++) {
-//            if (player.getInventory().getWildCard().get(i).getName().equals("Escape Safari Card")) {
-//                hasCard = true;
-//                card = player.getInventory().getWildCard().get(i);
-//            } else {
-//                hasCard = false;
-//            }
-//        }
-
-//            Scanner sc = new Scanner(System.in);
-//            String response = "";
-//            do {
-//                System.out.println("Are you sure you want to use your Escape Safari Wild Card? (y/n)");
-//                response = sc.nextLine();
-//            } while (!response.toLowerCase().equals("y") || !response.toLowerCase().equals("n"));
-//
-//            if (response.toLowerCase().equals("y")) {
-//                player.setInSafari(false);
-//                player.getInventory().removeCard(card);
-//                System.out.println("You have been saved by the safari rescue team!");
-//                String roll = "";
-//                do {
-//                    System.out.println("Roll the dice, " + player.getName() + " by entering 'r' :");
-//                    roll = sc.nextLine();
-//                } while (!roll.toLowerCase().equals("r"));
-//
-//                if (roll.toLowerCase().equals("r")) {
-//                    int rollValue = BackFromTheBrink.di.getRollValue();
-//                    player.getPiece().move(rollValue);
-//                    //System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
-//                    BackFromTheBrink.di.nextPlayer();
-//                }
-//            }
-//            else {
-//                System.out.println("operation cancelled.");
-//            }
-        //}
-//        else {
-//            System.out.println("You do not own an Escape Safari Wildcard...");
-//        }
     }
 
     public void payFee(int amount) {
 
         if (this.getInventory().checkPlayerMaterials(amount)) {
-
                 this.getInventory().deductPlayerMaterials(amount);
-                //System.out.println("Successfully paid fee!");
                 setInSafari(false);
-//                int rollValue = BackFromTheBrink.di.getRollValue();
-//                player.getPiece().move(rollValue);
-//                System.out.println(StdIO.printSquareLandedOn(player,BackFromTheBrink.board.getSquare(player.getPiece().getPos()).getName()) + "\n");
-//                //System.out.println("You have successfully moved to " + BackFromTheBrink.board.getSquare(player.getPiece().getPos()));
-//                BackFromTheBrink.di.nextPlayer();
-
         } else {
             System.out.println("You do not have sufficient materials to pay the fee...");
         }

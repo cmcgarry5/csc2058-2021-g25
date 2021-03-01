@@ -65,5 +65,4 @@ public abstract class Square {
 
     public abstract void execute(Player player);
 
-    //public abstract int getLandingOnFee();
 }

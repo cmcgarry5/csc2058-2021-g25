@@ -15,7 +15,6 @@ public  class Biome {
         setBiomeName(biomeName);
         setNumberOfHabitats(numberOfHabitats);
         id = nextID++;
-        //setHabitats(habitats);
     }
 
     public Biome(int id, String biomeName, int numberOfHabitats){
@@ -23,16 +22,6 @@ public  class Biome {
         setNumberOfHabitats(numberOfHabitats);
         this.id = id;
     }
-
-// broken
-//    public boolean isOwned() {
-//        boolean isOwned = false;
-//
-//        if (Inventory.getHabitats().contains(Biome.habitats)) {
-//            isOwned = true;
-//        }
-//        return isOwned;
-//    }
 
     public void setBiomeName(String nameSet) {
         this.name = nameSet;
@@ -42,22 +31,10 @@ public  class Biome {
         this.numberOfHabitats = num;
     }
 
-    public void setHabitats(ArrayList<Habitat> nameSet) {
-        this.habitats = nameSet;
-    }
-
     public void addAnimalHabitat(Habitat habitat){
         habitats.add(habitat);
     }
 
-    public String displayAnimalHabitats() {
-        System.out.println("Habitats");
-        for (int i = 0; i < habitats.size(); i++) {
-            System.out.println(habitats.get(i).getName() + " ");
-        }
-
-        return null; // uncomplete
-    }
 
     public int getNumberOfHabitats() {
         return numberOfHabitats;
@@ -91,7 +68,6 @@ public  class Biome {
         return hab;
     }
 
-
     public boolean isAllOwned(){
         if (numberOfHabitats == getNumberOwnedHabitats()){
             return true;
@@ -108,6 +84,4 @@ public  class Biome {
     public int getID() {
         return id;
     }
-
-
 }

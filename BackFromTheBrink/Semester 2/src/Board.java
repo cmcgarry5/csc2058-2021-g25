@@ -25,17 +25,6 @@ public class Board {
 	}
 
 	/*
-	 * Return name of all Squares
-	 */
-	public static void allSquare() {
-		System.out.println("All Squares: \n");
-		for (int index = 0; index < Square.getNextPos(); index++) {
-			Square info = Squares.get(index);
-			System.out.println("Info : " + info);
-		}
-	}
-
-	/*
 	 * Returns size of Squares arraylist
 	 */
 	public static int size() {
@@ -60,34 +49,8 @@ public class Board {
 		return wildCardDrawn;
 	}
 
-	public static void addAnimalHabitat(Habitat habitat){
-		Biome biome = habitat.getBiome();
-
-		for(int i = 0; i<biomes.size(); i++){
-			if(biomes.get(i).getName().equals(biome.getName())){
-				biomes.get(i).addAnimalHabitat(habitat);
-				return;
-			}
-		}
-	}
-
 	public static Habitat getHabitat(int pos) {
 		return (Habitat) Squares.get(pos);
-	}
-
-	public static Habitat removeAnimalHabitat(Habitat habitat){
-		Habitat hab = null;
-		Biome biome = habitat.getBiome();
-
-		for(int i = 0; i<biomes.size(); i++){
-			if(biomes.get(i).getName().equals(biome.getName())){
-				hab = biomes.get(i).removeHabitat(habitat);
-			}
-			else{
-				return hab;
-			}
-		}
-		return hab;
 	}
 
 	public static void removeWildCard(WildCard wildCard) {

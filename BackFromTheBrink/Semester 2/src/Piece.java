@@ -16,11 +16,6 @@ public class Piece {
 		this.taken = false;
 		this.id = getNextID();
 	}
-	
-	public Piece(String name) {
-		this.name = name;
-		this.pos = 0;
-	}
 
 	public void setPos(int pos) {
 		this.pos = pos;
@@ -63,9 +58,6 @@ public class Piece {
 
 			this.pos = newPos;
 		}
-
-		//System.out.println("You have landed on " + Board.getSquare(pos).getName());
-
 
 		return Board.getSquare(pos);
 	}
