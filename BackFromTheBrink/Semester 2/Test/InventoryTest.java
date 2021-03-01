@@ -11,10 +11,10 @@ public class InventoryTest {
 
     static Board board;
     static Player testPlayer;
-    Biome cave = new Biome("Cave Biome", 3);
+    Biome cave = new Biome(1, "Cave Biome", 3);
     Habitat bat = new Habitat("Grey Bat Habitat", 16, 160, 14, 70, 200, 550, 700, 900, 100,cave, 1);
-    Habitat salamander = new Habitat("Blind Salamander Habitat", 18, 160, 14, 70, 200, 550, 700, 950, 100,cave, 1);
-    Habitat eel = new Habitat("Blind Cave Eel Habitat", 19, 200, 16, 80, 220, 600, 800, 1000, 100,cave, 1);
+    Habitat salamander = new Habitat("Blind Salamander Habitat", 18, 160, 14, 70, 200, 550, 700, 950, 100,cave, 2);
+    Habitat eel = new Habitat("Blind Cave Eel Habitat", 19, 200, 16, 80, 220, 600, 800, 1000, 100,cave, 3);
     WildCard card = new EscapeCard("Escape Safari Card");
 
     @Before
@@ -95,12 +95,13 @@ public class InventoryTest {
 
         ArrayList<WildCard> actualWildCards = testPlayer2.getInventory().getWildCard();
         ArrayList<Biome> actualBiomes = testPlayer2.getInventory().getBiomes();
+        //ArrayList<Habitat> actualHabitats = testPlayer2.getInventory().getBiome(1).getHabitats();
         Player actualOwner = bat.getOwner();
 
         assertEquals(expectedWildCards, actualWildCards);
         assertEquals(expectedBiomes, actualBiomes);
         assertEquals(expectedOwner, actualOwner);
-
+        //assertEquals(expectedHabitats, actualHabitats);
     }
 
     @Test
