@@ -102,7 +102,7 @@ public  class Biome {
     }
 
     public void resetHabitats() {
-        this.habitats = null;
+        habitats.clear();
     }
 
     public int getID() {

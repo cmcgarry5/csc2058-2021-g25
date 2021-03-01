@@ -41,20 +41,26 @@ public class BackFromTheBrink {
 
         System.out.println("\nEach player starts with 1500 materials. \nIt is your aim to invest in Endangered habitats and save them by building zoo's and National Parks to help save them! \nThe first player to own a Biome of Habitats, have a total of x materials and land on the Back From the Brink Square will win! \nLet's Play!\n");
 
-        while(getPlayersInGame(players) > 1 || !getBftbWon()) {
+        outerloop:
+        while(true) {
             for (int i = 0; i < players.size(); i++) {
                 Player currentPlayer = players.get(i);
                 playerTurnHandler(currentPlayer);
-            }
 
+                if(getBftbWon() || getPlayersInGame(players) == 1 ){
+                    break outerloop;
+
+                }
+            }
         }
         //win condition
+        System.out.println("Game Over");
     }
 
     public static int getPlayersInGame(ArrayList<Player> players) {
         int number = 0;
         for(int i = 0; i < players.size(); i++) {
-            if(players.get(i).isOutOfMaterials()){
+            if(players.get(i).isOutOfMaterials() == false){
                 number++;
             }
         }

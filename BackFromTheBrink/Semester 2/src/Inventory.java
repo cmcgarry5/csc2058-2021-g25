@@ -58,7 +58,7 @@ public class Inventory {
                 BackFromTheBrink.board.wildCards.add(this.wildCards.get(i));
             }
         }
-        this.wildCards = null;
+        //this.wildCards = null;
     }
 
     public void forfeitToPlayer(Player squareOwner) {
