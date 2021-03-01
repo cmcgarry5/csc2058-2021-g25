@@ -10,7 +10,7 @@ public class Inventory {
         this.wildCards = new ArrayList<WildCard>();
         this.materials = 1500;
 
-        wildCards.add(new EscapeCard("Escape Safari Card"));
+        //wildCards.add(new EscapeCard("Escape Safari Card")); //testing escape from safari
     }
 
     public int getMaterials() {

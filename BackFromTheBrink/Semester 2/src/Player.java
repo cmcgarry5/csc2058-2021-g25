@@ -14,7 +14,7 @@ public class Player {
         this.inventory = new Inventory();
         this.outOfMaterials = false;
         this.ranking = calculateRank();
-        this.inSafari = true; //false;
+        this.inSafari = false;
     }
 
     public boolean isOutOfMaterials() {
