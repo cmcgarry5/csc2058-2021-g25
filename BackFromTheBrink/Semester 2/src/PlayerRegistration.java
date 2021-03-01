@@ -43,7 +43,7 @@ public class PlayerRegistration {
 
         }
 
-		System.out.println("To begin game all players must roll the dice to see who starts first!\n");
+		System.out.println("To begin game all players must roll the dice. Whoever rolls the highest will go first!\n");
 
         ArrayList<Integer> playerScores = new ArrayList<Integer>();
 
@@ -51,25 +51,15 @@ public class PlayerRegistration {
 
 		    System.out.println(listPlayers.get(i).getName() + ",");
             int rollValue = dice.getRollValue();
+            dice.nextPlayer(); // reset dice flags each time as these are not used in the registration of players.
             playerScores.add(rollValue);
-
-//            System.out.println("Roll the dice, " + listPlayers.get(i).getName() + " by entering 'r' :");
-//            String roll = sc.nextLine();
-//
-//        if(roll.toLowerCase().equals("r")) {
-//            int rollValue = dice.getRollValue();
-//            playerScores.add(rollValue);
-//            }
 
 		}
 
         ListPlayersPlayer firstRoll = ListPlayersSameScore(listPlayers, playerScores);
 
-		//System.out.println(firstRoll.highestPlayer.getName());
-
         Player highestScoring = firstRoll.highestPlayer;
 
-        //System.out.println("Highest Scoring player: " + highestScoring.getName());
         int highestScore = firstRoll.highestScore;
 
         ArrayList<Player> rolledSameScore;
@@ -78,7 +68,6 @@ public class PlayerRegistration {
             rolledSameScore = new ArrayList<Player>();
         }
 		else {
-            //@SuppressWarnings("unchecked")
             rolledSameScore = (ArrayList<Player>)firstRoll.players.clone();
         }
 
@@ -89,13 +78,15 @@ public class PlayerRegistration {
             ArrayList<Integer> newScores = new ArrayList<Integer>();
 
             for (int i = 0; i<rolledSameScore.size(); i++) {
-                System.out.println("Roll the dice, " + rolledSameScore.get(i).getName() + " by entering 'r' :");
-                String roll = sc.nextLine();
+                System.out.println(rolledSameScore.get(i).getName() + ",");
 
-                if(roll.equals("r")) {
-                    int rollValue = dice.getRollValue();
-                    newScores.add(rollValue);
-                }
+                int rollValue = dice.getRollValue();
+                dice.nextPlayer();
+                newScores.add(rollValue);
+
+                //System.out.println("Roll the dice, " + rolledSameScore.get(i).getName() + " by entering 'r' :");
+                //String roll = sc.nextLine();
+
             }
 
             ListPlayersPlayer repeatRoll = ListPlayersSameScore(rolledSameScore, newScores);
@@ -261,7 +252,7 @@ public class PlayerRegistration {
             if(sc.hasNextLine()) {
                 name = sc.nextLine().trim();
 
-                if (name == "") {
+                if (name.trim() == "") {
                     System.out.println("Nickname must not be empty!");
                 }
                 // check to make sure name if not already chosen
@@ -281,7 +272,7 @@ public class PlayerRegistration {
             }
 
         }
-        while(validName == false);
+        while(!validName);
 
         return player;
 
@@ -302,7 +293,6 @@ public class PlayerRegistration {
             }
         }
         return true;
-
     }
 
 
