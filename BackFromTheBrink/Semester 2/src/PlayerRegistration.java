@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class PlayerRegistration {
@@ -47,10 +48,13 @@ public class PlayerRegistration {
 
         ArrayList<Integer> playerScores = new ArrayList<Integer>();
 
+
 		for (int i = 0; i<numPlayers; i++) {
 
 		    System.out.println(listPlayers.get(i).getName() + ",");
+
             int rollValue = dice.getRollValue();
+            //rand.
             dice.nextPlayer(); // reset dice flags each time as these are not used in the registration of players.
             playerScores.add(rollValue);
 

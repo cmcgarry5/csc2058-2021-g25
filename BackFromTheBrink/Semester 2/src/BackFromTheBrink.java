@@ -120,21 +120,23 @@ public class BackFromTheBrink {
             }
             else {
 
-                rollAndMove(currentPlayer);
+                rollAndMove(currentPlayer, true);
 
 
                 if (di.getIsDouble()) {
-                    rollAndMove(currentPlayer);
+                    rollAndMove(currentPlayer, false);
                 }
 
-                if (di.getIsSecondDouble() && begun == true) {
-                    // go to safari
-                    currentPlayer.setInSafari(true);
-                    // move player to the spotted in the safari square
-                    System.out.println("\nUnlucky, you rolled two doubles in a row! ");
-                    System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
-                    currentPlayer.getPiece().move(Board.getSquare(10));
-                }else{
+//                if (di.getIsSecondDouble() && begun == true) {
+//                    // go to safari
+//                    currentPlayer.setInSafari(true);
+//                    // move player to the spotted in the safari square
+//                    System.out.println("\nUnlucky, you rolled two doubles in a row! ");
+//                    System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
+//                    currentPlayer.getPiece().move(Board.getSquare(10));
+//                }
+
+                if(!di.getIsSecondDouble()){
 
                     int option;
                     do{
@@ -151,28 +153,53 @@ public class BackFromTheBrink {
                 }
 
 
-
-
             }
             //Display current player info
             StdIO.printPlayer(currentPlayer);
-
-            //print out all options available
-            //request input
-
-            // Display additional options menu at all times unless they have just moved into Safari
-            if (!di.getIsSecondDouble() ) {
-            }
 
             di.nextPlayer(); // reset Double "memory" of dice
         }
 
 
-    private static void rollAndMove(Player currentPlayer) {
+    private static void rollAndMove(Player currentPlayer, boolean firstRoll) {
 
         int rollValue = di.getRollValue();
 
-        move(currentPlayer, rollValue);
+        if(firstRoll){ //only executed on first roll
+            move(currentPlayer, rollValue);
+        }
+        else{
+            if (di.getIsSecondDouble() && begun == true) {
+                // go to safari
+                currentPlayer.setInSafari(true);
+                // move player to the spotted in the safari square
+                System.out.println("\nUnlucky, you rolled two doubles in a row! ");
+                System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
+                currentPlayer.getPiece().move(Board.getSquare(10));
+            }
+            else{
+                move(currentPlayer, rollValue);
+            }
+        }
+
+
+//        if (di.getIsSecondDouble() && begun == true) {
+//            // go to safari
+//            currentPlayer.setInSafari(true);
+//            // move player to the spotted in the safari square
+//            System.out.println("\nUnlucky, you rolled two doubles in a row! ");
+//            System.out.println(currentPlayer.getName() + " is now being hunted by a deadly predator and is stuck in hiding in the safari!");
+//            currentPlayer.getPiece().move(Board.getSquare(10));
+//
+//            return;
+//        }
+//
+//        else if(di.getIsDouble() && firstRoll){
+//            rollAndMove(currentPlayer, false);
+//        }else{
+//            move(currentPlayer, rollValue);
+//            return; //returning has they did not roll a double;
+//        }
 
     }
 
