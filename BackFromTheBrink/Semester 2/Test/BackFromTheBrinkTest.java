@@ -91,6 +91,23 @@ public class BackFromTheBrinkTest {
 
     @Test
     public void trade() {
+        Player testPlayer2 = new Player("test2");
+        testPlayer.setPiece(Board.pieces.get(1));
+        testPlayer.getPiece().setPos(1);
+        testPlayer2.setPiece(Board.pieces.get(2));
+        testPlayer2.getPiece().setPos(2);
+        testPlayer.getInventory().addHabitat(cave, bat);
+        testPlayer.getInventory().addHabitat(cave, salamander);
+        testPlayer2.getInventory().addHabitat(cave, eel);
+        bat.setOwner(testPlayer);
+        bat.addZoo();
+        bat.addZoo();
+        bat.addZoo();
+        bat.addZoo();
+        bat.addNationalPark();
+        BackFromTheBrink.players.add(testPlayer);
+        BackFromTheBrink.players.add(testPlayer2);
+        BackFromTheBrink.trade(testPlayer);
     }
 
     @After

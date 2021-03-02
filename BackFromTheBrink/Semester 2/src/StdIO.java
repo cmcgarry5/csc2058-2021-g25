@@ -7,7 +7,7 @@ public class StdIO {
         String completeList = "";
         int playerIndex = 1;
         for (int i = 0; i < playerList.size(); i++) {
-            if (playerList.get(i) != player) {
+            if (playerList.get(i) == player) {
                 completeList += playerIndex + ". " + printPlayer(playerList.get(i)) + "\n";
                 playerIndex++;
             }
