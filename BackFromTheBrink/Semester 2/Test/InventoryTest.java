@@ -95,13 +95,13 @@ public class InventoryTest {
 
         ArrayList<WildCard> actualWildCards = testPlayer2.getInventory().getWildCard();
         ArrayList<Biome> actualBiomes = testPlayer2.getInventory().getBiomes();
-        //ArrayList<Habitat> actualHabitats = testPlayer2.getInventory().getBiome(1).getHabitats();
+        ArrayList<Habitat> actualHabitats = testPlayer2.getInventory().getBiome(1).getHabitats();
         Player actualOwner = bat.getOwner();
 
         assertEquals(expectedWildCards, actualWildCards);
         assertEquals(expectedBiomes, actualBiomes);
         assertEquals(expectedOwner, actualOwner);
-        //assertEquals(expectedHabitats, actualHabitats);
+        assertEquals(expectedHabitats, actualHabitats);
     }
 
     @Test

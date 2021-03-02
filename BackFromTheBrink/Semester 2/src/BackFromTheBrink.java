@@ -288,7 +288,7 @@ public class BackFromTheBrink {
             bankruptPlayer.getInventory().forfeitToPlayer(squareOwner);
         }
 
-        System.out.println(StdIO.printPlayer(bankruptPlayer));
+        //System.out.println(StdIO.printPlayer(bankruptPlayer));
         players.remove(bankruptPlayer);
         outOfGame.add(bankruptPlayer);
     }

@@ -75,7 +75,7 @@ public class Inventory {
             squareOwner.getInventory().addBiome(bankrupt_player_biomes.get(i));
             for (int j = 0; j < bankrupt_player_biomes.get(i).getNumberOfHabitats(); j++) {
                 this.biomes.get(i).getHabitats().get(j).resetHabitat(); // reset zoos and park for bankrupt player
-                squareOwner.getInventory().addHabitat(bankrupt_player_biomes.get(i), bankrupt_player_biomes.get(i).getHabitats().get(j));
+                //squareOwner.getInventory().addHabitat(bankrupt_player_biomes.get(i), bankrupt_player_biomes.get(i).getHabitats().get(j)); // Player biome already received so this adds habitats twice.
                 bankrupt_player_biomes.get(i).getHabitats().get(j).setOwner(squareOwner);
             }
             //this.biomes.get(i).resetHabitats(); // resets habitats for bankrupt player
