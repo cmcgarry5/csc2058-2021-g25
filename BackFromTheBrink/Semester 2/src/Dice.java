@@ -80,7 +80,14 @@ public class Dice {
 
 	public boolean getIsSecondDouble() {
 		return isSecondDouble;
+	}
 
+	public void setIsDouble(boolean bool) {
+		this.isDouble = bool;
+	}
+
+	public void setIsSecondDouble(boolean bool) {
+		this.isSecondDouble = bool;
 	}
 
 }

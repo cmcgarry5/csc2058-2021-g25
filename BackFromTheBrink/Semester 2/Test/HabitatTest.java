@@ -26,74 +26,70 @@ public class HabitatTest {
 
     @Test
     public void setOwner() {
+        bat.setOwner(testPlayer);
+        Player actualOwner = bat.getOwner();
+
+        assertEquals(testPlayer, actualOwner);
     }
 
     @Test
     public void setPark() {
-    }
+        bat.setPark(true);
+        boolean actualPark = bat.hasNationalPark();
 
-    @Test
-    public void getCost() {
-    }
-
-    @Test
-    public void getFee() {
-    }
-
-    @Test
-    public void getNumberOfZoos() {
-    }
-
-    @Test
-    public void getFee1Zoo() {
-    }
-
-    @Test
-    public void getFee2Zoo() {
-    }
-
-    @Test
-    public void getFee3Zoo() {
-    }
-
-    @Test
-    public void getFee4Zoo() {
-    }
-
-    @Test
-    public void getFeePark() {
-    }
-
-    @Test
-    public void getOwner() {
-    }
-
-    @Test
-    public void getBuildCost() {
+        assertTrue(actualPark);
     }
 
     @Test
     public void addZoo() {
+        int expectedNumZoos = bat.getNumberOfZoos()+1;
+        testPlayer.getInventory().addHabitat(cave, bat);
+        testPlayer.getInventory().addHabitat(cave, salamander);
+        testPlayer.getInventory().addHabitat(cave, eel);
+        bat.setOwner(testPlayer);
+        salamander.setOwner(testPlayer);
+        eel.setOwner(testPlayer);
+        bat.addZoo();
+        int actualNumZoos = bat.getNumberOfZoos();
+
+        assertEquals(expectedNumZoos, actualNumZoos);
     }
 
     @Test
     public void removeZoo() {
+        testPlayer.getInventory().addHabitat(cave, bat);
+        testPlayer.getInventory().addHabitat(cave, salamander);
+        testPlayer.getInventory().addHabitat(cave, eel);
+        bat.setOwner(testPlayer);
+        salamander.setOwner(testPlayer);
+        eel.setOwner(testPlayer);
+        bat.addZoo();
+        bat.addZoo();
+        int expectedNumZoos = bat.getNumberOfZoos()-1;
+        bat.removeZoo();
+
+        int actualNumZoos = bat.getNumberOfZoos();
+
+        assertEquals(expectedNumZoos, actualNumZoos);
     }
 
     @Test
     public void addNationalPark() {
-    }
+        testPlayer.getInventory().addHabitat(cave, bat);
+        testPlayer.getInventory().addHabitat(cave, salamander);
+        testPlayer.getInventory().addHabitat(cave, eel);
+        bat.setOwner(testPlayer);
+        salamander.setOwner(testPlayer);
+        eel.setOwner(testPlayer);
+        bat.addZoo();
+        bat.addZoo();
+        bat.addZoo();
+        bat.addZoo();
+        bat.addNationalPark();
 
-    @Test
-    public void hasNationalPark() {
-    }
+        boolean actualPark = bat.hasNationalPark();
 
-    @Test
-    public void getHabitatInfo() {
-    }
-
-    @Test
-    public void getBiome() {
+        assertTrue(actualPark);
     }
 
     @Test
@@ -121,10 +117,27 @@ public class HabitatTest {
 
     @Test
     public void isOwned() {
+        bat.setOwner(testPlayer);
+
+        boolean actualOwner = bat.isOwned();
+
+        assertTrue(actualOwner);
     }
 
     @Test
     public void getLandingOnFee() {
+        testPlayer.getInventory().addHabitat(cave, bat);
+        testPlayer.getInventory().addHabitat(cave, salamander);
+        testPlayer.getInventory().addHabitat(cave, eel);
+        bat.setOwner(testPlayer);
+        salamander.setOwner(testPlayer);
+        eel.setOwner(testPlayer);
+        bat.addZoo();
+
+        int expectedFee = bat.getFee1Zoo();
+        int actualFee = bat.getLandingOnFee();
+
+        assertEquals(expectedFee, actualFee);
     }
 
     @After

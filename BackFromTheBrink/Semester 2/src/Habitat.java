@@ -259,11 +259,11 @@ public class Habitat extends Square{
 		}else if(numZoos == 1){
 			return fee1Zoo;
 		}else if(numZoos == 2){
-			return fee1Zoo;
+			return fee2Zoo;
 		}else if(numZoos == 3){
-			return fee1Zoo;
+			return fee3Zoo;
 		}else if(numZoos == 4){
-			return fee1Zoo;
+			return fee4Zoo;
 		}
 		else{
 			return fee;

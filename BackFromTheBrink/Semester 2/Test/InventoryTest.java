@@ -24,27 +24,23 @@ public class InventoryTest {
     }
 
     @Test
-    public void getMaterials() {
-    }
-
-    @Test
     public void setMaterials() {
-    }
+        testPlayer.getInventory().setMaterials(2000);
 
-    @Test
-    public void getWildCard() {
+        int actualMaterials = testPlayer.getInventory().getMaterials();
+
+        assertEquals(2000, actualMaterials);
     }
 
     @Test
     public void addWildCard() {
-    }
+        testPlayer.getInventory().addWildCard(card);
+        ArrayList<WildCard> expectedWildCards = new ArrayList<>();
+        expectedWildCards.add(card);
 
-    @Test
-    public void getBiomes() {
-    }
+        ArrayList<WildCard> actualWildCards = testPlayer.getInventory().getWildCard();
 
-    @Test
-    public void getBiomesInfo() {
+        assertEquals(expectedWildCards, actualWildCards);
     }
 
     @Test
@@ -106,38 +102,83 @@ public class InventoryTest {
 
     @Test
     public void addBiome() {
+        testPlayer.getInventory().addBiome(cave);
+        ArrayList<Biome> expectedBiomes = new ArrayList<>();
+        expectedBiomes.add(cave);
+
+        ArrayList<Biome> actualBiomes = testPlayer.getInventory().getBiomes();
+
+        assertEquals(expectedBiomes, actualBiomes);
     }
 
     @Test
     public void addHabitat() {
+        testPlayer.getInventory().addHabitat(cave, bat);
+
+        ArrayList<Habitat> expectedHabitats = new ArrayList<>();
+        ArrayList<Habitat> actualHabitats = testPlayer.getInventory().getBiome(1).getHabitats();
+
+        expectedHabitats.add(bat);
+        assertEquals(expectedHabitats, actualHabitats);
     }
 
     @Test
     public void increasePlayerMaterials() {
+        int expectedMaterials = testPlayer.getInventory().getMaterials() + 100;
+        testPlayer.getInventory().increasePlayerMaterials(100);
+        int actualMaterials = testPlayer.getInventory().getMaterials();
+
+        assertEquals(expectedMaterials, actualMaterials);
     }
 
     @Test
     public void deductPlayerMaterials() {
+        int expectedMaterials = testPlayer.getInventory().getMaterials() - 100;
+        testPlayer.getInventory().deductPlayerMaterials(100);
+        int actualMaterials = testPlayer.getInventory().getMaterials();
+
+        assertEquals(expectedMaterials, actualMaterials);
     }
 
     @Test
     public void checkPlayerMaterials() {
-    }
+        testPlayer.getInventory().setMaterials(2000);
+        boolean actualCheckPlayerMaterials = testPlayer.getInventory().checkPlayerMaterials(1500);
 
-    @Test
-    public void updateInfo() {
+        assertTrue(actualCheckPlayerMaterials);
     }
 
     @Test
     public void hasCompleteBiome() {
+        testPlayer.getInventory().addBiome(cave);
+        cave.setNumberOfHabitats(2);
+        testPlayer.getInventory().addHabitat(cave, bat);
+        testPlayer.getInventory().addHabitat(cave, salamander);
+
+        boolean actualHasCompleteBiome = testPlayer.getInventory().getBiome(1).isAllOwned();
+
+        assertTrue(actualHasCompleteBiome);
     }
 
     @Test
     public void hasWildCard() {
+        testPlayer.getInventory().addWildCard(card);
+        boolean actualWildCard = testPlayer.getInventory().hasWildCard();
+
+        assertTrue(actualWildCard);
     }
 
     @Test
     public void returnWildCardToBoard() {
+        Board.wildCards.clear();
+        testPlayer.getInventory().addWildCard(card);
+        testPlayer.getInventory().returnWildCardToBoard();
+        ArrayList<WildCard> expectedBoardWildCards = new ArrayList<>();
+        expectedBoardWildCards.add(card);
+
+        ArrayList<WildCard> actualBoardWildCards = Board.wildCards;
+
+        assertEquals(expectedBoardWildCards, actualBoardWildCards);
     }
 
     @After
