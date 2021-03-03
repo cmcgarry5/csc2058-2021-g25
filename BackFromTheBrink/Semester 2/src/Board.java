@@ -24,6 +24,22 @@ public class Board {
 		return Squares.get(index);
 	}
 
+	public static ArrayList<Square> getSquares() {
+		return Squares;
+	}
+
+	public static ArrayList<WildCard> getWildCards() {
+		return wildCards;
+	}
+
+	public static ArrayList<Piece> getPieces() {
+		return pieces;
+	}
+
+	public static ArrayList<Biome> getBiomes() {
+		return biomes;
+	}
+
 	/*
 	 * Returns size of Squares arraylist
 	 */
