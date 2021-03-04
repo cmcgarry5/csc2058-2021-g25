@@ -114,10 +114,18 @@ public class BackFromTheBrink {
                         System.out.println("\nYou have a wildcard. Do you want to use it to escape from the safari immediately? (y/n) ");
 
                         String input;
+                        boolean valid = false;
                         do{
                             input = StdIO.read();
+
+                            if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("n")){
+                                valid = true;
+                            }
+                            else{
+                                System.out.println("Unexpected input, try again.");
+                            }
                         }
-                        while(!(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("n")));
+                        while(!valid);
 
 
                         if(input.equalsIgnoreCase("y")){
@@ -148,13 +156,22 @@ public class BackFromTheBrink {
                 if(!di.getIsSecondDouble()){
 
                     int option;
+
                     do{
                         turnOptionsMenu.display();
+                        boolean valid = false;
                         do{
 
                             option = StdIO.readInt();
 
-                        }while(option <= 0|| option > turnOptionsMenu.getNumOptions());
+                            if(option > 0 && option <= turnOptionsMenu.getNumOptions()){
+                                valid = true;
+                            }
+                            else{
+                                System.out.println("Unexpected input, try again!");
+                            }
+
+                        }while(!valid);
 
                         ProcessTurnOption(option, currentPlayer);
                     }
@@ -207,12 +224,19 @@ public class BackFromTheBrink {
     static void displayInSafariOptionsMenu(Player currentPlayer) {
 
         int option;
+        boolean valid = false;
         do{
             InSafariMenu.display();
             option = StdIO.readInt();
 
+            if(option > 0 && option <= InSafariMenu.getNumOptions()){
+                valid = true;
+            }else{
+                System.out.println("Unexpected input, try again!");
+            }
+
         }
-        while(option <= 0 || option> InSafariMenu.getNumOptions());
+        while(!valid);
 
         ProcessInSafariOption(option, currentPlayer);
     }
@@ -343,7 +367,22 @@ public class BackFromTheBrink {
 
             //Ask player which biome they want to build a zoo
             System.out.println("\n\nWhich biome would you like to build a zoo on?");
-            int ID = StdIO.readInt();
+            boolean valid = false;
+            int ID;
+            do{
+                ID = StdIO.readInt();
+
+                if(currentPlayer.getInventory().getBiome(ID) != null){
+                    valid = true;
+                }
+                else{
+                    System.out.println("Unexpected input, try again");
+                }
+
+
+            }
+            while(!valid);
+
             Biome currentBiome = currentPlayer.getInventory().getBiome(ID);
 
 //            System.out.println(currentBiome.getName());
@@ -362,7 +401,22 @@ public class BackFromTheBrink {
             }
             if(checkForNationalPark) {
                 System.out.println("Which habitat would you like to build a national park on?");
-                int habitatID = StdIO.readInt();
+                valid = false;
+                int habitatID;
+                do{
+                    habitatID = StdIO.readInt();
+
+                    if(currentPlayer.getInventory().getHabitat(currentBiome, habitatID) != null){
+                        valid = true;
+                    }
+                    else{
+                        System.out.println("Unexpected input, try again");
+                    }
+
+
+                }
+                while(!valid);
+
                 Habitat currentHabitat = currentPlayer.getInventory().getHabitat(currentBiome, habitatID);
 
                 System.out.println(currentHabitat.getName());
@@ -376,7 +430,24 @@ public class BackFromTheBrink {
 
                 //Ask player which habitat they would like to build on and display cost (checkers for equal distribution)
                 System.out.println("Which habitat would you like to build a zoo on?");
-                int habitatID = StdIO.readInt();
+
+                valid = false;
+                int habitatID;
+                do{
+                    habitatID = StdIO.readInt();
+
+                    if(currentPlayer.getInventory().getHabitat(currentBiome, habitatID) != null){
+                        valid = true;
+                    }
+                    else{
+                        System.out.println("Unexpected input, try again");
+                    }
+
+
+                }
+                while(!valid);
+
+
                 Habitat currentHabitat = currentPlayer.getInventory().getHabitat(currentBiome, habitatID);
 
                 System.out.println(currentHabitat.getName());
