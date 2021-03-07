@@ -4,6 +4,7 @@ public class BackFromTheBrink {
 
     static ArrayList<Player> players = new ArrayList<Player>();
     static ArrayList<Player> outOfGame = new ArrayList<Player>();
+    static ArrayList<Player> playerRankings = new ArrayList<>();
     //static boolean begun = false;
     private static boolean bftbWon = false;
     //private static StdIO StdIO;
@@ -342,7 +343,26 @@ public class BackFromTheBrink {
                 rank = -1;
             }
         }
+        playerRankings = rankings;
         return rank;
+    }
+
+    public static void winningCelebrations() {
+        ArrayList<Player> playerRankings = BackFromTheBrink.playerRankings;
+        System.out.println("Final Rankings:");
+        String rank = "";
+        for (int i = 0; i < playerRankings.size(); i++) {
+            if (i+1 == 1) {
+                rank = "1st " + playerRankings.get(i).getName() + " \uD83C\uDFC6";
+            } else if (i+1 == 2) {
+                rank = "2nd " + playerRankings.get(i).getName();
+            } else if (i+1 == 3) {
+                rank = "3rd " + playerRankings.get(i).getName();
+            } else {
+                rank = i+1 + "th " + playerRankings.get(i).getName();
+            }
+            System.out.println(rank);
+        }
     }
 
     private static void buildZoo(Player currentPlayer) {

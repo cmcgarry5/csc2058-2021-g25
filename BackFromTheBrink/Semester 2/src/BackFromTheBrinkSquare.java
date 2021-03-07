@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class BackFromTheBrinkSquare extends Square{
 
 	private final int REQUIRED_MATERIALS;
@@ -32,5 +35,6 @@ public class BackFromTheBrinkSquare extends Square{
 	public boolean isOwned() {
 		return false;
 	}
+
 }
 

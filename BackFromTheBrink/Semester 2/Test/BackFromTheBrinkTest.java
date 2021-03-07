@@ -2,6 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -87,6 +88,50 @@ public class BackFromTheBrinkTest {
 
     @Test
     public void ranking() {
+        ArrayList<Player> expectedPlayerRankings = new ArrayList<>();
+        Player testplayer1 = new Player("test1");
+        Player testplayer2 = new Player("test2"); // we want this one
+        Player testplayer3 = new Player("test3");
+        Player testplayer4 = new Player("test4");
+
+        testplayer1.setRanking(4000);
+        testplayer2.setRanking(5000);
+        testplayer3.setRanking(1000);
+        testplayer4.setRanking(8000);
+
+        BackFromTheBrink.players.add(testplayer1);
+        BackFromTheBrink.players.add(testplayer2);
+        BackFromTheBrink.players.add(testplayer3);
+        BackFromTheBrink.players.add(testplayer4);
+
+        expectedPlayerRankings.add(testplayer4);
+        expectedPlayerRankings.add(testplayer2);
+        expectedPlayerRankings.add(testplayer1);
+        expectedPlayerRankings.add(testplayer3);
+
+        int expectedPlayerRank = 2; // 2nd place
+
+        //ArrayList<Player> actualPlayerRankings = BackFromTheBrink.players;
+        int actualPlayerRank = BackFromTheBrink.ranking(testplayer2);
+
+        //assertEquals(expectedPlayerRankings, actualPlayerRankings);
+        assertEquals(expectedPlayerRank, actualPlayerRank);
+
+    }
+
+    @Test
+    public void winningCelebrations() {
+        Player testplayer1 = new Player("test1");
+        Player testplayer2 = new Player("test2");
+        Player testplayer3 = new Player("test3");
+        Player testplayer4 = new Player("test4");
+
+        BackFromTheBrink.playerRankings.add(testplayer1);
+        BackFromTheBrink.playerRankings.add(testplayer2);
+        BackFromTheBrink.playerRankings.add(testplayer3);
+        BackFromTheBrink.playerRankings.add(testplayer4);
+
+        BackFromTheBrink.winningCelebrations();
     }
 
     @Test
