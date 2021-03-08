@@ -89,30 +89,30 @@ public class BackFromTheBrinkTest {
     @Test
     public void ranking() {
         ArrayList<Player> expectedPlayerRankings = new ArrayList<>();
-        Player testplayer1 = new Player("test1");
-        Player testplayer2 = new Player("test2"); // we want this one
-        Player testplayer3 = new Player("test3");
-        Player testplayer4 = new Player("test4");
+        Player testPlayer1 = new Player("test1");
+        Player testPlayer2 = new Player("test2"); // we want this one
+        Player testPlayer3 = new Player("test3");
+        Player testPlayer4 = new Player("test4");
 
-        testplayer1.setRanking(4000);
-        testplayer2.setRanking(5000);
-        testplayer3.setRanking(1000);
-        testplayer4.setRanking(8000);
+        testPlayer1.setRanking(4000);
+        testPlayer2.setRanking(5000);
+        testPlayer3.setRanking(1000);
+        testPlayer4.setRanking(8000);
 
-        BackFromTheBrink.players.add(testplayer1);
-        BackFromTheBrink.players.add(testplayer2);
-        BackFromTheBrink.players.add(testplayer3);
-        BackFromTheBrink.players.add(testplayer4);
+        BackFromTheBrink.players.add(testPlayer1);
+        BackFromTheBrink.players.add(testPlayer2);
+        BackFromTheBrink.players.add(testPlayer3);
+        BackFromTheBrink.players.add(testPlayer4);
 
-        expectedPlayerRankings.add(testplayer4);
-        expectedPlayerRankings.add(testplayer2);
-        expectedPlayerRankings.add(testplayer1);
-        expectedPlayerRankings.add(testplayer3);
+        expectedPlayerRankings.add(testPlayer4);
+        expectedPlayerRankings.add(testPlayer2);
+        expectedPlayerRankings.add(testPlayer1);
+        expectedPlayerRankings.add(testPlayer3);
 
         int expectedPlayerRank = 2; // 2nd place
 
         //ArrayList<Player> actualPlayerRankings = BackFromTheBrink.players;
-        int actualPlayerRank = BackFromTheBrink.ranking(testplayer2);
+        int actualPlayerRank = BackFromTheBrink.ranking(testPlayer2);
 
         //assertEquals(expectedPlayerRankings, actualPlayerRankings);
         assertEquals(expectedPlayerRank, actualPlayerRank);
@@ -121,15 +121,15 @@ public class BackFromTheBrinkTest {
 
     @Test
     public void winningCelebrations() {
-        Player testplayer1 = new Player("test1");
-        Player testplayer2 = new Player("test2");
-        Player testplayer3 = new Player("test3");
-        Player testplayer4 = new Player("test4");
+        Player testPlayer1 = new Player("test1");
+        Player testPlayer2 = new Player("test2");
+        Player testPlayer3 = new Player("test3");
+        Player testPlayer4 = new Player("test4");
 
-        BackFromTheBrink.playerRankings.add(testplayer1);
-        BackFromTheBrink.playerRankings.add(testplayer2);
-        BackFromTheBrink.playerRankings.add(testplayer3);
-        BackFromTheBrink.playerRankings.add(testplayer4);
+        BackFromTheBrink.playerRankings.add(testPlayer1);
+        BackFromTheBrink.playerRankings.add(testPlayer2);
+        BackFromTheBrink.playerRankings.add(testPlayer3);
+        BackFromTheBrink.playerRankings.add(testPlayer4);
 
         BackFromTheBrink.winningCelebrations();
     }
